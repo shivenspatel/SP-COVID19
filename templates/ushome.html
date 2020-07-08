@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>States</title>
+        <link rel="stylesheet" href="static/css/main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                // SELECT MENU
+                $("#StateSelect").change(function() {
+                    var value = $(this).val();
+        
+                //IFRAME TAG
+                    console.log(value);
+                    $("#Frame").attr('src', value);
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <header>
+            <h1 class="logo">COVID-19 in the US</h1>
+        </header>
+        <section>
+            <nav>
+              <ul>
+                <li><a href="{{ url_for('us') }}"><button>US</button></a></li>
+                <li><a href="{{ url_for('dd') }}"><button>States</button></a></li>
+              </ul>
+            </nav>
+        </section>
+        <div class=state>
+            <ul>
+                <div class='custom-select'>
+                    <select id="StateSelect">
+                        <option value="{{ url_for('usg') }}">Positivity Rate</option>
+                        <option value="{{ url_for('usc') }}">New Deaths</option>
+                        <option value="{{ url_for('usp') }}">New Cases</option>
+                    </select>
+                </div>
+            </ul>
+        </div>  
+        <div class="box">
+            <iframe id="Frame" src="{{ url_for('usg') }}" frameborder="0" scrolling="no" width="85%" height="625"></iframe>
+        </div>
+        <footer><h5>Made in the USA by Shiven Patel</h5></footer>
+    </body>
+</html>
