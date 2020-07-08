@@ -12,7 +12,19 @@ def usposmap():
 
 @app.route('/US')
 def us():
-    return render_template("us_covid-19_positivityrate.html")
+    return render_template("ushome.html")
+
+@app.route('/Graphs/PosRate/US')
+def usg():
+    return render_template('positivityrate/US_covid-19_positivityrate.html')
+    
+@app.route('/Graphs/NewCases/US')
+def usp():
+    return render_template("newcases/US_covid-19_newpositive.html")
+
+@app.route('/Graphs/NewDeathsUS')
+def usc():
+    return render_template("newdeaths/US_covid-19_newdeaths.html")
 
 @app.route('/States')
 def dd():
