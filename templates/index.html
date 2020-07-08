@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>COVID-19 in the US</title>
+      <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}"> 
+  </head>
+  <body>
+    <header>
+      <h1 class="logo">COVID-19 in the US</h1>
+    </header>
+    <section>
+      <nav>
+          <li><a href="{{ url_for('dd') }}"><button>States</button></a></li>
+      </nav>
+    </section>
+    <div class="iframe">
+      <iframe style="width: 50%; height: 500px"; src="{{ url_for('usposmap') }}"></iframe>
+    </div>
+    <footer><h5>Made in the USA by Shiven Patel</h5></footer>
+  </body>
+</html>
