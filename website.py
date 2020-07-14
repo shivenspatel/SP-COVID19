@@ -50,6 +50,10 @@ def alp():
 def alc():
     return render_template("newdeaths/AL_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/AL')
+def aldr():
+    return render_template("deathrate/AL_covid-19_deathrate.html")
+
 
 @app.route('/States/AK')
 def ak():
@@ -70,6 +74,10 @@ def akp():
 @app.route('/Graphs/NewDeaths/AK')
 def akc():
     return render_template("newdeaths/AK_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/AK')
+def akdr():
+    return render_template("deathrate/AK_covid-19_deathrate.html")
 
 
 @app.route('/States/AZ')
@@ -92,6 +100,10 @@ def azp():
 def azc():
     return render_template("newdeaths/AZ_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/AZ')
+def azdr():
+    return render_template("deathrate/AZ_covid-19_deathrate.html")
+
 
 @app.route('/States/AR')
 def ar():
@@ -112,6 +124,10 @@ def arp():
 @app.route('/Graphs/NewDeaths/AR')
 def arc():
     return render_template("newdeaths/AR_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/AR')
+def ardr():
+    return render_template("deathrate/AR_covid-19_deathrate.html")
 
 
 @app.route('/States/CA')
@@ -134,6 +150,10 @@ def cap():
 def cac():
     return render_template("newdeaths/CA_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/CA')
+def cadr():
+    return render_template("deathrate/CA_covid-19_deathrate.html")
+
 
 @app.route('/States/CO')
 def co():
@@ -154,6 +174,10 @@ def cop():
 @app.route('/Graphs/NewDeaths/CO')
 def coc():
     return render_template("newdeaths/CO_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/CO')
+def codr():
+    return render_template("deathrate/CO_covid-19_deathrate.html")
 
 
 @app.route('/States/CT')
@@ -176,6 +200,10 @@ def ctp():
 def ctc():
     return render_template("newdeaths/CT_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/CT')
+def ctdr():
+    return render_template("deathrate/CT_covid-19_deathrate.html")
+
 
 @app.route('/States/DE')
 def de():
@@ -196,6 +224,10 @@ def dep():
 @app.route('/Graphs/NewDeaths/DE')
 def dec():
     return render_template("newdeaths/DE_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/DE')
+def dedr():
+    return render_template("deathrate/DE_covid-19_deathrate.html")
 
 
 @app.route('/States/FL')
@@ -218,6 +250,10 @@ def flp():
 def flc():
     return render_template("newdeaths/FL_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/FL')
+def fldr():
+    return render_template("deathrate/FL_covid-19_deathrate.html")
+
 
 @app.route('/States/GA')
 def ga():
@@ -238,6 +274,10 @@ def gap():
 @app.route('/Graphs/NewDeaths/GA')
 def gac():
     return render_template("newdeaths/GA_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/GA')
+def gadr():
+    return render_template("deathrate/GA_covid-19_deathrate.html")
 
 
 @app.route('/States/HI')
@@ -260,6 +300,10 @@ def hip():
 def hic():
     return render_template("newdeaths/HI_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/HI')
+def hidr():
+    return render_template("deathrate/HI_covid-19_deathrate.html")
+
 
 @app.route('/States/ID')
 def id():
@@ -280,6 +324,10 @@ def idp():
 @app.route('/Graphs/NewDeaths/ID')
 def idc():
     return render_template("newdeaths/ID_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/ID')
+def iddr():
+    return render_template("deathrate/ID_covid-19_deathrate.html")
 
 
 @app.route('/States/IL')
@@ -302,6 +350,10 @@ def ilp():
 def ilc():
     return render_template("newdeaths/IL_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/IL')
+def ildr():
+    return render_template("deathrate/IL_covid-19_deathrate.html")
+
 
 @app.route('/States/IN')
 def ind():
@@ -322,6 +374,10 @@ def inp():
 @app.route('/Graphs/NewDeaths/IN')
 def inc():
     return render_template("newdeaths/IN_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/IN')
+def indr():
+    return render_template("deathrate/IN_covid-19_deathrate.html")
 
 
 @app.route('/States/IA')
@@ -344,6 +400,10 @@ def iap():
 def iac():
     return render_template("newdeaths/IA_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/IA')
+def iadr():
+    return render_template("deathrate/IA_covid-19_deathrate.html")
+
 
 @app.route('/States/KS')
 def ks():
@@ -364,6 +424,10 @@ def ksp():
 @app.route('/Graphs/NewDeaths/KS')
 def ksc():
     return render_template("newdeaths/KS_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/KS')
+def ksdr():
+    return render_template("deathrate/KS_covid-19_deathrate.html")
 
 
 @app.route('/States/KY')
@@ -386,6 +450,10 @@ def kyp():
 def kyc():
     return render_template("newdeaths/KY_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/KY')
+def kydr():
+    return render_template("deathrate/KY_covid-19_deathrate.html")
+
 
 @app.route('/States/LA')
 def la():
@@ -406,6 +474,10 @@ def lap():
 @app.route('/Graphs/NewDeaths/LA')
 def lac():
     return render_template("newdeaths/LA_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/LA')
+def ladr():
+    return render_template("deathrate/LA_covid-19_deathrate.html")
 
 
 @app.route('/States/ME')
@@ -428,6 +500,10 @@ def mep():
 def mec():
     return render_template("newdeaths/ME_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/ME')
+def medr():
+    return render_template("deathrate/ME_covid-19_deathrate.html")
+
 
 @app.route('/States/MD')
 def md():
@@ -448,6 +524,10 @@ def mdp():
 @app.route('/Graphs/NewDeaths/MD')
 def mdc():
     return render_template("newdeaths/MD_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/MD')
+def mddr():
+    return render_template("deathrate/MD_covid-19_deathrate.html")
 
 
 @app.route('/States/MA')
@@ -470,6 +550,10 @@ def map():
 def mac():
     return render_template("newdeaths/MA_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/MA')
+def madr():
+    return render_template("deathrate/MA_covid-19_deathrate.html")
+
 
 @app.route('/States/MI')
 def mi():
@@ -490,6 +574,10 @@ def mip():
 @app.route('/Graphs/NewDeaths/MI')
 def mic():
     return render_template("newdeaths/MI_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/MI')
+def midr():
+    return render_template("deathrate/MI_covid-19_deathrate.html")
 
 
 @app.route('/States/MN')
@@ -512,6 +600,10 @@ def mnp():
 def mnc():
     return render_template("newdeaths/MN_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/MN')
+def mndr():
+    return render_template("deathrate/MN_covid-19_deathrate.html")
+
 
 @app.route('/States/MS')
 def ms():
@@ -532,6 +624,10 @@ def msp():
 @app.route('/Graphs/NewDeaths/MS')
 def msc():
     return render_template("newdeaths/MS_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/MS')
+def msdr():
+    return render_template("deathrate/MS_covid-19_deathrate.html")
 
 
 @app.route('/States/MO')
@@ -554,6 +650,10 @@ def mop():
 def moc():
     return render_template("newdeaths/MO_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/MO')
+def modr():
+    return render_template("deathrate/MO_covid-19_deathrate.html")
+
 
 @app.route('/States/MT')
 def mt():
@@ -574,6 +674,10 @@ def mtp():
 @app.route('/Graphs/NewDeaths/MT')
 def mtc():
     return render_template("newdeaths/MT_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/MT')
+def mtdr():
+    return render_template("deathrate/MT_covid-19_deathrate.html")
 
 
 @app.route('/States/NE')
@@ -596,6 +700,10 @@ def nep():
 def nec():
     return render_template("newdeaths/NE_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/NE')
+def nedr():
+    return render_template("deathrate/NE_covid-19_deathrate.html")
+
 
 @app.route('/States/NV')
 def nv():
@@ -616,6 +724,10 @@ def nvp():
 @app.route('/Graphs/NewDeaths/NV')
 def nvc():
     return render_template("newdeaths/NV_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/NV')
+def nvdr():
+    return render_template("deathrate/NV_covid-19_deathrate.html")
 
 
 @app.route('/States/NH')
@@ -638,6 +750,10 @@ def nhp():
 def nhc():
     return render_template("newdeaths/NH_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/NH')
+def nhdr():
+    return render_template("deathrate/NH_covid-19_deathrate.html")
+
 
 @app.route('/States/NJ')
 def nj():
@@ -658,6 +774,10 @@ def njp():
 @app.route('/Graphs/NewDeaths/NJ')
 def njc():
     return render_template("newdeaths/NJ_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/NJ')
+def njdr():
+    return render_template("deathrate/NJ_covid-19_deathrate.html")
 
 
 @app.route('/States/NM')
@@ -680,6 +800,10 @@ def nmp():
 def nmc():
     return render_template("newdeaths/NM_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/NM')
+def nmdr():
+    return render_template("deathrate/NM_covid-19_deathrate.html")
+
 
 @app.route('/States/NY')
 def ny():
@@ -700,6 +824,10 @@ def nyp():
 @app.route('/Graphs/NewDeaths/NY')
 def nyc():
     return render_template("newdeaths/NY_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/NY')
+def nydr():
+    return render_template("deathrate/NY_covid-19_deathrate.html")
 
 
 @app.route('/States/NC')
@@ -722,6 +850,10 @@ def ncp():
 def ncc():
     return render_template("newdeaths/NC_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/NC')
+def ncdr():
+    return render_template("deathrate/NC_covid-19_deathrate.html")
+
 
 @app.route('/States/ND')
 def nd():
@@ -742,6 +874,10 @@ def ndp():
 @app.route('/Graphs/NewDeaths/ND')
 def ndc():
     return render_template("newdeaths/ND_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/ND')
+def nddr():
+    return render_template("deathrate/ND_covid-19_deathrate.html")
 
 
 @app.route('/States/OH')
@@ -764,6 +900,10 @@ def ohp():
 def ohc():
     return render_template("newdeaths/OH_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/OH')
+def ohdr():
+    return render_template("deathrate/OH_covid-19_deathrate.html")
+
 
 @app.route('/States/OK')
 def ok():
@@ -784,6 +924,10 @@ def okp():
 @app.route('/Graphs/NewDeaths/OK')
 def okc():
     return render_template("newdeaths/OK_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/OK')
+def okdr():
+    return render_template("deathrate/OK_covid-19_deathrate.html")
 
 
 @app.route('/States/OR')
@@ -806,6 +950,10 @@ def orp():
 def orc():
     return render_template("newdeaths/OR_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/OR')
+def ordr():
+    return render_template("deathrate/OR_covid-19_deathrate.html")
+
 
 @app.route('/States/PA')
 def pa():
@@ -826,6 +974,10 @@ def pap():
 @app.route('/Graphs/NewDeaths/PA')
 def pac():
     return render_template("newdeaths/PA_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/PA')
+def padr():
+    return render_template("deathrate/PA_covid-19_deathrate.html")
 
 
 @app.route('/States/RI')
@@ -848,6 +1000,10 @@ def rip():
 def ric():
     return render_template("newdeaths/RI_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/RI')
+def ridr():
+    return render_template("deathrate/RI_covid-19_deathrate.html")
+
 
 @app.route('/States/SC')
 def sc():
@@ -868,6 +1024,10 @@ def scp():
 @app.route('/Graphs/NewDeaths/SC')
 def scc():
     return render_template("newdeaths/SC_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/SC')
+def scdr():
+    return render_template("deathrate/SC_covid-19_deathrate.html")
 
 
 @app.route('/States/SD')
@@ -890,6 +1050,10 @@ def sdp():
 def sdc():
     return render_template("newdeaths/SD_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/SD')
+def sddr():
+    return render_template("deathrate/SD_covid-19_deathrate.html")
+
 
 @app.route('/States/TN')
 def tn():
@@ -910,6 +1074,10 @@ def tnp():
 @app.route('/Graphs/NewDeaths/TN')
 def tnc():
     return render_template("newdeaths/TN_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/TN')
+def tndr():
+    return render_template("deathrate/TN_covid-19_deathrate.html")
 
 
 @app.route('/States/TX')
@@ -932,6 +1100,10 @@ def txp():
 def txc():
     return render_template("newdeaths/TX_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/TX')
+def txdr():
+    return render_template("deathrate/TX_covid-19_deathrate.html")
+
 
 @app.route('/States/UT')
 def ut():
@@ -952,6 +1124,10 @@ def utp():
 @app.route('/Graphs/NewDeaths/UT')
 def utc():
     return render_template("newdeaths/UT_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/UT')
+def utdr():
+    return render_template("deathrate/UT_covid-19_deathrate.html")
 
 
 @app.route('/States/VT')
@@ -974,6 +1150,10 @@ def vtp():
 def vtc():
     return render_template("newdeaths/VT_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/VT')
+def vtdr():
+    return render_template("deathrate/VT_covid-19_deathrate.html")
+
 
 @app.route('/States/VA')
 def va():
@@ -994,6 +1174,10 @@ def vap():
 @app.route('/Graphs/NewDeaths/VA')
 def vac():
     return render_template("newdeaths/VA_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/VA')
+def vadr():
+    return render_template("deathrate/VA_covid-19_deathrate.html")
 
 
 @app.route('/States/WA')
@@ -1016,6 +1200,10 @@ def wap():
 def wac():
     return render_template("newdeaths/WA_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/WA')
+def wadr():
+    return render_template("deathrate/WA_covid-19_deathrate.html")
+
 
 @app.route('/States/WV')
 def wv():
@@ -1036,6 +1224,10 @@ def wvp():
 @app.route('/Graphs/NewDeaths/WV')
 def wvc():
     return render_template("newdeaths/WV_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/WV')
+def wvdr():
+    return render_template("deathrate/WV_covid-19_deathrate.html")
 
 
 @app.route('/States/WI')
@@ -1058,6 +1250,10 @@ def wip():
 def wic():
     return render_template("newdeaths/WI_covid-19_newdeaths.html")
 
+@app.route('/Graphs/DeathRate/WI')
+def widr():
+    return render_template("deathrate/WI_covid-19_deathrate.html")
+
 
 @app.route('/States/WY')
 def wy():
@@ -1078,6 +1274,10 @@ def wyp():
 @app.route('/Graphs/NewDeaths/WY')
 def wyc():
     return render_template("newdeaths/WY_covid-19_newdeaths.html")
+
+@app.route('/Graphs/DeathRate/WY')
+def wydr():
+    return render_template("deathrate/WY_covid-19_deathrate.html")
 
 if __name__=="__main__":
     app.run(debug=True)
