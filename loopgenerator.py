@@ -44,6 +44,9 @@ def filenamepos(name):
 def filenamedea(name):
     return 'templates/newdeaths/'+name+'_covid-19_newdeaths.html'
 
+def filenamedr(name):
+    return 'templates/deathrate/'+name+'_covid-19_deathrate.html'
+
 # Positivity Rate Graph
 for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     reset_output()
@@ -152,6 +155,120 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     g.add_tools(hover)
     save(g)
 
+# Death Rate Graph
+for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
+    reset_output()
+
+    url = 'https://covidtracking.com/api/v1/states/%s/daily.json' % sab
+    data=pd.read_json(url)
+    df=pd.DataFrame(data)
+
+    file_path=filenamedr(sa)
+    print(file_path)
+    output_file(file_path)
+
+    positive_increase=df['positiveIncrease']
+    positive_increase.tolist()
+
+    test_increase=df['totalTestResultsIncrease']
+    test_increase.tolist()
+
+    dates=df['date']
+    dates.tolist()
+
+    positive=df['positive']
+    positive.tolist()
+
+    h_currently=df['hospitalizedCurrently']
+    h_currently.tolist()
+
+    deaths=df['deathIncrease']
+    deaths.tolist()
+
+    t_deaths=df['death']
+    t_deaths.tolist()
+
+    t_pos=df['positive']
+    t_pos.tolist()
+
+    date1 = ('2020-01-29')
+    date2 = (str(date.today()))
+    date_range=pd.date_range(date1, date2).to_pydatetime().tolist()
+
+    m_dates = []
+    for item in dates:
+        m_dates.append(str(item))
+
+    r_dates = []
+    def insertChar(mystring, position, chartoinsert ):
+        mystring   =  mystring[:position] + chartoinsert + mystring[position:] 
+        return mystring 
+    
+    for m in m_dates:
+        r_dates.append(insertChar(m, 4, '-'))
+
+    f_dates = []
+    for r in r_dates:
+        f_dates.append(insertChar(r, 7, '-'))
+
+    d_dates = []
+    for f in f_dates:
+        d_dates.append(datetime.strptime(f, '%Y-%m-%d'))
+    
+    death_rate=[]
+    for c, d in zip(t_pos, t_deaths):
+        if c==0:
+            death_rate.append(0)
+        else:
+            death_rate.append(d/c)
+
+    drformat=[]
+    for d in death_rate:
+        n=str(round((d*100),2))
+        s=n+'%'
+        drformat.append(s)
+
+    df2=pd.DataFrame({'Date':d_dates, 'Deaths':deaths, 'Tests':test_increase, 
+                  'Positive':positive_increase, 'Currently_Hospitalized':h_currently, 
+                  'Date_String':f_dates, 'Total_Positive':t_pos, 'Total_Deaths':t_deaths, 'Death Rate':death_rate,
+                'Death_Rate_Format':drformat})
+    df2.set_index('Date_String', inplace=True)
+    df3 = df2[str(date.today()):'2020-03-02']
+
+    df4=df3['Death Rate']
+
+    ra=pd.DataFrame()
+    ra['Average']=df4.rolling(window=7, min_periods=1).mean()
+    ra['Date'] = df3['Date']
+    ra.set_index('Date', inplace=True)
+    
+    df5=df3.copy()
+    r_a=ra['Average']
+    df5['Rolling Average']=ra
+    df5
+
+    # file_save = 'ExcelDataFrames/{0}'.format(sl)
+    # df5.to_excel(file_save, index = False, header=True)
+
+    graph_name = "COVID-19 Death Rate in {0}".format(str(sl))
+    g=figure(title=graph_name, x_axis_type='datetime')
+    g.line(x='Date', y='Death Rate', source=df5, line_color='navy', line_width=2.5, legend_label='Death Rate')
+    g.line(x='Date', y='Rolling Average', source=df5, line_color='red', line_width=2.5, legend_label='Death Rate Rolling Average')
+
+
+    hover = HoverTool()
+    hover.tooltips=[
+        ('Dates', '@Date_String'),
+        ('Deaths', '@Deaths'),
+        ('Positive Cases', '@Positive'),
+        ('Currently Hospitalized', '@Currently_Hospitalized'),
+        ('Total Cases', '@Total_Positive'),
+        ('Total Deaths', '@Total_Deaths'),
+        ('Death Rate', '@Death_Rate_Format')
+    ]
+    g.add_tools(hover)
+    save(g)
+
 # Daily Deaths Graph
 for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     data=pd.read_json('https://covidtracking.com/api/v1/states/{0}/daily.json'.format(sab))
@@ -175,7 +292,6 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     
     r_dates = []
     def insertChar(mystring, position, chartoinsert ):
-        longi = len(mystring)
         mystring   =  mystring[:position] + chartoinsert + mystring[position:] 
         return mystring 
         

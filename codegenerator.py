@@ -32,35 +32,41 @@ for i in stateabbreviationslower:
 stateabbreviationsdeaths = []
 for i in stateabbreviationslower:
     stateabbreviationsdeaths.append(i + 'c')
-# for sal, sl in zip(stateabbreviationslower, statelist):
-#     code3="""<div><a href="{{ url_for('%s') }}"><button><h5>%s</h5></button></a></div>""" % (sal, sl)
-#     print(code3)
 
-for sa, sal, sam, sag, sac, sad in zip(stateabbreviations, stateabbreviationslower, stateabbreviationsmap, stateabbreviationsgraph, stateabbreviationscases, stateabbreviationsdeaths):
-    code="""
-        @app.route('/States/{0}')
-        def {1}():
-            return render_template("statepages/{2}-page.html")
+stateabbreviationsdeathrate = []
+for i in stateabbreviationslower:
+    stateabbreviationsdeathrate.append(i + 'dr')
 
-        @app.route('/Maps/PosCases/{3}')
-        def {4}():
-            return render_template("countymaps/{5}_covid-19_countymap.html")
 
-        @app.route('/Graphs/PosRate/{6}')
-        def {7}():
-            return render_template("positivityrate/{8}_covid-19_positivityrate.html") 
+for sa, sal, sam, sag, sac, sad, sadr in zip(stateabbreviations, stateabbreviationslower, stateabbreviationsmap, stateabbreviationsgraph, stateabbreviationscases, stateabbreviationsdeaths, stateabbreviationsdeathrate):
+    code=f"""
+        @app.route('/States/{sa}')
+        def {sal}():
+            return render_template("statepages/{sa}-page.html")
 
-        @app.route('/Graphs/NewCases/{9}')
-        def {10}():
-            return render_template("newcases/{11}_covid-19_newpositive.html") 
+        @app.route('/Maps/PosCases/{sa}')
+        def {sam}():
+            return render_template("countymaps/{sa}_covid-19_countymap.html")
 
-        @app.route('/Graphs/NewDeaths/{12}')
-        def {13}():
-            return render_template("newdeaths/{14}_covid-19_newdeaths.html") 
-    """.format(sa, sal, sa, sa, sam, sa, sa, sag, sa, sa, sac, sa, sa, sad, sa)
+        @app.route('/Graphs/PosRate/{sa}')
+        def {sag}():
+            return render_template("positivityrate/{sa}_covid-19_positivityrate.html") 
+
+        @app.route('/Graphs/NewCases/{sa}')
+        def {sac}():
+            return render_template("newcases/{sa}_covid-19_newpositive.html") 
+
+        @app.route('/Graphs/NewDeaths/{sa}')
+        def {sad}():
+            return render_template("newdeaths/{sa}_covid-19_newdeaths.html") 
+
+        @app.route('/Graphs/DeathRate/{sa}')
+        def {sadr}():
+            return render_template("deathrate/{sa}_covid-19_deathrate.html") 
+    """
     print(code)
 
-for sl, sam, sa, sag, sac, sad in zip(statelist, stateabbreviationsmap, stateabbreviations, stateabbreviationsgraph, stateabbreviationscases, stateabbreviationsdeaths):
+for sl, sam, sa, sag, sac, sad, sd in zip(statelist, stateabbreviationsmap, stateabbreviations, stateabbreviationsgraph, stateabbreviationscases, stateabbreviationsdeaths, stateabbreviationsdeathrate):
     code1="""
     <!DOCTYPE html>
     <html>
@@ -86,6 +92,7 @@ for sl, sam, sa, sag, sac, sad in zip(statelist, stateabbreviationsmap, stateabb
                     <option value="{{{{ url_for('{sag}') }}}}">Positivity Rate</option>
                     <option value="{{{{ url_for('{sad}') }}}}">Daily New Deaths</option>
                     <option value="{{{{ url_for('{sac}') }}}}">Daily New Positives</option>
+                    <option value="{{{{ url_for('{sd}') }}}}">Death Rate</option>
                 </select>
             </div>
             <div class="map">
