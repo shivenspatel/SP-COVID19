@@ -91,7 +91,7 @@ for sl, sam, sa, sag, sac, sad, sd in zip(statelist, stateabbreviationsmap, stat
                 <select id="GraphSelect">
                     <option value="{{{{ url_for('{sag}') }}}}">Positivity Rate</option>
                     <option value="{{{{ url_for('{sad}') }}}}">Daily New Deaths</option>
-                    <option value="{{{{ url_for('{sac}') }}}}">Daily New Positives</option>
+                    <option value="{{{{ url_for('{sac}') }}}}">Daily New Positives and Hospitalizations</option>
                     <option value="{{{{ url_for('{sd}') }}}}">Death Rate</option>
                 </select>
             </div>

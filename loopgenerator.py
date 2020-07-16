@@ -380,6 +380,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
 
     df2['RAveragePos']=df2['Positive'].rolling(window=7, min_periods=1).mean()
     df2['RAverageDeaths']=df2['Deaths'].rolling(window=7, min_periods=1).mean()
+    df2['RAverageHosp']=df2['Currently_Hospitalized'].rolling(window=7, min_periods=1).mean()
 
     hover = HoverTool()
     hover.tooltips=[
@@ -392,9 +393,10 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
         ('Total Tests', '@Tests')
     ]
 
-    g=figure(title="COVID-19 Daily New Positive Cases in {0}".format(sl), x_axis_type='datetime')
-    g.vbar(x='Date', top='Positive', source=df2, color='red', legend_label='New Positives')
-    g.line(x='Date', y='RAveragePos', source=df2, line_color='gray', line_width=2.5, legend_label='New Positives Rolling Average')
+    g=figure(title="COVID-19 Daily New Positive Cases and Current Hospitalizations in {0}".format(sl), x_axis_type='datetime')
+    g.vbar(x='Date', top='Positive', source=df2, color='blue', legend_label='New Cases')
+    g.line(x='Date', y='RAveragePos', source=df2, line_color='navy', line_width=2.5, legend_label='New Cases Rolling Average')
+    g.line(x='Date', y='RAverageHosp', source=df2, line_color='red', line_width=2.5, legend_label='Currently Hospitalized Rolling Average')
 
     g.legend.location = "top_left"
     g.legend.click_policy="hide"
