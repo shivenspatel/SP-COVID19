@@ -8,7 +8,11 @@ def main():
 
 @app.route('/Maps/PosCases/US')
 def usposmap():
-    return render_template("map.html")
+    return render_template("positives.html")
+
+@app.route('/Maps/Deaths/US')
+def usdeamap():
+    return render_template("deaths.html")
 
 @app.route('/US')
 def us():

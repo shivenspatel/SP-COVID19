@@ -2,7 +2,20 @@
 <html>
   <head>
       <title>COVID-19 in the US</title>
-      <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}"> 
+      <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                // SELECT MENU
+                $("#StateSelect").change(function() {
+                    var value = $(this).val();
+        
+                //IFRAME TAG
+                    console.log(value);
+                    $("#Frame").attr('src', value);
+                })
+            });
+        </script>
   </head>
   <body>
     <header>
@@ -14,8 +27,18 @@
           <li><a href="{{ url_for('dd') }}"><button>States</button></a></li>
       </nav>
     </section>
+    <div class=state>
+      <ul>
+          <div class='custom-select'>
+              <select id="StateSelect">
+                  <option value="{{ url_for('usposmap') }}">Cases per 100K Citizens</option>
+                  <option value="{{ url_for('usdeamap') }}">Deaths per 100K Citizens</option>
+              </select>
+          </div>
+      </ul>
+    </div>
     <div class="iframe">
-      <iframe style="width: 50%; height: 500px"; src="{{ url_for('usposmap') }}"></iframe>
+      <iframe id='Frame' style="width: 50%; height: 500px"; src="{{ url_for('usposmap') }}"></iframe>
     </div>
     <footer><h5>Made in the USA by Shiven Patel</h5></footer>
   </body>
