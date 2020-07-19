@@ -73,12 +73,12 @@ body{
 }
 .framebox{
     width: 100%;
-    height: 620px;
+    height: 650px;
 }
 @media only screen and (max-width: 800px) {
     .mainpagemap{
         width: 350px;
-        height: 600px;
+        height: 700px;
     }
     .graph{
         width: 620px;
