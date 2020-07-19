@@ -32,7 +32,7 @@ def usc():
 
 @app.route('/States')
 def dd():
-    return render_template("AA_main.html")
+    return render_template("stateshome.html")
 
 @app.route('/States/AL')
 def al():

@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title>States</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                // SELECT MENU
+                $("#StateSelect").change(function() {
+                    var value = $(this).val();
+        
+                //IFRAME TAG
+                    console.log(value);
+                    $("#StateFrame").attr('src', value);
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <a href="{{url_for('main')}}" class="logo">COVID-19</a>
+            <div class='nav'>
+                <a href="{{url_for('us')}}" class="us-button">US</a>
+                <a href="{{url_for('dd')}}" class="states-button">States</a>
+            </div>
+        </div>
+        <div class='custom-select'>
+            <select id="StateSelect">
+                <option value="" disabled selected>Select a State</option>
+                <option value="{{ url_for('al') }}">Alabama</option>
+                <option value="{{ url_for('ak') }}">Alaska</option>
+                <option value="{{ url_for('az') }}">Arizona</option>
+                <option value="{{ url_for('ar') }}">Arkansas</option>
+                <option value="{{ url_for('ca') }}">California</option>
+                <option value="{{ url_for('co') }}">Colorado</option>
+                <option value="{{ url_for('ct') }}">Connecticut</option>
+                <option value="{{ url_for('de') }}">Delaware</option>
+                <option value="{{ url_for('fl') }}">Florida</option>
+                <option value="{{ url_for('ga') }}">Georgia</option>
+                <option value="{{ url_for('hi') }}">Hawaii</option>
+                <option value="{{ url_for('id') }}">Idaho</option>
+                <option value="{{ url_for('il') }}">Illinois</option>
+                <option value="{{ url_for('ind') }}">Indiana</option>
+                <option value="{{ url_for('ia') }}">Iowa</option>
+                <option value="{{ url_for('ks') }}">Kansas</option>
+                <option value="{{ url_for('ky') }}">Kentucky</option>
+                <option value="{{ url_for('la') }}">Louisiana</option>
+                <option value="{{ url_for('me') }}">Maine</option>
+                <option value="{{ url_for('md') }}">Maryland</option>
+                <option value="{{ url_for('ma') }}">Massachusetts</option>
+                <option value="{{ url_for('mi') }}">Michigan</option>
+                <option value="{{ url_for('mn') }}">Minnesota</option>
+                <option value="{{ url_for('ms') }}">Mississippi</option>
+                <option value="{{ url_for('mo') }}">Missouri</option>
+                <option value="{{ url_for('mt') }}">Montana</option>
+                <option value="{{ url_for('ne') }}">Nebraska</option>
+                <option value="{{ url_for('nv') }}">Nevada</option>
+                <option value="{{ url_for('nh') }}">New Hampshire</option>
+                <option value="{{ url_for('nj') }}">New Jersey</option>
+                <option value="{{ url_for('nm') }}">New Mexico</option>
+                <option value="{{ url_for('ny') }}">New York</option>
+                <option value="{{ url_for('nc') }}">North Carolina</option>
+                <option value="{{ url_for('nd') }}">North Dakota</option>
+                <option value="{{ url_for('oh') }}">Ohio</option>
+                <option value="{{ url_for('ok') }}">Oklahoma</option>
+                <option value="{{ url_for('ore') }}">Oregon</option>
+                <option value="{{ url_for('pa') }}">Pennsylvania</option>
+                <option value="{{ url_for('ri') }}">Rhode Island</option>
+                <option value="{{ url_for('sc') }}">South Carolina</option>
+                <option value="{{ url_for('sd') }}">South Dakota</option>
+                <option value="{{ url_for('tn') }}">Tennessee</option>
+                <option value="{{ url_for('tx') }}">Texas</option>
+                <option value="{{ url_for('ut') }}">Utah</option>
+                <option value="{{ url_for('vt') }}">Vermont</option>
+                <option value="{{ url_for('va') }}">Virginia</option>
+                <option value="{{ url_for('wa') }}">Washington</option>
+                <option value="{{ url_for('wv') }}">West Virginia</option>
+                <option value="{{ url_for('wi') }}">Wisconsin</option>
+                <option value="{{ url_for('wy') }}">Wyoming</option>
+            </select>
+            <div class="framebox">
+                <iframe id="StateFrame" src="" frameborder="0" scrolling="no" width="100%"></iframe>
+            </div>
+        </div>
+    </body>
+</html>

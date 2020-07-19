@@ -1,9 +1,9 @@
-<!DOCTYPE html>
 <html>
-  <head>
-      <title>COVID-19 in the US</title>
-      <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <head>
+        <title>COVID-19</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
             $(document).ready(function() {
                 // SELECT MENU
@@ -12,34 +12,31 @@
         
                 //IFRAME TAG
                     console.log(value);
-                    $("#Frame").attr('src', value);
+                    $(".usmapframe").attr('src', value);
                 })
             });
         </script>
-  </head>
-  <body>
-    <header>
-      <h1 class="logo">COVID-19 in the US</h1>
-    </header>
-    <section>
-      <nav>
-          <li><a href="{{ url_for('us') }}"><button>US</button></a></li>
-          <li><a href="{{ url_for('dd') }}"><button>States</button></a></li>
-      </nav>
-    </section>
-    <div class=state>
-      <ul>
-          <div class='custom-select'>
-              <select id="StateSelect">
-                  <option value="{{ url_for('usposmap') }}">Cases per 100K Citizens</option>
-                  <option value="{{ url_for('usdeamap') }}">Deaths per 100K Citizens</option>
-              </select>
-          </div>
-      </ul>
-    </div>
-    <div class="iframe">
-      <iframe id='Frame' style="width: 50%; height: 500px"; src="{{ url_for('usposmap') }}"></iframe>
-    </div>
-    <footer><h5>Made in the USA by Shiven Patel</h5></footer>
-  </body>
+    </head>
+    <body>
+        <div class="header">
+            <a href="{{url_for('main')}}" class="logo">COVID-19</a>
+            <div class='nav'>
+                <a href="{{url_for('us')}}" class="us-button">US</a>
+                <a href="{{url_for('dd')}}" class="states-button">States</a>
+            </div>
+        </div>
+        <div class=state>
+            <ul>
+                <div class='custom-select'>
+                    <select id="StateSelect">
+                        <option value="{{ url_for('usposmap') }}">Cases per 100K Citizens</option>
+                        <option value="{{ url_for('usdeamap') }}">Deaths per 100K Citizens</option>
+                    </select>
+                </div>
+            </ul>
+        </div>
+        <div class="mainpagemap">
+            <iframe class='usmapframe' width="100%" height="100%" src="{{ url_for('usposmap') }}"></iframe>
+        </div>
+    </body>
 </html>

@@ -1,8 +1,47 @@
 
-    <!DOCTYPE html>
     <html>
         <head>
-            <link rel="stylesheet" href="static/css/main.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
+                .map{
+                    width: 50%;
+                    height: 800px;
+                    overflow: hidden;
+                    float: right;
+                }
+                .box{
+                    width: 50%;
+                    height: 800px;
+                    overflow: hidden;
+                    float: left;
+                }
+                @media only screen and (max-width: 800px) {
+                    .map{
+                        width: 90%;
+                        height: 600px;
+                        overflow: hidden;
+                        float: none;
+                        padding-top: 25px;
+                        padding-bottom: 25px;
+                    }
+                    .box{
+                        width: 620px;
+                        overflow: hidden;
+                        float: none;
+                        -ms-zoom: 0.6;
+                        -moz-transform: scale(0.6);
+                        -moz-transform-origin: 0 0;
+                        -o-transform: scale(0.6);
+                        -o-transform-origin: 0 0;
+                        -webkit-transform: scale(0.6);
+                        -webkit-transform-origin: 0 0;
+                    }
+                    .custom-select{
+                        padding-bottom: 5px;
+                        padding-top: 5px;
+                    }
+                }
+            </style>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
             <script>
                 $(document).ready(function() {
@@ -15,22 +54,21 @@
                 });
             </script>
         </head>
-    
+        
         <body>
+            <div class="map">
+                <iframe src="{{url_for('mnm')}}" frameborder="0" scrolling="no" width="100%" height="625"> </iframe>
+            </div>
             <div class='custom-select'>
                 <select id="GraphSelect">
-                    <option value="{{ url_for('mng') }}">Positivity Rate</option>
-                    <option value="{{ url_for('mnc') }}">Daily New Deaths</option>
-                    <option value="{{ url_for('mnp') }}">Daily New Positives and Hospitalizations</option>
-                    <option value="{{ url_for('mndr') }}">Death Rate</option>
+                    <option value="{{url_for('mng')}}">Positivity Rate</option>
+                    <option value="{{url_for('mnc')}}">Daily New Deaths</option>
+                    <option value="{{url_for('mnp')}}">Daily New Positives</option>
+                    <option value="{{url_for('mndr')}}">Death Rate</option>
                 </select>
             </div>
-            <div class="map">
-                <iframe src="{{ url_for('mnm') }}" frameborder="0" scrolling="no" width="50%" height="625" align="right"> </iframe>
-            </div>
-            
             <div class="box">
-                <iframe id="Frame"  src="{{ url_for('mng') }}" frameborder="0" scrolling="no" width="50%" height="625" align="left"></iframe>
+                <iframe id="Frame"  src="{{url_for('mng')}}" frameborder="0" scrolling="no" width="100%" height="625"></iframe>
             </div>
         </body>
     </html> 
