@@ -9,8 +9,13 @@ mainpagemap.py - generates map displayed on entry page.
 
 usgenerator.py - generates all graphs for national data.
 
-County level data is from the New York Times GitHub database (https://github.com/nytimes/covid-19-data).
+County level data is from the <i>New York Times</i> GitHub database (https://github.com/nytimes/covid-19-data).
 
-All other data is pulled from the COVID Data Tracking Project (https://covidtracking.com/data/api).
+Mobility Data is from Google and Apple.
+Google LLC "Google COVID-19 Community Mobility Reports".
+https://www.google.com/covid19/mobility/ Accessed: 07.19.2020.
+
+
+All other data is pulled from the <i>The Atlantic</i>'s COVID Data Tracking Project (https://covidtracking.com/data/api).
 
 All Python, HTML and CSS code is my intellectual property, and may not be used without permission.
