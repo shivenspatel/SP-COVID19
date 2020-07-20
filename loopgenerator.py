@@ -10,6 +10,7 @@ from bokeh.models.tools import HoverTool
 from datetime import date
 from bokeh.io import reset_output
 import folium
+import datetime as dt
 
 pd.options.mode.chained_assignment = None
 
@@ -46,6 +47,12 @@ def filenamedea(name):
 
 def filenamedr(name):
     return 'templates/deathrate/'+name+'_covid-19_deathrate.html'
+
+def filenamegmr(name):
+    return 'templates/googlemobility/'+name+'_covid-19_gmobilityreport.html'
+
+def filenameamr(name):
+    return 'templates/applemobility/'+name+'_covid-19_amobilityreport.html'
 
 # Positivity Rate Graph
 for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
@@ -404,11 +411,105 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     g.add_tools(hover)
     save(g)
 
+#Google Mobility Rate
+googleorigin=pd.read_csv("https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv")
+for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
+    google=googleorigin.copy()
+
+    file_path=filenamegmr(sa)
+    print(file_path)
+    output_file(file_path)
+
+    google=google[google['country_region_code']=='US']
+    google=google[google['sub_region_1']== sl]
+    google=google[google['sub_region_2'].isnull()] 
+
+    dates=[]
+    for i in google['date']:
+        dates.append(datetime.strptime(i, '%Y-%m-%d'))
+    google['Dates']=dates
+
+    google['retail']=google['retail_and_recreation_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
+    google['grocery']=google['grocery_and_pharmacy_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
+    google['parks']=google['parks_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
+    google['transit']=google['transit_stations_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
+    google['work']=google['workplaces_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
+    google['home']=google['residential_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
+
+    g=figure(title=f"Mobility Data in {sl} (Google)", x_axis_type='datetime')
+    g.line(x='Dates', y='retail', source=google, line_color='red', line_width=2.5, legend_label='Retail and Recreation')
+    g.line(x='Dates', y='grocery', source=google, line_color='orange', line_width=2.5, legend_label='Grocery and Pharmacy')
+    g.line(x='Dates', y='parks', source=google, line_color='gray', line_width=2.5, legend_label='Parks')
+    g.line(x='Dates', y='transit', source=google, line_color='green', line_width=2.5, legend_label='Transit Stations')
+    g.line(x='Dates', y='work', source=google, line_color='blue', line_width=2.5, legend_label='Workplaces')
+    g.line(x='Dates', y='home', source=google, line_color='purple', line_width=2.5, legend_label='Residential')
+
+    g.legend.location = "bottom_left"
+    g.legend.click_policy="hide"
+
+    hover = HoverTool()
+
+    hover.tooltips=[
+        ('Dates', '@date'),
+        ('Retail and Recreation % Change', '@retail_and_recreation_percent_change_from_baseline'),
+        ('Grocery and Pharmacy % Change', '@grocery_and_pharmacy_percent_change_from_baseline'),
+        ('Parks % Change', '@parks_percent_change_from_baseline'),
+        ('Transit Station % Change', '@transit_stations_percent_change_from_baseline'),
+        ('Workplace % Change', '@workplaces_percent_change_from_baseline'),
+        ('Residential % Change', '@residential_percent_change_from_baseline')
+    ]
+
+    g.add_tools(hover)
+
+    g.legend.label_text_font_size = '8pt'
+    g.legend.background_fill_alpha = 0.35
+    save(g)
+
+#Apple Mobility Rate
+today = date.today()
+yesterday = today - dt.timedelta(days=2)
+appleorigin=pd.read_csv(f"https://covid19-static.cdn-apple.com/covid19-mobility-data/2012HotfixDev17/v3/en-us/applemobilitytrends-{yesterday}.csv")
+for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
+    apple=appleorigin.copy()
+    apple=apple[apple['country'] == 'United States']
+    apple=apple[apple['region'] == sl]
+
+    file_path=filenameamr(sa)
+    print(file_path)
+    output_file(file_path)
+
+    columns=[]
+    for i in apple.columns:
+        columns.append(i)
+
+    rows=apple.values.tolist()
+
+    appledf=pd.DataFrame({'Date_str':columns, 'Data':rows[0]})
+    appledf=appledf.drop([0,1,2,3,4,5])
+
+    dateforapple=[]
+    for i in appledf['Date_str']:
+        dateforapple.append(datetime.strptime(i, '%Y-%m-%d'))
+    appledf['Date']=dateforapple
+
+    appledf['Data_ra']=appledf['Data'].rolling(window=7, min_periods=1).mean()
+    
+    a=figure(title=f"Mobility Data in {sl} (Apple)", x_axis_type='datetime')
+    a.line(x='Date', y='Data', source=appledf, line_color='gray', line_width=2.5, legend_label='Driving')
+    a.line(x='Date', y='Data_ra', source=appledf, line_color='black', line_width=2.5, legend_label='Driving Rolling Average')
+
+    a.legend.location = "top_left"
+    a.legend.click_policy="hide"
+
+    save(a)
+
 #Map
+cdataorigin=pd.read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv")
+hdataorigin=pd.read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv")
 for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     #Pulling Data
-    cdata=pd.read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv")
-    hdata=pd.read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv")
+    cdata=cdataorigin.copy()
+    hdata=hdataorigin.copy()
 
     county_data=pd.read_csv('Counties/c_03mr20 - Copy.csv')
 

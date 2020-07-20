@@ -58,6 +58,14 @@ def alc():
 def aldr():
     return render_template("deathrate/AL_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/AL')
+def algm():
+    return render_template("googlemobility/AL_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/AL')
+def alam():
+    return render_template("applemobility/AL_covid-19_amobilityreport.html")
+
 
 @app.route('/States/AK')
 def ak():
@@ -82,6 +90,14 @@ def akc():
 @app.route('/Graphs/DeathRate/AK')
 def akdr():
     return render_template("deathrate/AK_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/AK')
+def akgm():
+    return render_template("googlemobility/AK_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/AK')
+def akam():
+    return render_template("applemobility/AK_covid-19_amobilityreport.html")
 
 
 @app.route('/States/AZ')
@@ -108,6 +124,14 @@ def azc():
 def azdr():
     return render_template("deathrate/AZ_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/AZ')
+def azgm():
+    return render_template("googlemobility/AZ_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/AZ')
+def azam():
+    return render_template("applemobility/AZ_covid-19_amobilityreport.html")
+
 
 @app.route('/States/AR')
 def ar():
@@ -132,6 +156,14 @@ def arc():
 @app.route('/Graphs/DeathRate/AR')
 def ardr():
     return render_template("deathrate/AR_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/AR')
+def argm():
+    return render_template("googlemobility/AR_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/AR')
+def aram():
+    return render_template("applemobility/AR_covid-19_amobilityreport.html")
 
 
 @app.route('/States/CA')
@@ -158,6 +190,14 @@ def cac():
 def cadr():
     return render_template("deathrate/CA_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/CA')
+def cagm():
+    return render_template("googlemobility/CA_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/CA')
+def caam():
+    return render_template("applemobility/CA_covid-19_amobilityreport.html")
+
 
 @app.route('/States/CO')
 def co():
@@ -182,6 +222,14 @@ def coc():
 @app.route('/Graphs/DeathRate/CO')
 def codr():
     return render_template("deathrate/CO_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/CO')
+def cogm():
+    return render_template("googlemobility/CO_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/CO')
+def coam():
+    return render_template("applemobility/CO_covid-19_amobilityreport.html")
 
 
 @app.route('/States/CT')
@@ -208,6 +256,14 @@ def ctc():
 def ctdr():
     return render_template("deathrate/CT_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/CT')
+def ctgm():
+    return render_template("googlemobility/CT_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/CT')
+def ctam():
+    return render_template("applemobility/CT_covid-19_amobilityreport.html")
+
 
 @app.route('/States/DE')
 def de():
@@ -232,6 +288,14 @@ def dec():
 @app.route('/Graphs/DeathRate/DE')
 def dedr():
     return render_template("deathrate/DE_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/DE')
+def degm():
+    return render_template("googlemobility/DE_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/DE')
+def deam():
+    return render_template("applemobility/DE_covid-19_amobilityreport.html")
 
 
 @app.route('/States/FL')
@@ -258,6 +322,14 @@ def flc():
 def fldr():
     return render_template("deathrate/FL_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/FL')
+def flgm():
+    return render_template("googlemobility/FL_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/FL')
+def flam():
+    return render_template("applemobility/FL_covid-19_amobilityreport.html")
+
 
 @app.route('/States/GA')
 def ga():
@@ -282,6 +354,14 @@ def gac():
 @app.route('/Graphs/DeathRate/GA')
 def gadr():
     return render_template("deathrate/GA_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/GA')
+def gagm():
+    return render_template("googlemobility/GA_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/GA')
+def gaam():
+    return render_template("applemobility/GA_covid-19_amobilityreport.html")
 
 
 @app.route('/States/HI')
@@ -308,6 +388,14 @@ def hic():
 def hidr():
     return render_template("deathrate/HI_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/HI')
+def higm():
+    return render_template("googlemobility/HI_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/HI')
+def hiam():
+    return render_template("applemobility/HI_covid-19_amobilityreport.html")
+
 
 @app.route('/States/ID')
 def id():
@@ -332,6 +420,14 @@ def idc():
 @app.route('/Graphs/DeathRate/ID')
 def iddr():
     return render_template("deathrate/ID_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/ID')
+def idgm():
+    return render_template("googlemobility/ID_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/ID')
+def idam():
+    return render_template("applemobility/ID_covid-19_amobilityreport.html")
 
 
 @app.route('/States/IL')
@@ -358,6 +454,14 @@ def ilc():
 def ildr():
     return render_template("deathrate/IL_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/IL')
+def ilgm():
+    return render_template("googlemobility/IL_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/IL')
+def ilam():
+    return render_template("applemobility/IL_covid-19_amobilityreport.html")
+
 
 @app.route('/States/IN')
 def ind():
@@ -382,6 +486,14 @@ def inc():
 @app.route('/Graphs/DeathRate/IN')
 def indr():
     return render_template("deathrate/IN_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/IN')
+def ingm():
+    return render_template("googlemobility/IN_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/IN')
+def inam():
+    return render_template("applemobility/IN_covid-19_amobilityreport.html")
 
 
 @app.route('/States/IA')
@@ -408,6 +520,14 @@ def iac():
 def iadr():
     return render_template("deathrate/IA_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/IA')
+def iagm():
+    return render_template("googlemobility/IA_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/IA')
+def iaam():
+    return render_template("applemobility/IA_covid-19_amobilityreport.html")
+
 
 @app.route('/States/KS')
 def ks():
@@ -432,6 +552,14 @@ def ksc():
 @app.route('/Graphs/DeathRate/KS')
 def ksdr():
     return render_template("deathrate/KS_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/KS')
+def ksgm():
+    return render_template("googlemobility/KS_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/KS')
+def ksam():
+    return render_template("applemobility/KS_covid-19_amobilityreport.html")
 
 
 @app.route('/States/KY')
@@ -458,6 +586,14 @@ def kyc():
 def kydr():
     return render_template("deathrate/KY_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/KY')
+def kygm():
+    return render_template("googlemobility/KY_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/KY')
+def kyam():
+    return render_template("applemobility/KY_covid-19_amobilityreport.html")
+
 
 @app.route('/States/LA')
 def la():
@@ -482,6 +618,14 @@ def lac():
 @app.route('/Graphs/DeathRate/LA')
 def ladr():
     return render_template("deathrate/LA_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/LA')
+def lagm():
+    return render_template("googlemobility/LA_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/LA')
+def laam():
+    return render_template("applemobility/LA_covid-19_amobilityreport.html")
 
 
 @app.route('/States/ME')
@@ -508,6 +652,14 @@ def mec():
 def medr():
     return render_template("deathrate/ME_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/ME')
+def megm():
+    return render_template("googlemobility/ME_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/ME')
+def meam():
+    return render_template("applemobility/ME_covid-19_amobilityreport.html")
+
 
 @app.route('/States/MD')
 def md():
@@ -532,6 +684,14 @@ def mdc():
 @app.route('/Graphs/DeathRate/MD')
 def mddr():
     return render_template("deathrate/MD_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/MD')
+def mdgm():
+    return render_template("googlemobility/MD_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/MD')
+def mdam():
+    return render_template("applemobility/MD_covid-19_amobilityreport.html")
 
 
 @app.route('/States/MA')
@@ -558,6 +718,14 @@ def mac():
 def madr():
     return render_template("deathrate/MA_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/MA')
+def magm():
+    return render_template("googlemobility/MA_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/MA')
+def maam():
+    return render_template("applemobility/MA_covid-19_amobilityreport.html")
+
 
 @app.route('/States/MI')
 def mi():
@@ -582,6 +750,14 @@ def mic():
 @app.route('/Graphs/DeathRate/MI')
 def midr():
     return render_template("deathrate/MI_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/MI')
+def migm():
+    return render_template("googlemobility/MI_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/MI')
+def miam():
+    return render_template("applemobility/MI_covid-19_amobilityreport.html")
 
 
 @app.route('/States/MN')
@@ -608,6 +784,14 @@ def mnc():
 def mndr():
     return render_template("deathrate/MN_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/MN')
+def mngm():
+    return render_template("googlemobility/MN_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/MN')
+def mnam():
+    return render_template("applemobility/MN_covid-19_amobilityreport.html")
+
 
 @app.route('/States/MS')
 def ms():
@@ -632,6 +816,14 @@ def msc():
 @app.route('/Graphs/DeathRate/MS')
 def msdr():
     return render_template("deathrate/MS_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/MS')
+def msgm():
+    return render_template("googlemobility/MS_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/MS')
+def msam():
+    return render_template("applemobility/MS_covid-19_amobilityreport.html")
 
 
 @app.route('/States/MO')
@@ -658,6 +850,14 @@ def moc():
 def modr():
     return render_template("deathrate/MO_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/MO')
+def mogm():
+    return render_template("googlemobility/MO_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/MO')
+def moam():
+    return render_template("applemobility/MO_covid-19_amobilityreport.html")
+
 
 @app.route('/States/MT')
 def mt():
@@ -682,6 +882,14 @@ def mtc():
 @app.route('/Graphs/DeathRate/MT')
 def mtdr():
     return render_template("deathrate/MT_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/MT')
+def mtgm():
+    return render_template("googlemobility/MT_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/MT')
+def mtam():
+    return render_template("applemobility/MT_covid-19_amobilityreport.html")
 
 
 @app.route('/States/NE')
@@ -708,6 +916,14 @@ def nec():
 def nedr():
     return render_template("deathrate/NE_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/NE')
+def negm():
+    return render_template("googlemobility/NE_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/NE')
+def neam():
+    return render_template("applemobility/NE_covid-19_amobilityreport.html")
+
 
 @app.route('/States/NV')
 def nv():
@@ -732,6 +948,14 @@ def nvc():
 @app.route('/Graphs/DeathRate/NV')
 def nvdr():
     return render_template("deathrate/NV_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/NV')
+def nvgm():
+    return render_template("googlemobility/NV_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/NV')
+def nvam():
+    return render_template("applemobility/NV_covid-19_amobilityreport.html")
 
 
 @app.route('/States/NH')
@@ -758,6 +982,14 @@ def nhc():
 def nhdr():
     return render_template("deathrate/NH_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/NH')
+def nhgm():
+    return render_template("googlemobility/NH_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/NH')
+def nham():
+    return render_template("applemobility/NH_covid-19_amobilityreport.html")
+
 
 @app.route('/States/NJ')
 def nj():
@@ -782,6 +1014,14 @@ def njc():
 @app.route('/Graphs/DeathRate/NJ')
 def njdr():
     return render_template("deathrate/NJ_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/NJ')
+def njgm():
+    return render_template("googlemobility/NJ_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/NJ')
+def njam():
+    return render_template("applemobility/NJ_covid-19_amobilityreport.html")
 
 
 @app.route('/States/NM')
@@ -808,6 +1048,14 @@ def nmc():
 def nmdr():
     return render_template("deathrate/NM_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/NM')
+def nmgm():
+    return render_template("googlemobility/NM_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/NM')
+def nmam():
+    return render_template("applemobility/NM_covid-19_amobilityreport.html")
+
 
 @app.route('/States/NY')
 def ny():
@@ -832,6 +1080,14 @@ def nyc():
 @app.route('/Graphs/DeathRate/NY')
 def nydr():
     return render_template("deathrate/NY_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/NY')
+def nygm():
+    return render_template("googlemobility/NY_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/NY')
+def nyam():
+    return render_template("applemobility/NY_covid-19_amobilityreport.html")
 
 
 @app.route('/States/NC')
@@ -858,6 +1114,14 @@ def ncc():
 def ncdr():
     return render_template("deathrate/NC_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/NC')
+def ncgm():
+    return render_template("googlemobility/NC_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/NC')
+def ncam():
+    return render_template("applemobility/NC_covid-19_amobilityreport.html")
+
 
 @app.route('/States/ND')
 def nd():
@@ -882,6 +1146,14 @@ def ndc():
 @app.route('/Graphs/DeathRate/ND')
 def nddr():
     return render_template("deathrate/ND_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/ND')
+def ndgm():
+    return render_template("googlemobility/ND_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/ND')
+def ndam():
+    return render_template("applemobility/ND_covid-19_amobilityreport.html")
 
 
 @app.route('/States/OH')
@@ -908,6 +1180,14 @@ def ohc():
 def ohdr():
     return render_template("deathrate/OH_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/OH')
+def ohgm():
+    return render_template("googlemobility/OH_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/OH')
+def oham():
+    return render_template("applemobility/OH_covid-19_amobilityreport.html")
+
 
 @app.route('/States/OK')
 def ok():
@@ -932,6 +1212,14 @@ def okc():
 @app.route('/Graphs/DeathRate/OK')
 def okdr():
     return render_template("deathrate/OK_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/OK')
+def okgm():
+    return render_template("googlemobility/OK_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/OK')
+def okam():
+    return render_template("applemobility/OK_covid-19_amobilityreport.html")
 
 
 @app.route('/States/OR')
@@ -958,6 +1246,14 @@ def orc():
 def ordr():
     return render_template("deathrate/OR_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/OR')
+def orgm():
+    return render_template("googlemobility/OR_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/OR')
+def oram():
+    return render_template("applemobility/OR_covid-19_amobilityreport.html")
+
 
 @app.route('/States/PA')
 def pa():
@@ -982,6 +1278,14 @@ def pac():
 @app.route('/Graphs/DeathRate/PA')
 def padr():
     return render_template("deathrate/PA_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/PA')
+def pagm():
+    return render_template("googlemobility/PA_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/PA')
+def paam():
+    return render_template("applemobility/PA_covid-19_amobilityreport.html")
 
 
 @app.route('/States/RI')
@@ -1008,6 +1312,14 @@ def ric():
 def ridr():
     return render_template("deathrate/RI_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/RI')
+def rigm():
+    return render_template("googlemobility/RI_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/RI')
+def riam():
+    return render_template("applemobility/RI_covid-19_amobilityreport.html")
+
 
 @app.route('/States/SC')
 def sc():
@@ -1032,6 +1344,14 @@ def scc():
 @app.route('/Graphs/DeathRate/SC')
 def scdr():
     return render_template("deathrate/SC_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/SC')
+def scgm():
+    return render_template("googlemobility/SC_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/SC')
+def scam():
+    return render_template("applemobility/SC_covid-19_amobilityreport.html")
 
 
 @app.route('/States/SD')
@@ -1058,6 +1378,14 @@ def sdc():
 def sddr():
     return render_template("deathrate/SD_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/SD')
+def sdgm():
+    return render_template("googlemobility/SD_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/SD')
+def sdam():
+    return render_template("applemobility/SD_covid-19_amobilityreport.html")
+
 
 @app.route('/States/TN')
 def tn():
@@ -1082,6 +1410,14 @@ def tnc():
 @app.route('/Graphs/DeathRate/TN')
 def tndr():
     return render_template("deathrate/TN_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/TN')
+def tngm():
+    return render_template("googlemobility/TN_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/TN')
+def tnam():
+    return render_template("applemobility/TN_covid-19_amobilityreport.html")
 
 
 @app.route('/States/TX')
@@ -1108,6 +1444,14 @@ def txc():
 def txdr():
     return render_template("deathrate/TX_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/TX')
+def txgm():
+    return render_template("googlemobility/TX_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/TX')
+def txam():
+    return render_template("applemobility/TX_covid-19_amobilityreport.html")
+
 
 @app.route('/States/UT')
 def ut():
@@ -1132,6 +1476,14 @@ def utc():
 @app.route('/Graphs/DeathRate/UT')
 def utdr():
     return render_template("deathrate/UT_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/UT')
+def utgm():
+    return render_template("googlemobility/UT_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/UT')
+def utam():
+    return render_template("applemobility/UT_covid-19_amobilityreport.html")
 
 
 @app.route('/States/VT')
@@ -1158,6 +1510,14 @@ def vtc():
 def vtdr():
     return render_template("deathrate/VT_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/VT')
+def vtgm():
+    return render_template("googlemobility/VT_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/VT')
+def vtam():
+    return render_template("applemobility/VT_covid-19_amobilityreport.html")
+
 
 @app.route('/States/VA')
 def va():
@@ -1182,6 +1542,14 @@ def vac():
 @app.route('/Graphs/DeathRate/VA')
 def vadr():
     return render_template("deathrate/VA_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/VA')
+def vagm():
+    return render_template("googlemobility/VA_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/VA')
+def vaam():
+    return render_template("applemobility/VA_covid-19_amobilityreport.html")
 
 
 @app.route('/States/WA')
@@ -1208,6 +1576,14 @@ def wac():
 def wadr():
     return render_template("deathrate/WA_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/WA')
+def wagm():
+    return render_template("googlemobility/WA_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/WA')
+def waam():
+    return render_template("applemobility/WA_covid-19_amobilityreport.html")
+
 
 @app.route('/States/WV')
 def wv():
@@ -1232,6 +1608,14 @@ def wvc():
 @app.route('/Graphs/DeathRate/WV')
 def wvdr():
     return render_template("deathrate/WV_covid-19_deathrate.html")
+
+@app.route('/Graphs/Mobility/Google/WV')
+def wvgm():
+    return render_template("googlemobility/WV_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/WV')
+def wvam():
+    return render_template("applemobility/WV_covid-19_amobilityreport.html")
 
 
 @app.route('/States/WI')
@@ -1258,6 +1642,14 @@ def wic():
 def widr():
     return render_template("deathrate/WI_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/WI')
+def wigm():
+    return render_template("googlemobility/WI_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/WI')
+def wiam():
+    return render_template("applemobility/WI_covid-19_amobilityreport.html")
+
 
 @app.route('/States/WY')
 def wy():
@@ -1283,6 +1675,13 @@ def wyc():
 def wydr():
     return render_template("deathrate/WY_covid-19_deathrate.html")
 
+@app.route('/Graphs/Mobility/Google/WY')
+def wygm():
+    return render_template("googlemobility/WY_covid-19_gmobilityreport.html")
+
+@app.route('/Graphs/Mobility/Apple/WY')
+def wyam():
+    return render_template("applemobility/WY_covid-19_amobilityreport.html")
 if __name__=="__main__":
     app.run(debug=True)
 
