@@ -8,12 +8,12 @@
         <script>
             $(document).ready(function() {
                 // SELECT MENU
-                $("#StateSelect").change(function() {
+                $("#Select").change(function() {
                     var value = $(this).val();
         
                 //IFRAME TAG
                     console.log(value);
-                    $(".usmapframe").attr('src', value);
+                    $("#usmapframe").attr('src', value);
                 })
             });
         </script>
@@ -27,18 +27,14 @@
                 <a href="https://github.com/shivenspatel/spcovid19" class="about-button"> About </a>
             </div>
         </div>
-        <div class=state>
-            <ul>
-                <div class='map-select'>
-                    <select id="MapSelect">
-                        <option value="{{ url_for('usposmap') }}">Cases per 100K Citizens</option>
-                        <option value="{{ url_for('usdeamap') }}">Deaths per 100K Citizens</option>
-                    </select>
-                </div>
-            </ul>
+        <div class='select-div'>
+            <select id="Select">
+                <option value="{{ url_for('usposmap') }}">Cases per 100K Citizens</option>
+                <option value="{{ url_for('usdeamap') }}">Deaths per 100K Citizens</option>
+            </select>
         </div>
         <div class="mainpagemap">
-            <iframe class='usmapframe' width="100%" height="100%" src="{{ url_for('usposmap') }}"></iframe>
+            <iframe id='usmapframe' width="100%" height="100%" src="{{ url_for('usposmap') }}"></iframe>
         </div>
     </body>
 </html>

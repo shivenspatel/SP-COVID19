@@ -83,10 +83,13 @@ for sa, sal, sam, sag, sac, sad, sadr, sagm, saam in zip(stateabbreviations, sta
 
 for sl, sam, sa, sag, sac, sad, sd, sagm, saam in zip(statelist, stateabbreviationsmap, stateabbreviations, stateabbreviationsgraph, stateabbreviationscases, stateabbreviationsdeaths, stateabbreviationsdeathrate, stateabbreviationsgooglemobility, stateabbreviationsapplemobility):
     code1="""
-    <html>
+        <html>
         <head>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <style>
+                body{
+                    margin: 0;
+                }
                 .map{
                     width: 50%;
                     height: 800px;
@@ -99,14 +102,25 @@ for sl, sam, sa, sag, sac, sad, sd, sagm, saam in zip(statelist, stateabbreviati
                     overflow: hidden;
                     float: left;
                 }
+                #GraphSelect{
+                    width: 50%;
+                    height: 50px;
+                    font-size: 25px;
+                    font-weight: bold;
+                    background-color: rgba(0, 0, 0, 0.849);
+                    color: antiquewhite;
+                    border: none;
+                    text-indent: 20px;
+                }
+                .custom-select{
+                    border: none;
+                }
                 @media only screen and (max-width: 800px) {
                     .map{
                         width: 90%;
                         height: 600px;
                         overflow: hidden;
                         float: none;
-                        padding-top: 25px;
-                        padding-bottom: 25px;
                     }
                     .box{
                         width: 620px;
@@ -129,10 +143,9 @@ for sl, sam, sa, sag, sac, sad, sd, sagm, saam in zip(statelist, stateabbreviati
                         text-align: center;
                     }
                     #GraphSelect{
-                        width: 95%;
-                        height: 50px;
-                        font-size: 25px;
-                    }
+                        text-align-last: center;
+                        width: 100%;
+                    } 
                 }
             </style>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -83,19 +83,28 @@ body{
     padding-top: 50px;
     width: 800px;
 }
-.custom-select{
-    padding-top: 25px;
-}
-.map-select{
-    padding-top: 25px;
-}
 #StateFrame{
     height: 100%;
     width: 100%;
+    border: none;
+}
+#Frame{
+    border: none;
 }
 .framebox{
     width: 100%;
-    height: 650px;
+    height: 700px;
+    margin: 0;
+}
+#Select{
+    width: 100%;
+    height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.849);
+    color: antiquewhite;
+    border: none;
+    text-indent: 20px;
 }
 @media only screen and (max-width: 800px) {
     .mainpagemap{
@@ -116,7 +125,6 @@ body{
     }
     .framebox{
         height: 1200px;
-        width: 90%;
     }
     .header a.logo{
         display: block;
@@ -156,31 +164,13 @@ body{
     ul{
         padding: 0;
     }
-    .map-select{
+    .select-div{
         padding-left: 0;
         padding-right: 0;
         width: 100%;
         text-align: center;
     }
-    #MapSelect{
-        width: 95%;
-        height: 50px;
-        font-size: 25px;
-    }
-    .custom-select{
-        padding-left: 0;
-        padding-right: 0;
-        width: 100%;
-        text-align: center;
-    }
-    #GraphSelect{
-        width: 95%;
-        height: 50px;
-        font-size: 25px;
-    }
-    #StateSelect{
-        width: 95%;
-        height: 50px;
-        font-size: 25px;
+    #Select{
+        text-align-last: center;
     }
 }

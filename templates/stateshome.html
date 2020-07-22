@@ -7,7 +7,7 @@
         <script>
             $(document).ready(function() {
                 // SELECT MENU
-                $("#StateSelect").change(function() {
+                $("#Select").change(function() {
                     var value = $(this).val();
         
                 //IFRAME TAG
@@ -26,8 +26,8 @@
                 <a href="https://github.com/shivenspatel/spcovid19" class="about-button"> About </a>
             </div>
         </div>
-        <div class='custom-select'>
-            <select id="StateSelect">
+        <div class='select-div'>
+            <select id="Select">
                 <option value="" disabled selected>Select a State</option>
                 <option value="{{ url_for('al') }}">Alabama</option>
                 <option value="{{ url_for('ak') }}">Alaska</option>

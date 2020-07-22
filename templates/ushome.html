@@ -7,7 +7,7 @@
         <script>
             $(document).ready(function() {
                 // SELECT MENU
-                $("#graphselect").change(function() {
+                $("#Select").change(function() {
                     var value = $(this).val();
         
                 //IFRAME TAG
@@ -26,8 +26,8 @@
                 <a href="https://github.com/shivenspatel/spcovid19" class="about-button"> About </a>
             </div>
         </div>
-        <div class='custom-select'>
-            <select id="graphselect">
+        <div class='select-div'>
+            <select id="Select">
                 <option value="{{ url_for('usg') }}">Positivity Rate</option>
                 <option value="{{ url_for('usc') }}">New Deaths</option>
                 <option value="{{ url_for('usp') }}">New Cases</option>
