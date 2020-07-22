@@ -20,35 +20,54 @@ body{
 .nav{
     float: right;
     overflow: hidden;
-    margin-right: 12px;
     position: relative;
 }
-.us-button{
+.ul{
     display: block;
+}
+.us-button{
+    display: inline-block;
     text-align: center;
-    margin: auto;
-    background-color: rgba(99, 99, 99, 0);
+    margin: 2px;
+    background-color: antiquewhite;
     border: none;
-    display: in;
     font-size: 20px;
-    color: antiquewhite;
+    color: rgb(0, 0, 0);
     text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
 }
 .header .us-button:hover {
     background-color: rgba(100, 100, 100, 0.5);
 }
 .states-button{
-    display: block;
+    display: inline-block;
     text-align: center;
-    margin: auto;
-    background-color: rgba(99, 99, 99, 0);
+    margin: 2px;
+    background-color: antiquewhite;
     border: none;
-    display: in;
     font-size: 20px;
-    color: antiquewhite;
+    color: rgb(0, 0, 0);
     text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
 }
 .header .states-button:hover {
+    background-color: rgba(100, 100, 100, 0.5);
+}
+.about-button{
+    display: inline-block;
+    text-align: center;
+    margin: 2px;
+    background-color: antiquewhite;
+    border: none;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+}
+.about-button:hover {
     background-color: rgba(100, 100, 100, 0.5);
 }
 .mainpagemap{
@@ -67,6 +86,9 @@ body{
 .custom-select{
     padding-top: 25px;
 }
+.map-select{
+    padding-top: 25px;
+}
 #StateFrame{
     height: 100%;
     width: 100%;
@@ -78,7 +100,8 @@ body{
 @media only screen and (max-width: 800px) {
     .mainpagemap{
         width: 350px;
-        height: 700px;
+        height: 600px;
+        padding-top: 5px;
     }
     .graph{
         width: 620px;
@@ -94,5 +117,70 @@ body{
     .framebox{
         height: 1200px;
         width: 90%;
+    }
+    .header a.logo{
+        display: block;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+        padding-bottom: 5px;
+    }
+    .nav{
+        display: flex;
+        text-align: center;
+        width: 100%;
+        padding: 0;
+        position: relative;
+        justify-content: space-evenly;
+    }
+    .header{
+        display: block;
+        text-align: center;
+        height: 100px;
+    }
+    .us-button{
+        padding-top: 1px;
+        padding-bottom: 1px;
+        position: relative;
+    }
+    .states-button{
+        padding-top: 1px;
+        padding-bottom: 1px;
+        position: relative;
+    }
+    .about-button{
+        padding-top: 1px;
+        padding-bottom: 1px;
+        position: relative;
+    }
+    ul{
+        padding: 0;
+    }
+    .map-select{
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+        text-align: center;
+    }
+    #MapSelect{
+        width: 95%;
+        height: 50px;
+        font-size: 25px;
+    }
+    .custom-select{
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+        text-align: center;
+    }
+    #GraphSelect{
+        width: 95%;
+        height: 50px;
+        font-size: 25px;
+    }
+    #StateSelect{
+        width: 95%;
+        height: 50px;
+        font-size: 25px;
     }
 }

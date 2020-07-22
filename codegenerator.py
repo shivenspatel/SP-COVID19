@@ -123,6 +123,15 @@ for sl, sam, sa, sag, sac, sad, sd, sagm, saam in zip(statelist, stateabbreviati
                     .custom-select{
                         padding-bottom: 5px;
                         padding-top: 5px;
+                        padding-left: 0;
+                        padding-right: 0;
+                        width: 100%;
+                        text-align: center;
+                    }
+                    #GraphSelect{
+                        width: 95%;
+                        height: 50px;
+                        font-size: 25px;
                     }
                 }
             </style>

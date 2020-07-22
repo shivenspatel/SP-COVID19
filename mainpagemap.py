@@ -22,7 +22,7 @@ df1['statename']=["Alaska","Alabama","Arkansas","Arizona","California","Colorado
 df1.sort_values(by='statename',ascending=True,inplace=True)
 df1['states']=df1.index
 
-df2=pandas.read_csv("Map/us-state-capitals.csv")
+df2=pandas.read_csv("Map/statecenters.csv")
 df2.set_index('name', inplace=True)
 df2['population']=[4833722, 735132, 6626624, 2959373, 38332521, 5268367, 3596080, 925749, 19552860, 9992167, 1404054, 1612136, 12882135, 6570902,
 3090416, 2893957, 4395295, 4625470, 1328302, 5928814, 6692824, 9895622, 5420380, 2991207, 6044171, 1015165, 1868516, 2790136, 1323459, 8899339, 2085287, 19651127, 9848060, 723393, 11570808, 3850568,
@@ -77,7 +77,7 @@ for sn, sa in zip(df2.index, df1.index):
     """.format(sn, int(df1.loc[sa]['casespo']), int(df1.loc[sa]['deathspo']))
 
     folium.CircleMarker(location=(float(df2.loc[sn]['latitude']), float(df2.loc[sn]['longitude'])), 
-                        tooltip=sn, popup=popup, fill=True, fill_color='white', color='white', radius=10).add_to(m)
+                        tooltip=sn, popup=popup, fill=True, fill_color='white', color='white', radius=7).add_to(m)
     
 for sn, sa in zip(df2.index, df1.index):
     popup="""
@@ -87,7 +87,7 @@ for sn, sa in zip(df2.index, df1.index):
     """.format(sn, int(df1.loc[sa]['casespo']), int(df1.loc[sa]['deathspo']))
 
     folium.CircleMarker(location=(float(df2.loc[sn]['latitude']), float(df2.loc[sn]['longitude'])), 
-                        tooltip=sn, popup=popup, fill=True, fill_color='white', color='white', radius=10).add_to(d)    
+                        tooltip=sn, popup=popup, fill=True, fill_color='white', color='white', radius=7).add_to(d)    
 
 folium.LayerControl().add_to(m)
 folium.LayerControl().add_to(d)
