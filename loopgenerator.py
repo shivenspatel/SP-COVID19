@@ -465,43 +465,43 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     g.legend.background_fill_alpha = 0.35
     save(g)
 
-#Apple Mobility Rate
-today = date.today()
-yesterday = today - dt.timedelta(days=2)
-appleorigin=pd.read_csv(f"https://covid19-static.cdn-apple.com/covid19-mobility-data/2012HotfixDev17/v3/en-us/applemobilitytrends-{yesterday}.csv")
-for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
-    apple=appleorigin.copy()
-    apple=apple[apple['country'] == 'United States']
-    apple=apple[apple['region'] == sl]
+# #Apple Mobility Rate
+# today = date.today()
+# yesterday = today - dt.timedelta(days=2)
+# appleorigin=pd.read_csv(f"https://covid19-static.cdn-apple.com/covid19-mobility-data/2012HotfixDev17/v3/en-us/applemobilitytrends-{yesterday}.csv")
+# for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
+    # apple=appleorigin.copy()
+    # apple=apple[apple['country'] == 'United States']
+    # apple=apple[apple['region'] == sl]
 
-    file_path=filenameamr(sa)
-    print(file_path)
-    output_file(file_path)
+    # file_path=filenameamr(sa)
+    # print(file_path)
+    # output_file(file_path)
 
-    columns=[]
-    for i in apple.columns:
-        columns.append(i)
+    # columns=[]
+    # for i in apple.columns:
+        # columns.append(i)
 
-    rows=apple.values.tolist()
+    # rows=apple.values.tolist()
 
-    appledf=pd.DataFrame({'Date_str':columns, 'Data':rows[0]})
-    appledf=appledf.drop([0,1,2,3,4,5])
+    # appledf=pd.DataFrame({'Date_str':columns, 'Data':rows[0]})
+    # appledf=appledf.drop([0,1,2,3,4,5])
 
-    dateforapple=[]
-    for i in appledf['Date_str']:
-        dateforapple.append(datetime.strptime(i, '%Y-%m-%d'))
-    appledf['Date']=dateforapple
+    # dateforapple=[]
+    # for i in appledf['Date_str']:
+        # dateforapple.append(datetime.strptime(i, '%Y-%m-%d'))
+    # appledf['Date']=dateforapple
 
-    appledf['Data_ra']=appledf['Data'].rolling(window=7, min_periods=1).mean()
+    # appledf['Data_ra']=appledf['Data'].rolling(window=7, min_periods=1).mean()
     
-    a=figure(title=f"Mobility Data in {sl} (Apple)", x_axis_type='datetime')
-    a.line(x='Date', y='Data', source=appledf, line_color='gray', line_width=2.5, legend_label='Driving')
-    a.line(x='Date', y='Data_ra', source=appledf, line_color='black', line_width=2.5, legend_label='Driving Rolling Average')
+    # a=figure(title=f"Mobility Data in {sl} (Apple)", x_axis_type='datetime')
+    # a.line(x='Date', y='Data', source=appledf, line_color='gray', line_width=2.5, legend_label='Driving')
+    # a.line(x='Date', y='Data_ra', source=appledf, line_color='black', line_width=2.5, legend_label='Driving Rolling Average')
 
-    a.legend.location = "top_left"
-    a.legend.click_policy="hide"
+    # a.legend.location = "top_left"
+    # a.legend.click_policy="hide"
 
-    save(a)
+    # save(a)
 
 #Map
 cdataorigin=pd.read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv")
