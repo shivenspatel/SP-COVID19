@@ -122,6 +122,8 @@ def positivityrate():
 
 positivityrate()
 
+
+
 # Daily Deaths Graph
 def dailydeaths():
     data=pd.read_json('https://covidtracking.com/api/v1/us/daily.json')

@@ -11,7 +11,7 @@ from datetime import date
 from bokeh.io import reset_output
 import folium
 import datetime as dt
-
+                  
 pd.options.mode.chained_assignment = None
 
 statelist = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado",
@@ -51,8 +51,8 @@ def filenamedr(name):
 def filenamegmr(name):
     return 'templates/googlemobility/'+name+'_covid-19_gmobilityreport.html'
 
-def filenameamr(name):
-    return 'templates/applemobility/'+name+'_covid-19_amobilityreport.html'
+def filenameh(name):
+    return 'templates/hospital/'+name+'_covid-19_hospital.html'
 
 # Positivity Rate Graph
 for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
@@ -387,7 +387,6 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
 
     df2['RAveragePos']=df2['Positive'].rolling(window=7, min_periods=1).mean()
     df2['RAverageDeaths']=df2['Deaths'].rolling(window=7, min_periods=1).mean()
-    df2['RAverageHosp']=df2['Currently_Hospitalized'].rolling(window=7, min_periods=1).mean()
 
     hover = HoverTool()
     hover.tooltips=[
@@ -400,10 +399,9 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
         ('Total Tests', '@Tests')
     ]
 
-    g=figure(title="COVID-19 Daily New Positive Cases and Current Hospitalizations in {0}".format(sl), x_axis_type='datetime')
+    g=figure(title="COVID-19 Daily New Positive Cases in {0}".format(sl), x_axis_type='datetime')
     g.vbar(x='Date', top='Positive', source=df2, color='blue', legend_label='New Cases')
     g.line(x='Date', y='RAveragePos', source=df2, line_color='navy', line_width=2.5, legend_label='New Cases Rolling Average')
-    g.line(x='Date', y='RAverageHosp', source=df2, line_color='red', line_width=2.5, legend_label='Currently Hospitalized Rolling Average')
 
     g.legend.location = "top_left"
     g.legend.click_policy="hide"
@@ -465,43 +463,108 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     g.legend.background_fill_alpha = 0.35
     save(g)
 
-# #Apple Mobility Rate
-# today = date.today()
-# yesterday = today - dt.timedelta(days=2)
-# appleorigin=pd.read_csv(f"https://covid19-static.cdn-apple.com/covid19-mobility-data/2012HotfixDev17/v3/en-us/applemobilitytrends-{yesterday}.csv")
-# for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
-    # apple=appleorigin.copy()
-    # apple=apple[apple['country'] == 'United States']
-    # apple=apple[apple['region'] == sl]
+#Hospitalization Data
+for sa, sl, sab in zip(stateabbreviations, statelist, stateabbreviationslower):
+    data=pd.read_json('https://covidtracking.com/api/v1/states/{0}/daily.json'.format(sab))
+    hospfile = filenameh(sa)
+    output_file(hospfile)
+    print(hospfile)
 
-    # file_path=filenameamr(sa)
-    # print(file_path)
-    # output_file(file_path)
+    inpdata=pd.read_csv('https://healthdata.gov/sites/default/files/reported_inpatient_all_20200720_0537.csv')
+    ICUdata=pd.read_csv('https://healthdata.gov/sites/default/files/icu_final_20200720_0537.csv')
+    df=pd.DataFrame(data)
 
-    # columns=[]
-    # for i in apple.columns:
-        # columns.append(i)
+    # inpdata = inpdata[inpdata['state'] == sa]
+    # inpdata.reset_index(inplace=True)
 
-    # rows=apple.values.tolist()
+    # total_inpatient=[]
+    # for occupied, percentage in zip(inpdata['Inpatient Beds Occupied Estimated'], inpdata['Percentage of Inpatient Beds Occupied Estimated']):
+    #     if percentage != 0:
+    #         total_inpatient.append((occupied/percentage)-occupied)
+    #     else:
+    #         total_inpatient.append(0)
+        
+    # inpdata['Total_Inpatient_Beds_Available']=total_inpatient
 
-    # appledf=pd.DataFrame({'Date_str':columns, 'Data':rows[0]})
-    # appledf=appledf.drop([0,1,2,3,4,5])
+    # inpdates=pd.date_range('2020-01-01', inpdata['collection_date'].iloc[-1])
+    # inpdata['dates']=inpdates
 
-    # dateforapple=[]
-    # for i in appledf['Date_str']:
-        # dateforapple.append(datetime.strptime(i, '%Y-%m-%d'))
-    # appledf['Date']=dateforapple
+    # ICUdata = ICUdata[ICUdata['state'] == sa]
 
-    # appledf['Data_ra']=appledf['Data'].rolling(window=7, min_periods=1).mean()
-    
-    # a=figure(title=f"Mobility Data in {sl} (Apple)", x_axis_type='datetime')
-    # a.line(x='Date', y='Data', source=appledf, line_color='gray', line_width=2.5, legend_label='Driving')
-    # a.line(x='Date', y='Data_ra', source=appledf, line_color='black', line_width=2.5, legend_label='Driving Rolling Average')
+    # total_icu=[]
+    # for occupied, percentage in zip(ICUdata['ICU Beds Occupied Estimated'], ICUdata['Percentage of ICU Beds Occupied Estimated']):
+    #     if percentage != 0:
+    #         total_icu.append((occupied/percentage)-occupied)
+    #     else:
+    #         total_icu.append(0)
 
-    # a.legend.location = "top_left"
-    # a.legend.click_policy="hide"
+    # ICUdata['Total_ICU_Beds_Available']=total_icu
+    # icudates=pd.date_range('2020-01-01', inpdates['collection_date'].iloc[-1])
+    # ICUdata['dates']=icudates
 
-    # save(a)
+    date1 = ('2020-01-29')
+    date2 = (str(date.today()))
+    date_range=pd.date_range(date1, date2).to_pydatetime().tolist()
+    dates=df['date']
+    dates.tolist()
+    df['death']
+    m_dates = []
+    for item in dates:
+        m_dates.append(str(item))
+    r_dates = []
+    def insertChar(mystring, position, chartoinsert ):
+        longi = len(mystring)
+        mystring   =  mystring[:position] + chartoinsert + mystring[position:] 
+        return mystring   
+    for m in m_dates:
+        r_dates.append(insertChar(m, 4, '-'))
+    f_dates = []
+    for r in r_dates:
+        f_dates.append(insertChar(r, 7, '-'))
+    d_dates = []
+    for f in f_dates:
+        d_dates.append(datetime.strptime(f, '%Y-%m-%d'))
+
+    df['dates_f'] = d_dates
+    df['dates_s'] = f_dates
+
+    df['RAverageHosp']=df['hospitalizedCurrently'].rolling(window=7, min_periods=1).mean()
+    df['RAverageICU']=df['inIcuCurrently'].rolling(window=7, min_periods=1).mean()
+    df['RAverageVent']=df['onVentilatorCurrently'].rolling(window=7, min_periods=1).mean()
+
+    g=figure(title=f"COVID-19 Hospitalization Data in {sl}", x_axis_type='datetime', sizing_mode='stretch_height', width=650)
+
+    # g.line(x='dates', y='Total_Inpatient_Beds_Available', source=inpdata, line_color='yellow', line_width=2.5, legend_label='Total Inpatient Beds')
+    # g.line(x='dates', y='Total_ICU_Beds_Available', source=ICUdata, line_color='gray', line_width=2.5, legend_label='Total ICU Beds')
+
+    g.line(x='dates_f', y='hospitalizedCurrently', source=df, line_color='navy', line_width=2.5, legend_label='Currently Hospitalized')
+    g.line(x='dates_f', y='RAverageHosp', source=df, line_color='blue', line_width=2.5, legend_label='Currently Hospitalized Rolling Average')
+
+    g.line(x='dates_f', y='inIcuCurrently', source=df, line_color='maroon', line_width=2.5, legend_label='Currently in ICU')
+    g.line(x='dates_f', y='RAverageICU', source=df, line_color='red', line_width=2.5, legend_label='Currently in ICU Rolling Average')
+
+    g.line(x='dates_f', y='onVentilatorCurrently', source=df, line_color='violet', line_width=2.5, legend_label='Currently on Ventilator')
+    g.line(x='dates_f', y='RAverageVent', source=df, line_color='purple', line_width=2.5, legend_label='Currently on Ventilator Rolling Average')
+
+    hover = HoverTool()
+    hover.tooltips=[
+        ('Dates', '@dates_s'),
+        ('Currently Hospitalized', '@hospitalizedCurrently'),
+        ('In ICU', '@inIcuCurrently'),
+        ('On Ventilator', '@onVentilatorCurrently')
+    #     ('Available ICU Beds', '@Total_ICU_Beds_Available'),
+    #     ('Available Inpatient Beds', '@Total_Inpatient_Beds_Available')
+    ]
+
+    g.legend.location = "top_left"
+    g.legend.click_policy="hide"
+
+    g.legend.label_text_font_size = '8pt'
+    g.legend.background_fill_alpha = 0.35
+
+    g.add_tools(hover)
+    save(g)
+
 
 #Map
 cdataorigin=pd.read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv")
@@ -552,7 +615,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
             print(i)
 
     stateloctag="{0}".format(sa)
-    m = folium.Map(location=[float(latitude.loc[stateloctag]), float(longitude.loc[stateloctag])], zoom_start=6) 
+    m = folium.Map(width=500, height=650, location=[float(latitude.loc[stateloctag]), float(longitude.loc[stateloctag])], zoom_start=6) 
 
     df4['fips'] = df4.index
     df4.set_index('county', inplace=True)
@@ -570,9 +633,9 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
 
     for cn, cd in zip(df3.index, df4.index):
         popup="""
-        %s
-        Cases: %s
-        Deaths: %s
+        <b>%s</b>
+        <b>Cases</b>: %s
+        <b>Deaths</b>: %s
         """ % (cd, df4.loc[cd]['cases'], df4.loc[cd]['deaths'])
         
         folium.CircleMarker(location=(float(df3.loc[cn]['LAT']), float(df3.loc[cn]['LON'])), 

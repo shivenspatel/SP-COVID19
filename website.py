@@ -62,9 +62,9 @@ def aldr():
 def algm():
     return render_template("googlemobility/AL_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/AL')
+@app.route('/Graphs/Hospital/AL')
 def alam():
-    return render_template("applemobility/AL_covid-19_amobilityreport.html")
+    return render_template("hospital/AL_covid-19_hospital.html")
 
 
 @app.route('/States/AK')
@@ -95,9 +95,9 @@ def akdr():
 def akgm():
     return render_template("googlemobility/AK_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/AK')
+@app.route('/Graphs/Hospital/AK')
 def akam():
-    return render_template("applemobility/AK_covid-19_amobilityreport.html")
+    return render_template("hospital/AK_covid-19_hospital.html")
 
 
 @app.route('/States/AZ')
@@ -128,9 +128,9 @@ def azdr():
 def azgm():
     return render_template("googlemobility/AZ_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/AZ')
+@app.route('/Graphs/Hospital/AZ')
 def azam():
-    return render_template("applemobility/AZ_covid-19_amobilityreport.html")
+    return render_template("hospital/AZ_covid-19_hospital.html")
 
 
 @app.route('/States/AR')
@@ -161,9 +161,9 @@ def ardr():
 def argm():
     return render_template("googlemobility/AR_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/AR')
+@app.route('/Graphs/Hospital/AR')
 def aram():
-    return render_template("applemobility/AR_covid-19_amobilityreport.html")
+    return render_template("hospital/AR_covid-19_hospital.html")
 
 
 @app.route('/States/CA')
@@ -194,9 +194,9 @@ def cadr():
 def cagm():
     return render_template("googlemobility/CA_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/CA')
+@app.route('/Graphs/Hospital/CA')
 def caam():
-    return render_template("applemobility/CA_covid-19_amobilityreport.html")
+    return render_template("hospital/CA_covid-19_hospital.html")
 
 
 @app.route('/States/CO')
@@ -227,9 +227,9 @@ def codr():
 def cogm():
     return render_template("googlemobility/CO_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/CO')
+@app.route('/Graphs/Hospital/CO')
 def coam():
-    return render_template("applemobility/CO_covid-19_amobilityreport.html")
+    return render_template("hospital/CO_covid-19_hospital.html")
 
 
 @app.route('/States/CT')
@@ -260,9 +260,9 @@ def ctdr():
 def ctgm():
     return render_template("googlemobility/CT_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/CT')
+@app.route('/Graphs/Hospital/CT')
 def ctam():
-    return render_template("applemobility/CT_covid-19_amobilityreport.html")
+    return render_template("hospital/CT_covid-19_hospital.html")
 
 
 @app.route('/States/DE')
@@ -293,9 +293,9 @@ def dedr():
 def degm():
     return render_template("googlemobility/DE_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/DE')
+@app.route('/Graphs/Hospital/DE')
 def deam():
-    return render_template("applemobility/DE_covid-19_amobilityreport.html")
+    return render_template("hospital/DE_covid-19_hospital.html")
 
 
 @app.route('/States/FL')
@@ -326,9 +326,9 @@ def fldr():
 def flgm():
     return render_template("googlemobility/FL_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/FL')
+@app.route('/Graphs/Hospital/FL')
 def flam():
-    return render_template("applemobility/FL_covid-19_amobilityreport.html")
+    return render_template("hospital/FL_covid-19_hospital.html")
 
 
 @app.route('/States/GA')
@@ -359,9 +359,9 @@ def gadr():
 def gagm():
     return render_template("googlemobility/GA_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/GA')
+@app.route('/Graphs/Hospital/GA')
 def gaam():
-    return render_template("applemobility/GA_covid-19_amobilityreport.html")
+    return render_template("hospital/GA_covid-19_hospital.html")
 
 
 @app.route('/States/HI')
@@ -392,9 +392,9 @@ def hidr():
 def higm():
     return render_template("googlemobility/HI_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/HI')
+@app.route('/Graphs/Hospital/HI')
 def hiam():
-    return render_template("applemobility/HI_covid-19_amobilityreport.html")
+    return render_template("hospital/HI_covid-19_hospital.html")
 
 
 @app.route('/States/ID')
@@ -425,9 +425,9 @@ def iddr():
 def idgm():
     return render_template("googlemobility/ID_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/ID')
+@app.route('/Graphs/Hospital/ID')
 def idam():
-    return render_template("applemobility/ID_covid-19_amobilityreport.html")
+    return render_template("hospital/ID_covid-19_hospital.html")
 
 
 @app.route('/States/IL')
@@ -458,9 +458,9 @@ def ildr():
 def ilgm():
     return render_template("googlemobility/IL_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/IL')
+@app.route('/Graphs/Hospital/IL')
 def ilam():
-    return render_template("applemobility/IL_covid-19_amobilityreport.html")
+    return render_template("hospital/IL_covid-19_hospital.html")
 
 
 @app.route('/States/IN')
@@ -491,9 +491,9 @@ def indr():
 def ingm():
     return render_template("googlemobility/IN_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/IN')
+@app.route('/Graphs/Hospital/IN')
 def inam():
-    return render_template("applemobility/IN_covid-19_amobilityreport.html")
+    return render_template("hospital/IN_covid-19_hospital.html")
 
 
 @app.route('/States/IA')
@@ -524,9 +524,9 @@ def iadr():
 def iagm():
     return render_template("googlemobility/IA_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/IA')
+@app.route('/Graphs/Hospital/IA')
 def iaam():
-    return render_template("applemobility/IA_covid-19_amobilityreport.html")
+    return render_template("hospital/IA_covid-19_hospital.html")
 
 
 @app.route('/States/KS')
@@ -557,9 +557,9 @@ def ksdr():
 def ksgm():
     return render_template("googlemobility/KS_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/KS')
+@app.route('/Graphs/Hospital/KS')
 def ksam():
-    return render_template("applemobility/KS_covid-19_amobilityreport.html")
+    return render_template("hospital/KS_covid-19_hospital.html")
 
 
 @app.route('/States/KY')
@@ -590,9 +590,9 @@ def kydr():
 def kygm():
     return render_template("googlemobility/KY_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/KY')
+@app.route('/Graphs/Hospital/KY')
 def kyam():
-    return render_template("applemobility/KY_covid-19_amobilityreport.html")
+    return render_template("hospital/KY_covid-19_hospital.html")
 
 
 @app.route('/States/LA')
@@ -623,9 +623,9 @@ def ladr():
 def lagm():
     return render_template("googlemobility/LA_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/LA')
+@app.route('/Graphs/Hospital/LA')
 def laam():
-    return render_template("applemobility/LA_covid-19_amobilityreport.html")
+    return render_template("hospital/LA_covid-19_hospital.html")
 
 
 @app.route('/States/ME')
@@ -656,9 +656,9 @@ def medr():
 def megm():
     return render_template("googlemobility/ME_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/ME')
+@app.route('/Graphs/Hospital/ME')
 def meam():
-    return render_template("applemobility/ME_covid-19_amobilityreport.html")
+    return render_template("hospital/ME_covid-19_hospital.html")
 
 
 @app.route('/States/MD')
@@ -689,9 +689,9 @@ def mddr():
 def mdgm():
     return render_template("googlemobility/MD_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/MD')
+@app.route('/Graphs/Hospital/MD')
 def mdam():
-    return render_template("applemobility/MD_covid-19_amobilityreport.html")
+    return render_template("hospital/MD_covid-19_hospital.html")
 
 
 @app.route('/States/MA')
@@ -722,9 +722,9 @@ def madr():
 def magm():
     return render_template("googlemobility/MA_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/MA')
+@app.route('/Graphs/Hospital/MA')
 def maam():
-    return render_template("applemobility/MA_covid-19_amobilityreport.html")
+    return render_template("hospital/MA_covid-19_hospital.html")
 
 
 @app.route('/States/MI')
@@ -755,9 +755,9 @@ def midr():
 def migm():
     return render_template("googlemobility/MI_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/MI')
+@app.route('/Graphs/Hospital/MI')
 def miam():
-    return render_template("applemobility/MI_covid-19_amobilityreport.html")
+    return render_template("hospital/MI_covid-19_hospital.html")
 
 
 @app.route('/States/MN')
@@ -788,9 +788,9 @@ def mndr():
 def mngm():
     return render_template("googlemobility/MN_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/MN')
+@app.route('/Graphs/Hospital/MN')
 def mnam():
-    return render_template("applemobility/MN_covid-19_amobilityreport.html")
+    return render_template("hospital/MN_covid-19_hospital.html")
 
 
 @app.route('/States/MS')
@@ -821,9 +821,9 @@ def msdr():
 def msgm():
     return render_template("googlemobility/MS_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/MS')
+@app.route('/Graphs/Hospital/MS')
 def msam():
-    return render_template("applemobility/MS_covid-19_amobilityreport.html")
+    return render_template("hospital/MS_covid-19_hospital.html")
 
 
 @app.route('/States/MO')
@@ -854,9 +854,9 @@ def modr():
 def mogm():
     return render_template("googlemobility/MO_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/MO')
+@app.route('/Graphs/Hospital/MO')
 def moam():
-    return render_template("applemobility/MO_covid-19_amobilityreport.html")
+    return render_template("hospital/MO_covid-19_hospital.html")
 
 
 @app.route('/States/MT')
@@ -887,9 +887,9 @@ def mtdr():
 def mtgm():
     return render_template("googlemobility/MT_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/MT')
+@app.route('/Graphs/Hospital/MT')
 def mtam():
-    return render_template("applemobility/MT_covid-19_amobilityreport.html")
+    return render_template("hospital/MT_covid-19_hospital.html")
 
 
 @app.route('/States/NE')
@@ -920,9 +920,9 @@ def nedr():
 def negm():
     return render_template("googlemobility/NE_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/NE')
+@app.route('/Graphs/Hospital/NE')
 def neam():
-    return render_template("applemobility/NE_covid-19_amobilityreport.html")
+    return render_template("hospital/NE_covid-19_hospital.html")
 
 
 @app.route('/States/NV')
@@ -953,9 +953,9 @@ def nvdr():
 def nvgm():
     return render_template("googlemobility/NV_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/NV')
+@app.route('/Graphs/Hospital/NV')
 def nvam():
-    return render_template("applemobility/NV_covid-19_amobilityreport.html")
+    return render_template("hospital/NV_covid-19_hospital.html")
 
 
 @app.route('/States/NH')
@@ -986,9 +986,9 @@ def nhdr():
 def nhgm():
     return render_template("googlemobility/NH_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/NH')
+@app.route('/Graphs/Hospital/NH')
 def nham():
-    return render_template("applemobility/NH_covid-19_amobilityreport.html")
+    return render_template("hospital/NH_covid-19_hospital.html")
 
 
 @app.route('/States/NJ')
@@ -1019,9 +1019,9 @@ def njdr():
 def njgm():
     return render_template("googlemobility/NJ_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/NJ')
+@app.route('/Graphs/Hospital/NJ')
 def njam():
-    return render_template("applemobility/NJ_covid-19_amobilityreport.html")
+    return render_template("hospital/NJ_covid-19_hospital.html")
 
 
 @app.route('/States/NM')
@@ -1052,9 +1052,9 @@ def nmdr():
 def nmgm():
     return render_template("googlemobility/NM_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/NM')
+@app.route('/Graphs/Hospital/NM')
 def nmam():
-    return render_template("applemobility/NM_covid-19_amobilityreport.html")
+    return render_template("hospital/NM_covid-19_hospital.html")
 
 
 @app.route('/States/NY')
@@ -1085,9 +1085,9 @@ def nydr():
 def nygm():
     return render_template("googlemobility/NY_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/NY')
+@app.route('/Graphs/Hospital/NY')
 def nyam():
-    return render_template("applemobility/NY_covid-19_amobilityreport.html")
+    return render_template("hospital/NY_covid-19_hospital.html")
 
 
 @app.route('/States/NC')
@@ -1118,9 +1118,9 @@ def ncdr():
 def ncgm():
     return render_template("googlemobility/NC_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/NC')
+@app.route('/Graphs/Hospital/NC')
 def ncam():
-    return render_template("applemobility/NC_covid-19_amobilityreport.html")
+    return render_template("hospital/NC_covid-19_hospital.html")
 
 
 @app.route('/States/ND')
@@ -1151,9 +1151,9 @@ def nddr():
 def ndgm():
     return render_template("googlemobility/ND_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/ND')
+@app.route('/Graphs/Hospital/ND')
 def ndam():
-    return render_template("applemobility/ND_covid-19_amobilityreport.html")
+    return render_template("hospital/ND_covid-19_hospital.html")
 
 
 @app.route('/States/OH')
@@ -1184,9 +1184,9 @@ def ohdr():
 def ohgm():
     return render_template("googlemobility/OH_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/OH')
+@app.route('/Graphs/Hospital/OH')
 def oham():
-    return render_template("applemobility/OH_covid-19_amobilityreport.html")
+    return render_template("hospital/OH_covid-19_hospital.html")
 
 
 @app.route('/States/OK')
@@ -1217,9 +1217,9 @@ def okdr():
 def okgm():
     return render_template("googlemobility/OK_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/OK')
+@app.route('/Graphs/Hospital/OK')
 def okam():
-    return render_template("applemobility/OK_covid-19_amobilityreport.html")
+    return render_template("hospital/OK_covid-19_hospital.html")
 
 
 @app.route('/States/OR')
@@ -1250,9 +1250,9 @@ def ordr():
 def orgm():
     return render_template("googlemobility/OR_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/OR')
+@app.route('/Graphs/Hospital/OR')
 def oram():
-    return render_template("applemobility/OR_covid-19_amobilityreport.html")
+    return render_template("hospital/OR_covid-19_hospital.html")
 
 
 @app.route('/States/PA')
@@ -1283,9 +1283,9 @@ def padr():
 def pagm():
     return render_template("googlemobility/PA_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/PA')
+@app.route('/Graphs/Hospital/PA')
 def paam():
-    return render_template("applemobility/PA_covid-19_amobilityreport.html")
+    return render_template("hospital/PA_covid-19_hospital.html")
 
 
 @app.route('/States/RI')
@@ -1316,9 +1316,9 @@ def ridr():
 def rigm():
     return render_template("googlemobility/RI_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/RI')
+@app.route('/Graphs/Hospital/RI')
 def riam():
-    return render_template("applemobility/RI_covid-19_amobilityreport.html")
+    return render_template("hospital/RI_covid-19_hospital.html")
 
 
 @app.route('/States/SC')
@@ -1349,9 +1349,9 @@ def scdr():
 def scgm():
     return render_template("googlemobility/SC_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/SC')
+@app.route('/Graphs/Hospital/SC')
 def scam():
-    return render_template("applemobility/SC_covid-19_amobilityreport.html")
+    return render_template("hospital/SC_covid-19_hospital.html")
 
 
 @app.route('/States/SD')
@@ -1382,9 +1382,9 @@ def sddr():
 def sdgm():
     return render_template("googlemobility/SD_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/SD')
+@app.route('/Graphs/Hospital/SD')
 def sdam():
-    return render_template("applemobility/SD_covid-19_amobilityreport.html")
+    return render_template("hospital/SD_covid-19_hospital.html")
 
 
 @app.route('/States/TN')
@@ -1415,9 +1415,9 @@ def tndr():
 def tngm():
     return render_template("googlemobility/TN_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/TN')
+@app.route('/Graphs/Hospital/TN')
 def tnam():
-    return render_template("applemobility/TN_covid-19_amobilityreport.html")
+    return render_template("hospital/TN_covid-19_hospital.html")
 
 
 @app.route('/States/TX')
@@ -1448,9 +1448,9 @@ def txdr():
 def txgm():
     return render_template("googlemobility/TX_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/TX')
+@app.route('/Graphs/Hospital/TX')
 def txam():
-    return render_template("applemobility/TX_covid-19_amobilityreport.html")
+    return render_template("hospital/TX_covid-19_hospital.html")
 
 
 @app.route('/States/UT')
@@ -1481,9 +1481,9 @@ def utdr():
 def utgm():
     return render_template("googlemobility/UT_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/UT')
+@app.route('/Graphs/Hospital/UT')
 def utam():
-    return render_template("applemobility/UT_covid-19_amobilityreport.html")
+    return render_template("hospital/UT_covid-19_hospital.html")
 
 
 @app.route('/States/VT')
@@ -1514,9 +1514,9 @@ def vtdr():
 def vtgm():
     return render_template("googlemobility/VT_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/VT')
+@app.route('/Graphs/Hospital/VT')
 def vtam():
-    return render_template("applemobility/VT_covid-19_amobilityreport.html")
+    return render_template("hospital/VT_covid-19_hospital.html")
 
 
 @app.route('/States/VA')
@@ -1547,9 +1547,9 @@ def vadr():
 def vagm():
     return render_template("googlemobility/VA_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/VA')
+@app.route('/Graphs/Hospital/VA')
 def vaam():
-    return render_template("applemobility/VA_covid-19_amobilityreport.html")
+    return render_template("hospital/VA_covid-19_hospital.html")
 
 
 @app.route('/States/WA')
@@ -1580,9 +1580,9 @@ def wadr():
 def wagm():
     return render_template("googlemobility/WA_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/WA')
+@app.route('/Graphs/Hospital/WA')
 def waam():
-    return render_template("applemobility/WA_covid-19_amobilityreport.html")
+    return render_template("hospital/WA_covid-19_hospital.html")
 
 
 @app.route('/States/WV')
@@ -1613,9 +1613,9 @@ def wvdr():
 def wvgm():
     return render_template("googlemobility/WV_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/WV')
+@app.route('/Graphs/Hospital/WV')
 def wvam():
-    return render_template("applemobility/WV_covid-19_amobilityreport.html")
+    return render_template("hospital/WV_covid-19_hospital.html")
 
 
 @app.route('/States/WI')
@@ -1646,9 +1646,9 @@ def widr():
 def wigm():
     return render_template("googlemobility/WI_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/WI')
+@app.route('/Graphs/Hospital/WI')
 def wiam():
-    return render_template("applemobility/WI_covid-19_amobilityreport.html")
+    return render_template("hospital/WI_covid-19_hospital.html")
 
 
 @app.route('/States/WY')
@@ -1679,9 +1679,10 @@ def wydr():
 def wygm():
     return render_template("googlemobility/WY_covid-19_gmobilityreport.html")
 
-@app.route('/Graphs/Mobility/Apple/WY')
+@app.route('/Graphs/Hospital/WY')
 def wyam():
-    return render_template("applemobility/WY_covid-19_amobilityreport.html")
+    return render_template("hospital/WY_covid-19_hospital.html")
+            
 if __name__=="__main__":
     app.run(debug=True)
 

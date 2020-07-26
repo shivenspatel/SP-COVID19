@@ -41,11 +41,11 @@ stateabbreviationsgooglemobility = []
 for i in stateabbreviationslower:
     stateabbreviationsgooglemobility.append(i + 'gm')
 
-stateabbreviationsapplemobility = []
+stateabbreviationshospital = []
 for i in stateabbreviationslower:
-    stateabbreviationsapplemobility.append(i + 'am')
+    stateabbreviationshospital.append(i + 'am')
 
-for sa, sal, sam, sag, sac, sad, sadr, sagm, saam in zip(stateabbreviations, stateabbreviationslower, stateabbreviationsmap, stateabbreviationsgraph, stateabbreviationscases, stateabbreviationsdeaths, stateabbreviationsdeathrate, stateabbreviationsgooglemobility, stateabbreviationsapplemobility):
+for sa, sal, sam, sag, sac, sad, sadr, sagm, saam in zip(stateabbreviations, stateabbreviationslower, stateabbreviationsmap, stateabbreviationsgraph, stateabbreviationscases, stateabbreviationsdeaths, stateabbreviationsdeathrate, stateabbreviationsgooglemobility, stateabbreviationshospital):
     code=f"""
         @app.route('/States/{sa}')
         def {sal}():
@@ -75,13 +75,13 @@ for sa, sal, sam, sag, sac, sad, sadr, sagm, saam in zip(stateabbreviations, sta
         def {sagm}():
             return render_template("googlemobility/{sa}_covid-19_gmobilityreport.html") 
 
-        @app.route('/Graphs/Mobility/Apple/{sa}')
+        @app.route('/Graphs/Hospital/{sa}')
         def {saam}():
-            return render_template("applemobility/{sa}_covid-19_amobilityreport.html") 
+            return render_template("hospital/{sa}_covid-19_hospital.html") 
     """
     print(code)
 
-for sl, sam, sa, sag, sac, sad, sd, sagm, saam in zip(statelist, stateabbreviationsmap, stateabbreviations, stateabbreviationsgraph, stateabbreviationscases, stateabbreviationsdeaths, stateabbreviationsdeathrate, stateabbreviationsgooglemobility, stateabbreviationsapplemobility):
+for sl, sam, sa, sag, sac, sad, sd, sagm, saam in zip(statelist, stateabbreviationsmap, stateabbreviations, stateabbreviationsgraph, stateabbreviationscases, stateabbreviationsdeaths, stateabbreviationsdeathrate, stateabbreviationsgooglemobility, stateabbreviationshospital):
     code1="""
         <html>
         <head>
@@ -171,9 +171,9 @@ for sl, sam, sa, sag, sac, sad, sd, sagm, saam in zip(statelist, stateabbreviati
                     <option value="{{{{url_for('{sag}')}}}}">Positivity Rate</option>
                     <option value="{{{{url_for('{sad}')}}}}">Daily New Deaths</option>
                     <option value="{{{{url_for('{sac}')}}}}">Daily New Positives</option>
+                    <option value="{{{{url_for('{saam}')}}}}">Hospitalization Data</option>
                     <option value="{{{{url_for('{sd}')}}}}">Death Rate</option>
                     <option value="{{{{url_for('{sagm}')}}}}">Google Mobility Report</option>
-                    <option value="{{{{url_for('{saam}')}}}}">Apple Mobility Report</option>
                 </select>
             </div>
             <div class="box">
