@@ -29,8 +29,12 @@
         <div class='select-div'>
             <select id="Select">
                 <option value="{{ url_for('usg') }}">Positivity Rate</option>
+                <option value="{{ url_for('usdr') }}">Death Rate</option>
                 <option value="{{ url_for('usc') }}">New Deaths</option>
                 <option value="{{ url_for('usp') }}">New Cases</option>
+                <option value="{{ url_for('ush') }}">Hospitalization Data</option>
+                <option value="{{ url_for('ust') }}">Testing Data</option>
+                <option value="{{ url_for('usgm') }}">Google Mobility Report</option>
             </select>
         </div>
         <div class="graph">

@@ -54,6 +54,10 @@ def filenamegmr(name):
 def filenameh(name):
     return 'templates/hospital/'+name+'_covid-19_hospital.html'
 
+def filenametest(name):
+    return 'templates/testing/'+name+'_covid-19_testing.html'
+
+
 # Positivity Rate Graph
 for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     reset_output()
@@ -144,7 +148,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     # df5.to_excel(file_save, index = False, header=True)
 
     graph_name = "COVID-19 Positivity Rate in {0}".format(str(sl))
-    g=figure(title=graph_name, x_axis_type='datetime')
+    g=figure(title=graph_name, x_axis_type='datetime', sizing_mode='stretch_both')
     g.line(x='Date', y='Rate', source=df5, line_color='navy', line_width=2.5, legend_label='Positivity Rate')
     g.line(x='Date', y='Rolling Average', source=df5, line_color='red', line_width=2.5, legend_label='Positivity Rate Rolling Average')
 
@@ -258,7 +262,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     # df5.to_excel(file_save, index = False, header=True)
 
     graph_name = "COVID-19 Death Rate in {0}".format(str(sl))
-    g=figure(title=graph_name, x_axis_type='datetime')
+    g=figure(title=graph_name, x_axis_type='datetime', sizing_mode='stretch_both')
     g.line(x='Date', y='Death Rate', source=df5, line_color='navy', line_width=2.5, legend_label='Death Rate')
     g.line(x='Date', y='Rolling Average', source=df5, line_color='red', line_width=2.5, legend_label='Death Rate Rolling Average')
 
@@ -278,6 +282,8 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
 
 # Daily Deaths Graph
 for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
+    reset_output()
+
     data=pd.read_json('https://covidtracking.com/api/v1/states/{0}/daily.json'.format(sab))
     df=pd.DataFrame(data)
     df
@@ -332,7 +338,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
         ('Total Tests', '@Tests')
     ]
 
-    g=figure(title="COVID-19 Daily New Deaths in {0}".format(sl), x_axis_type='datetime')
+    g=figure(title="COVID-19 Daily New Deaths in {0}".format(sl), x_axis_type='datetime', sizing_mode='stretch_both')
     g.vbar(x='Date', top='Deaths', source=df2, color='red', legend_label='New Deaths')
     g.line(x='Date', y='RAverageDeaths', source=df2, line_color='gray', line_width=2.5, legend_label='New Deaths Rolling Average')
 
@@ -344,9 +350,10 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
 
 # Daily Positives Graph
 for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
+    reset_output()
+
     data=pd.read_json('https://covidtracking.com/api/v1/states/{0}/daily.json'.format(sab))
     df=pd.DataFrame(data)
-    df
 
     date1 = ('2020-01-29')
     date2 = (str(date.today()))
@@ -399,7 +406,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
         ('Total Tests', '@Tests')
     ]
 
-    g=figure(title="COVID-19 Daily New Positive Cases in {0}".format(sl), x_axis_type='datetime')
+    g=figure(title="COVID-19 Daily New Positive Cases in {0}".format(sl), x_axis_type='datetime', sizing_mode='stretch_both')
     g.vbar(x='Date', top='Positive', source=df2, color='blue', legend_label='New Cases')
     g.line(x='Date', y='RAveragePos', source=df2, line_color='navy', line_width=2.5, legend_label='New Cases Rolling Average')
 
@@ -412,6 +419,8 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
 #Google Mobility Rate
 googleorigin=pd.read_csv("https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv")
 for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
+    reset_output()
+
     google=googleorigin.copy()
 
     file_path=filenamegmr(sa)
@@ -434,7 +443,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     google['work']=google['workplaces_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
     google['home']=google['residential_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
 
-    g=figure(title=f"Mobility Data in {sl} (Google)", x_axis_type='datetime')
+    g=figure(title=f"Mobility Data in {sl} (Google)", x_axis_type='datetime', sizing_mode='stretch_both')
     g.line(x='Dates', y='retail', source=google, line_color='red', line_width=2.5, legend_label='Retail and Recreation')
     g.line(x='Dates', y='grocery', source=google, line_color='orange', line_width=2.5, legend_label='Grocery and Pharmacy')
     g.line(x='Dates', y='parks', source=google, line_color='gray', line_width=2.5, legend_label='Parks')
@@ -465,6 +474,8 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
 
 #Hospitalization Data
 for sa, sl, sab in zip(stateabbreviations, statelist, stateabbreviationslower):
+    reset_output()
+
     data=pd.read_json('https://covidtracking.com/api/v1/states/{0}/daily.json'.format(sab))
     hospfile = filenameh(sa)
     output_file(hospfile)
@@ -532,7 +543,7 @@ for sa, sl, sab in zip(stateabbreviations, statelist, stateabbreviationslower):
     df['RAverageICU']=df['inIcuCurrently'].rolling(window=7, min_periods=1).mean()
     df['RAverageVent']=df['onVentilatorCurrently'].rolling(window=7, min_periods=1).mean()
 
-    g=figure(title=f"COVID-19 Hospitalization Data in {sl}", x_axis_type='datetime', sizing_mode='stretch_height', width=650)
+    g=figure(title=f"COVID-19 Hospitalization Data in {sl}", x_axis_type='datetime', sizing_mode='stretch_both')
 
     # g.line(x='dates', y='Total_Inpatient_Beds_Available', source=inpdata, line_color='yellow', line_width=2.5, legend_label='Total Inpatient Beds')
     # g.line(x='dates', y='Total_ICU_Beds_Available', source=ICUdata, line_color='gray', line_width=2.5, legend_label='Total ICU Beds')
@@ -565,6 +576,71 @@ for sa, sl, sab in zip(stateabbreviations, statelist, stateabbreviationslower):
     g.add_tools(hover)
     save(g)
 
+#Testing Data
+for sa, sl, sab in zip(stateabbreviations, statelist, stateabbreviationslower):
+    df=pd.read_json('https://covidtracking.com/api/v1/states/{0}/daily.json'.format(sab))
+
+    testfile = filenametest(sa)
+    output_file(testfile)
+    print(testfile)
+
+    date1 = ('2020-01-29')
+    date2 = (str(date.today()))
+    date_range=pd.date_range(date1, date2).to_pydatetime().tolist()
+
+    m_dates = []
+    for item in df['date']:
+        m_dates.append(str(item))
+
+    r_dates = []
+    def insertChar(mystring, position, chartoinsert ):
+        longi = len(mystring)
+        mystring   =  mystring[:position] + chartoinsert + mystring[position:] 
+        return mystring 
+
+    for m in m_dates:
+        r_dates.append(insertChar(m, 4, '-'))
+
+    f_dates = []
+    for r in r_dates:
+        f_dates.append(insertChar(r, 7, '-'))
+
+    d_dates = []
+    for f in f_dates:
+        d_dates.append(datetime.strptime(f, '%Y-%m-%d'))
+
+    df['dates_f']=d_dates
+    df['dates_s']=f_dates
+
+    df['PosAverage']=df['positiveIncrease'].rolling(window=7, min_periods=1).mean()
+    df['TotAverage']=df['totalTestResultsIncrease'].rolling(window=7, min_periods=1).mean()
+    df['NegAverage']=df['negativeIncrease'].rolling(window=7, min_periods=1).mean()
+
+    p = figure(x_axis_type='datetime', title=f'COVID-19 Testing Data in {sl}', sizing_mode='stretch_both')
+
+    p.vbar_stack(['positiveIncrease', 'negativeIncrease'], x='dates_f', width=43200000, 
+        color=['red', 'blue'], source=df, legend_label=['Positive Results', 'Negative Results'])
+
+    p.line(x='dates_f', y='PosAverage', source=df, line_color='maroon', line_width=2.5, legend_label='Positive Results Rolling Average')
+    p.line(x='dates_f', y='NegAverage', source=df, line_color='navy', line_width=2.5, legend_label='Negative Results Rolling Average')
+    p.line(x='dates_f', y='TotAverage', source=df, line_color='black', line_width=2.5, legend_label='Total Results Rolling Average')
+    
+    p.legend.location = "top_left"
+    p.legend.click_policy="hide"
+
+    hover = HoverTool()
+    hover.tooltips = [
+        ('Dates', '@dates_s'),
+        ('New Positive Tests', '@positiveIncrease'),
+        ('New Negative Tests', '@negativeIncrease'),
+        ('Total Tests Performed', '@totalTestResultsIncrease')
+    ]
+
+    p.legend.label_text_font_size = '8pt'
+    p.legend.background_fill_alpha = 0.35
+
+    p.add_tools(hover)
+    save(p)
 
 #Map
 cdataorigin=pd.read_csv("https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv")
@@ -615,7 +691,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
             print(i)
 
     stateloctag="{0}".format(sa)
-    m = folium.Map(width=500, height=650, location=[float(latitude.loc[stateloctag]), float(longitude.loc[stateloctag])], zoom_start=6) 
+    m = folium.Map(location=[float(latitude.loc[stateloctag]), float(longitude.loc[stateloctag])], zoom_start=6) 
 
     df4['fips'] = df4.index
     df4.set_index('county', inplace=True)

@@ -44,8 +44,16 @@ for i in stateabbreviationslower:
 stateabbreviationshospital = []
 for i in stateabbreviationslower:
     stateabbreviationshospital.append(i + 'am')
+    
+stateabbreviationstesting = ['alt', 'akt', 'azt', 'art', 'cat', 'cot', 'ctt',
+                             'det', 'flt', 'gat', 'hit', 'idt', 'ilt', 'inte', 
+                             'iat', 'kst', 'kyt', 'lat', 'met', 'mdt', 'mat', 
+                             'mit', 'mnt', 'mst', 'mot', 'mtt', 'net', 'nvt', 
+                             'nht', 'njt', 'nmt', 'nyt', 'nct', 'ndt', 'oht', 
+                             'okt', 'ort', 'pat', 'rit', 'sct', 'sdt', 'tnt', 
+                             'txt', 'utt', 'vtt', 'vat', 'wat', 'wvt', 'wit', 'wyt']
 
-for sa, sal, sam, sag, sac, sad, sadr, sagm, saam in zip(stateabbreviations, stateabbreviationslower, stateabbreviationsmap, stateabbreviationsgraph, stateabbreviationscases, stateabbreviationsdeaths, stateabbreviationsdeathrate, stateabbreviationsgooglemobility, stateabbreviationshospital):
+for sa, sal, sam, sag, sac, sad, sadr, sagm, saam, sat in zip(stateabbreviations, stateabbreviationslower, stateabbreviationsmap, stateabbreviationsgraph, stateabbreviationscases, stateabbreviationsdeaths, stateabbreviationsdeathrate, stateabbreviationsgooglemobility, stateabbreviationshospital, stateabbreviationstesting):
     code=f"""
         @app.route('/States/{sa}')
         def {sal}():
@@ -78,11 +86,19 @@ for sa, sal, sam, sag, sac, sad, sadr, sagm, saam in zip(stateabbreviations, sta
         @app.route('/Graphs/Hospital/{sa}')
         def {saam}():
             return render_template("hospital/{sa}_covid-19_hospital.html") 
+
+        @app.route('/Graphs/Testing/{sa}')
+        def {sat}():
+            return render_template("testing/{sa}_covid-19_testing.html") 
     """
     print(code)
 
-for sl, sam, sa, sag, sac, sad, sd, sagm, saam in zip(statelist, stateabbreviationsmap, stateabbreviations, stateabbreviationsgraph, stateabbreviationscases, stateabbreviationsdeaths, stateabbreviationsdeathrate, stateabbreviationsgooglemobility, stateabbreviationshospital):
+for sl, sam, sa, sag, sac, sad, sd, sagm, saam, sat in zip(statelist, stateabbreviationsmap, stateabbreviations, stateabbreviationsgraph, stateabbreviationscases, stateabbreviationsdeaths, stateabbreviationsdeathrate, stateabbreviationsgooglemobility, stateabbreviationshospital, stateabbreviationstesting):
     code1="""
+        <html>
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <style>
         <html>
         <head>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -102,6 +118,9 @@ for sl, sam, sa, sag, sac, sad, sd, sagm, saam in zip(statelist, stateabbreviati
                     overflow: hidden;
                     float: left;
                 }
+                #Frame{
+                    width: 100%
+                }
                 #GraphSelect{
                     width: 50%;
                     height: 50px;
@@ -115,15 +134,30 @@ for sl, sam, sa, sag, sac, sad, sd, sagm, saam in zip(statelist, stateabbreviati
                 .custom-select{
                     border: none;
                 }
+                .disclaimer{
+                    display: none;
+                }
                 @media only screen and (max-width: 800px) {
                     .map{
-                        width: 90%;
-                        height: 600px;
+                        height: 800px;
+                        padding-top: 15px;
+                        width: 100%;
                         overflow: hidden;
-                        float: none;
+                    }
+                    #county{
+                        width: 115%;
+                        height: 121%;
+                        -ms-zoom: 0.79;
+                        -moz-transform: scale(0.79);
+                        -moz-transform-origin: 0 0;
+                        -o-transform: scale(0.79);
+                        -o-transform-origin: 0 0;
+                        -webkit-transform: scale(0.79);
+                        -webkit-transform-origin: 0 0;
                     }
                     .box{
-                        width: 620px;
+                        width: 165%;
+                        height: 165%;
                         overflow: hidden;
                         float: none;
                         -ms-zoom: 0.6;
@@ -146,6 +180,15 @@ for sl, sam, sa, sag, sac, sad, sd, sagm, saam in zip(statelist, stateabbreviati
                         text-align-last: center;
                         width: 100%;
                     } 
+                    .disclaimer{
+                        display: block;
+                        padding: 10px;
+                        text-align: center;
+                        color: black;
+                        font-weight: bold;
+                        font-size: 15px;
+                        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                    }
                 }
             </style>
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -163,6 +206,7 @@ for sl, sam, sa, sag, sac, sad, sd, sagm, saam in zip(statelist, stateabbreviati
         """
     code2=f"""
         <body>
+            <div class='disclaimer'>Scroll down for graphs</div>
             <div class="map">
                 <iframe src="{{{{url_for('{sam}')}}}}" frameborder="0" scrolling="no" width="100%" height="625"> </iframe>
             </div>
@@ -172,10 +216,12 @@ for sl, sam, sa, sag, sac, sad, sd, sagm, saam in zip(statelist, stateabbreviati
                     <option value="{{{{url_for('{sad}')}}}}">Daily New Deaths</option>
                     <option value="{{{{url_for('{sac}')}}}}">Daily New Positives</option>
                     <option value="{{{{url_for('{saam}')}}}}">Hospitalization Data</option>
+                    <option value="{{{{url_for('{sat}')}}}}">Testing Data</option>
                     <option value="{{{{url_for('{sd}')}}}}">Death Rate</option>
                     <option value="{{{{url_for('{sagm}')}}}}">Google Mobility Report</option>
                 </select>
             </div>
+            <div class='disclaimer'>Select a graph from the dropdown</div>
             <div class="box">
                 <iframe id="Frame"  src="{{{{url_for('{sag}')}}}}" frameborder="0" scrolling="no" width="100%" height="625"></iframe>
             </div>
