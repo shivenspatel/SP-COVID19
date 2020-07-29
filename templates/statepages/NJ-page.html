@@ -49,14 +49,14 @@
                         overflow: hidden;
                     }
                     #county{
-                        width: 115%;
-                        height: 121%;
-                        -ms-zoom: 0.79;
-                        -moz-transform: scale(0.79);
+                        width: 130%;
+                        height: 130%;
+                        -ms-zoom: 0.70;
+                        -moz-transform: scale(0.70);
                         -moz-transform-origin: 0 0;
-                        -o-transform: scale(0.79);
+                        -o-transform: scale(0.70);
                         -o-transform-origin: 0 0;
-                        -webkit-transform: scale(0.79);
+                        -webkit-transform: scale(0.70);
                         -webkit-transform-origin: 0 0;
                     }
                     .box{
@@ -111,7 +111,7 @@
         <body>
             <div class='disclaimer'>Scroll down for graphs</div>
             <div class="map">
-                <iframe src="{{url_for('njm')}}" frameborder="0" scrolling="no" width="100%" height="625"> </iframe>
+                <iframe id='county' src="{{url_for('njm')}}" frameborder="0" scrolling="no" width="100%" height="625"> </iframe>
             </div>
             <div class='custom-select'>
                 <select id="GraphSelect">
