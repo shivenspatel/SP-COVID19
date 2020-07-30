@@ -1,7 +1,9 @@
 # spcovid19
 A Python project that visualizes COVID-19 data at the federal and state/county level. Includes graphs (bokeh) and maps (folium).
 
-loopgenerator.py - Main file; generates all graphs and maps in their respective folders.
+main.py - Main file; generates all graphs and maps in their respective folders.
+
+loopgenerator.py - deprecated
 
 codegenerator.py - meant to generate functions to paste into flask file; generates each state's webpage.
 
