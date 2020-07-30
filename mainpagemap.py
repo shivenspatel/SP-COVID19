@@ -71,9 +71,9 @@ folium.Choropleth(
 
 for sn, sa in zip(df2.index, df1.index):
     popup="""
-    {0}
-    Cases per 100K: {1}
-    Deaths per 100K: {2}
+    <b>{0}</b>
+    <b>Cases per 100K:</b> {1}
+    <b>Deaths per 100K:</b> {2}
     """.format(sn, int(df1.loc[sa]['casespo']), int(df1.loc[sa]['deathspo']))
 
     folium.CircleMarker(location=(float(df2.loc[sn]['latitude']), float(df2.loc[sn]['longitude'])), 
@@ -81,9 +81,9 @@ for sn, sa in zip(df2.index, df1.index):
     
 for sn, sa in zip(df2.index, df1.index):
     popup="""
-    {0}
-    Cases per 100K: {1}
-    Deaths per 100K: {2}
+    <b>{0}</b>
+    <b>Cases per 100K:</b> {1}
+    <b>Deaths per 100K:</b> {2}
     """.format(sn, int(df1.loc[sa]['casespo']), int(df1.loc[sa]['deathspo']))
 
     folium.CircleMarker(location=(float(df2.loc[sn]['latitude']), float(df2.loc[sn]['longitude'])), 
