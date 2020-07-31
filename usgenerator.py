@@ -102,7 +102,7 @@ def positivityrate():
     # df5.to_excel(file_save, index = False, header=True)
 
     graph_name = "COVID-19 Positivity Rate in the United States"
-    g=figure(title=graph_name, x_axis_type='datetime', sizing_mode='stretch_both')
+    g=figure(title=graph_name, x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
     g.line(x='Date', y='Rate', source=df5, line_color='navy', line_width=2.5, legend_label='Positivity Rate')
     g.line(x='Date', y='Rolling Average', source=df5, line_color='red', line_width=2.5, legend_label='Positivity Rate Rolling Average')
 
@@ -216,7 +216,7 @@ def deathrate():
     # df5.to_excel(file_save, index = False, header=True)
 
     graph_name = "COVID-19 Death Rate in the United States"
-    g=figure(title=graph_name, x_axis_type='datetime', sizing_mode='stretch_both')
+    g=figure(title=graph_name, x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
     g.line(x='Date', y='Death Rate', source=df5, line_color='navy', line_width=2.5, legend_label='Death Rate')
     g.line(x='Date', y='Rolling Average', source=df5, line_color='red', line_width=2.5, legend_label='Death Rate Rolling Average')
 
@@ -292,8 +292,8 @@ def dailydeaths():
         ('Total Tests', '@Tests')
     ]
 
-    g=figure(title="COVID-19 Daily New Deaths in the US", x_axis_type='datetime', sizing_mode='stretch_both')
-    g.vbar(x='Date', top='Deaths', source=df2, color='red', legend_label='New Deaths')
+    g=figure(title="COVID-19 Daily New Deaths in the US", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
+    g.vbar(x='Date', top='Deaths', source=df2, color='red', legend_label='New Deaths', width=43200000)
     g.line(x='Date', y='RAverageDeaths', source=df2, line_color='gray', line_width=2.5, legend_label='New Deaths Rolling Average')
 
     g.legend.location = "top_left"
@@ -360,8 +360,8 @@ def dailypositives():
         ('Total Tests', '@Tests')
     ]
 
-    g=figure(title="COVID-19 Daily New Positive Cases in the US", x_axis_type='datetime', sizing_mode='stretch_both')
-    g.vbar(x='Date', top='Positive', source=df2, color='blue', legend_label='New Cases')
+    g=figure(title="COVID-19 Daily New Positive Cases in the US", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
+    g.vbar(x='Date', top='Positive', source=df2, color='blue', legend_label='New Cases', width=43200000)
     g.line(x='Date', y='RAveragePos', source=df2, line_color='navy', line_width=2.5, legend_label='New Cases Rolling Average')
 
     g.legend.location = "top_left"
@@ -396,7 +396,7 @@ def googlemobility():
     google['work']=google['workplaces_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
     google['home']=google['residential_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
 
-    g=figure(title=f"Mobility Data in the US (Google)", x_axis_type='datetime', sizing_mode='stretch_both')
+    g=figure(title=f"Mobility Data in the US (Google)", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
     g.line(x='Dates', y='retail', source=google, line_color='red', line_width=2.5, legend_label='Retail and Recreation')
     g.line(x='Dates', y='grocery', source=google, line_color='orange', line_width=2.5, legend_label='Grocery and Pharmacy')
     g.line(x='Dates', y='parks', source=google, line_color='gray', line_width=2.5, legend_label='Parks')
@@ -496,7 +496,7 @@ def hospital():
     df['RAverageICU']=df['inIcuCurrently'].rolling(window=7, min_periods=1).mean()
     df['RAverageVent']=df['onVentilatorCurrently'].rolling(window=7, min_periods=1).mean()
 
-    g=figure(title=f"COVID-19 Hospitalization Data in the US", x_axis_type='datetime', sizing_mode='stretch_both')
+    g=figure(title=f"COVID-19 Hospitalization Data in the US", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
 
     # g.line(x='dates', y='Total_Inpatient_Beds_Available', source=inpdata, line_color='yellow', line_width=2.5, legend_label='Total Inpatient Beds')
     # g.line(x='dates', y='Total_ICU_Beds_Available', source=ICUdata, line_color='gray', line_width=2.5, legend_label='Total ICU Beds')
@@ -569,7 +569,7 @@ def testing():
     df['TotAverage']=df['totalTestResultsIncrease'].rolling(window=7, min_periods=1).mean()
     df['NegAverage']=df['negativeIncrease'].rolling(window=7, min_periods=1).mean()
 
-    p = figure(x_axis_type='datetime', title=f'COVID-19 Testing Data in the US', sizing_mode='stretch_both')
+    p = figure(x_axis_type='datetime', title=f'COVID-19 Testing Data in the US', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
 
     p.vbar_stack(['positiveIncrease', 'negativeIncrease'], x='dates_f', width=43200000, 
         color=['red', 'blue'], source=df, legend_label=['Positive Results', 'Negative Results'])

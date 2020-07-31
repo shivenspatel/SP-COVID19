@@ -128,7 +128,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     df['TotAverage']=df['totalTestResultsIncrease'].rolling(window=7, min_periods=1).mean()
     df['NegAverage']=df['negativeIncrease'].rolling(window=7, min_periods=1).mean()
 
-    pr=figure(title=f"COVID-19 Positivity Rate in {sl}", x_axis_type='datetime', sizing_mode='stretch_both')
+    pr=figure(title=f"COVID-19 Positivity Rate in {sl}", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
     pr.line(x='dates_f', y='PosRate', source=df, line_color='navy', line_width=2.5, legend_label='Positivity Rate')
     pr.line(x='dates_f', y='PosRateAvg', source=df, line_color='red', line_width=2.5, legend_label='Positivity Rate Rolling Average')
 
@@ -153,7 +153,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     print(prfile)
     save(pr)
 
-    dr=figure(title=f"COVID-19 Death Rate in {sl}", x_axis_type='datetime', sizing_mode='stretch_both')
+    dr=figure(title=f"COVID-19 Death Rate in {sl}", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
     dr.line(x='dates_f', y='DeaRate', source=df, line_color='navy', line_width=2.5, legend_label='Positivity Rate')
     dr.line(x='dates_f', y='DeaRateAvg', source=df, line_color='red', line_width=2.5, legend_label='Positivity Rate Rolling Average')
 
@@ -178,8 +178,8 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     print(drfile)
     save(dr)
 
-    d=figure(title=f"COVID-19 Daily New Deaths in {sl}", x_axis_type='datetime', sizing_mode='stretch_both')
-    d.vbar(x='dates_f', top='deathIncrease', width=0.75, source=df, color='red', legend_label='New Deaths')
+    d=figure(title=f"COVID-19 Daily New Deaths in {sl}", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
+    d.vbar(x='dates_f', top='deathIncrease', source=df, color='red', legend_label='New Deaths', width=43200000)
     d.line(x='dates_f', y='DeaAverage', source=df, line_color='gray', line_width=2.5, legend_label='New Deaths Rolling Average')
 
     dhover = HoverTool()
@@ -200,8 +200,8 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     print(dfile)
     save(d)
 
-    p=figure(title=f"COVID-19 Daily New Cases in {sl}", x_axis_type='datetime', sizing_mode='stretch_both')
-    p.vbar(x='dates_f', top='positiveIncrease', source=df, width=0.75, color='blue', legend_label='New Deaths')
+    p=figure(title=f"COVID-19 Daily New Cases in {sl}", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
+    p.vbar(x='dates_f', top='positiveIncrease', source=df, color='blue', legend_label='New Deaths', width=43200000)
     p.line(x='dates_f', y='PosAverage', source=df, line_color='navy', line_width=2.5, legend_label='New Deaths Rolling Average')
 
     phover = HoverTool()
@@ -240,7 +240,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     google['work']=google['workplaces_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
     google['home']=google['residential_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
 
-    g=figure(title=f"Mobility Data in {sl} (Google)", x_axis_type='datetime', sizing_mode='stretch_both')
+    g=figure(title=f"Mobility Data in {sl} (Google)", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
     g.line(x='Dates', y='retail', source=google, line_color='red', line_width=2.5, legend_label='Retail and Recreation')
     g.line(x='Dates', y='grocery', source=google, line_color='orange', line_width=2.5, legend_label='Grocery and Pharmacy')
     g.line(x='Dates', y='parks', source=google, line_color='gray', line_width=2.5, legend_label='Parks')
@@ -272,7 +272,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     print(gfile)
     save(g)
 
-    h=figure(title=f"COVID-19 Hospitalization Data in {sl}", x_axis_type='datetime', sizing_mode='stretch_both')
+    h=figure(title=f"COVID-19 Hospitalization Data in {sl}", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
 
     h.line(x='dates_f', y='hospitalizedCurrently', source=df, line_color='navy', line_width=2.5, legend_label='Currently Hospitalized')
     h.line(x='dates_f', y='RAverageHosp', source=df, line_color='blue', line_width=2.5, legend_label='Currently Hospitalized Rolling Average')
@@ -302,10 +302,10 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     print(hfile)
     save(h)
 
-    t = figure(x_axis_type='datetime', title=f'COVID-19 Testing Data in {sl}', sizing_mode='stretch_both')
+    t = figure(x_axis_type='datetime', title=f'COVID-19 Testing Data in {sl}', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
 
     t.vbar_stack(['positiveIncrease', 'negativeIncrease'], x='dates_f', width=43200000, 
-        color=['red', 'blue'], source=df, legend_label=['Positive Results', 'Negative Results'])
+        color=['red', 'gray'], source=df, legend_label=['Positive Results', 'Negative Results'])
 
     t.line(x='dates_f', y='PosAverage', source=df, line_color='maroon', line_width=2.5, legend_label='Positive Results Rolling Average')
     t.line(x='dates_f', y='NegAverage', source=df, line_color='navy', line_width=2.5, legend_label='Negative Results Rolling Average')
