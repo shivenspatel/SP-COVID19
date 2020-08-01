@@ -18,6 +18,10 @@ def usdeamap():
 def us():
     return render_template("ushome.html")
 
+@app.route('/Compare')
+def comp():
+    return render_template("comparehome.html")
+
 @app.route('/Graphs/PosRate/US')
 def usg():
     return render_template('positivityrate/US_covid-19_positivityrate.html')
@@ -46,6 +50,21 @@ def ust():
 def usgm():
     return render_template("googlemobility/US_covid-19_gmobilityreport.html")
 
+@app.route('/Graphs/Compare/Cases')
+def cases():
+    return render_template("compare/casescompare.html")
+
+@app.route('/Graphs/Compare/Deaths')
+def deaths():
+    return render_template("compare/deathscompare.html")
+
+@app.route('/Graphs/Compare/Cases100K')
+def casespo():
+    return render_template("compare/casespocompare.html")
+
+@app.route('/Graphs/Compare/Deaths100K')
+def deathspo():
+    return render_template("compare/deathspocompare.html")
 
 @app.route('/States')
 def dd():

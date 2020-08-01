@@ -23,11 +23,12 @@
             <div class='nav'>
                 <a href="{{url_for('us')}}" class="us-button">National</a>
                 <a href="{{url_for('dd')}}" class="states-button">States</a>
-                <a href="https://github.com/shivenspatel/spcovid19" class="about-button"> About </a>
+                <a href="{{url_for('comp')}}" class="compare-button">Compare States</a>
             </div>
         </div>
         <div class='select-div'>
             <select id="Select">
+                <option value="" disabled selected>Select a Graph</option>
                 <option value="{{ url_for('usg') }}">Positivity Rate</option>
                 <option value="{{ url_for('usdr') }}">Death Rate</option>
                 <option value="{{ url_for('usc') }}">New Deaths</option>
@@ -37,8 +38,12 @@
                 <option value="{{ url_for('usgm') }}">Google Mobility Report</option>
             </select>
         </div>
+
         <div class="graph">
             <iframe id='Frame' src="{{ url_for('usg') }}" width="100%" height="100%"></iframe>
+        </div>
+        <div class='footer'>
+            <a href='https://github.com/shivenspatel/spcovid19' class="madeby">Made in the USA by Shiven Patel</a>
         </div>
     </body>
 </html>

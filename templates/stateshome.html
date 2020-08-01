@@ -23,7 +23,7 @@
             <div class='nav'>
                 <a href="{{url_for('us')}}" class="us-button">National</a>
                 <a href="{{url_for('dd')}}" class="states-button">States</a>
-                <a href="https://github.com/shivenspatel/spcovid19" class="about-button"> About </a>
+                <a href="{{url_for('comp')}}" class="compare-button">Compare States</a>
             </div>
         </div>
         <div class='select-div'>
@@ -83,6 +83,9 @@
             <div class="framebox">
                 <iframe id="StateFrame" src="" frameborder="0" scrolling="no" width="100%"></iframe>
             </div>
+        </div>
+        <div class='footer'>
+            <a href='https://github.com/shivenspatel/spcovid19' class="madeby">Made in the USA by Shiven Patel</a>
         </div>
     </body>
 </html>

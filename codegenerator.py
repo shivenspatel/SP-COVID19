@@ -99,10 +99,6 @@ for sl, sam, sa, sag, sac, sad, sd, sagm, saam, sat in zip(statelist, stateabbre
         <head>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <style>
-        <html>
-        <head>
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <style>
                 body{
                     margin: 0;
                 }
