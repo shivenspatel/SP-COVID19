@@ -208,16 +208,19 @@ body{
         /* padding-top: 1px;
         padding-bottom: 1px; */
         position: relative;
+        font-size: 15px;
     }
     .states-button{
         /* padding-top: 1px;
         padding-bottom: 1px; */
         position: relative;
+        font-size: 15px;
     }
     .about-button{
         /* padding-top: 1px;
         padding-bottom: 1px; */
         position: relative;
+        font-size: 15px;
     }
     ul{
         padding: 0;
