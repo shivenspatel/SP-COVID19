@@ -57,7 +57,7 @@ def filenameh(name):
 def filenametest(name):
     return 'templates/testing/'+name+'_covid-19_testing.html'
 
-googleorigin=pd.read_csv("https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv")
+googleorigin=pd.read_csv("https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv", low_memory='False')
 
 for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     df = pd.read_csv(f'https://covidtracking.com/api/v1/states/{sab}/daily.csv')
@@ -154,8 +154,8 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     save(pr)
 
     dr=figure(title=f"COVID-19 Death Rate in {sl}", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
-    dr.line(x='dates_f', y='DeaRate', source=df, line_color='navy', line_width=2.5, legend_label='Positivity Rate')
-    dr.line(x='dates_f', y='DeaRateAvg', source=df, line_color='red', line_width=2.5, legend_label='Positivity Rate Rolling Average')
+    dr.line(x='dates_f', y='DeaRate', source=df, line_color='navy', line_width=2.5, legend_label='Death Rate')
+    dr.line(x='dates_f', y='DeaRateAvg', source=df, line_color='red', line_width=2.5, legend_label='Death Rate Rolling Average')
 
     drhover = HoverTool()
     drhover.tooltips=[
@@ -411,5 +411,54 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     print(filenamemap(sa))
     m.save(filenamemap(sa))
 
+def main():
+    google=googleorigin.copy()
 
+    google=google[google['country_region_code']=='US']
+    google=google[google['sub_region_1'].isnull()]
 
+    dates=[]
+    for i in google['date']:
+        dates.append(datetime.strptime(i, '%Y-%m-%d'))
+    google['Dates']=dates
+
+    google['retail']=google['retail_and_recreation_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
+    google['grocery']=google['grocery_and_pharmacy_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
+    google['parks']=google['parks_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
+    google['transit']=google['transit_stations_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
+    google['work']=google['workplaces_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
+    google['home']=google['residential_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
+
+    g=figure(title="Mobility Data in the US (Google)", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
+    g.line(x='Dates', y='retail', source=google, line_color='red', line_width=2.5, legend_label='Retail and Recreation')
+    g.line(x='Dates', y='grocery', source=google, line_color='orange', line_width=2.5, legend_label='Grocery and Pharmacy')
+    g.line(x='Dates', y='parks', source=google, line_color='gray', line_width=2.5, legend_label='Parks')
+    g.line(x='Dates', y='transit', source=google, line_color='green', line_width=2.5, legend_label='Transit Stations')
+    g.line(x='Dates', y='work', source=google, line_color='blue', line_width=2.5, legend_label='Workplaces')
+    g.line(x='Dates', y='home', source=google, line_color='purple', line_width=2.5, legend_label='Residential')
+
+    g.legend.location = "bottom_left"
+    g.legend.click_policy="hide"
+    g.legend.label_text_font_size = '8pt'
+    g.legend.background_fill_alpha = 0.35
+
+    hover = HoverTool()
+
+    hover.tooltips=[
+        ('Dates', '@date'),
+        ('Retail and Recreation % Change', '@retail_and_recreation_percent_change_from_baseline'),
+        ('Grocery and Pharmacy % Change', '@grocery_and_pharmacy_percent_change_from_baseline'),
+        ('Parks % Change', '@parks_percent_change_from_baseline'),
+        ('Transit Station % Change', '@transit_stations_percent_change_from_baseline'),
+        ('Workplace % Change', '@workplaces_percent_change_from_baseline'),
+        ('Residential % Change', '@residential_percent_change_from_baseline')
+    ]
+
+    g.add_tools(hover)
+
+    gfile='templates/googlemobility/US_covid-19_gmobilityreport.html'
+    output_file(gfile)
+    print(gfile)
+    save(g)
+
+main()
