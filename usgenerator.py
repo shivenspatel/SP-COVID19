@@ -14,17 +14,22 @@ import datetime as dt
 
 pd.options.mode.chained_assignment = None
 
-googleorigin=pd.read_csv("https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv", low_memory=False)
+#googleorigin=pd.read_csv("https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv")
 
 def main():
     df = pd.read_csv('https://covidtracking.com/api/v1/us/daily.csv')
 
     positivity_rate = []
-    for p, t in zip(df['positive'], df['totalTestResults']):
+    positive=list(df['positiveIncrease'])
+    tottest=list(df['totalTestResultsIncrease'])
+    for p, t, i in zip(positive, tottest, df.index):
         if t == 0:
             positivity_rate.append(0)
         else:
-            positivity_rate.append(p/t)
+            if i >= len(positive)-8:
+                positivity_rate.append(sum(positive[i:])/sum(tottest[i:]))
+            else:
+                positivity_rate.append(sum(positive[i:i+7])/sum(tottest[i:i+7]))
 
     prformat=[]
     for p in positivity_rate:
@@ -86,7 +91,7 @@ def main():
     df['NegAverage']=df['negativeIncrease'].rolling(window=7, min_periods=1).mean()
 
     pr=figure(title="COVID-19 Positivity Rate in the US", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
-    pr.line(x='dates_f', y='PosRate', source=df, line_color='navy', line_width=2.5, legend_label='Positivity Rate')
+    pr.line(x='dates_f', y='PosRate', source=df, line_color='navy', line_width=2.5, legend_label='7 Day Positivity Rate')
     pr.line(x='dates_f', y='PosRateAvg', source=df, line_color='red', line_width=2.5, legend_label='Positivity Rate Rolling Average')
 
     prhover = HoverTool()
@@ -94,8 +99,6 @@ def main():
         ('Date', '@dates_s'),
         ('Deaths', '@deathIncrease'),
         ('Positive Cases', '@positiveIncrease'),
-        ('Total Cases', '@positive'),
-        ('Total Deaths', '@death'),
         ('Positivity Rate', '@PosRateFormat')
     ]
 
@@ -111,7 +114,7 @@ def main():
     save(pr)
 
     dr=figure(title="COVID-19 Death Rate in the US", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
-    dr.line(x='dates_f', y='DeaRate', source=df, line_color='navy', line_width=2.5, legend_label='Death Rate')
+    dr.line(x='dates_f', y='DeaRate', source=df, line_color='navy', line_width=2.5, legend_label='Cummulative Death Rate')
     dr.line(x='dates_f', y='DeaRateAvg', source=df, line_color='red', line_width=2.5, legend_label='Death Rate Rolling Average')
 
     drhover = HoverTool()
@@ -178,55 +181,6 @@ def main():
     p.add_tools(phover)
     print(pfile)
     save(p)
-
-    google=googleorigin.copy()
-
-    google=google[google['country_region_code']=='US']
-    google=google[google['sub_region_1'].isnull()]
-
-    dates=[]
-    for i in google['date']:
-        dates.append(datetime.strptime(i, '%Y-%m-%d'))
-    google['Dates']=dates
-
-    google['retail']=google['retail_and_recreation_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
-    google['grocery']=google['grocery_and_pharmacy_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
-    google['parks']=google['parks_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
-    google['transit']=google['transit_stations_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
-    google['work']=google['workplaces_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
-    google['home']=google['residential_percent_change_from_baseline'].rolling(window=7, min_periods=1).mean()
-
-    g=figure(title="Mobility Data in the US (Google)", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
-    g.line(x='Dates', y='retail', source=google, line_color='red', line_width=2.5, legend_label='Retail and Recreation')
-    g.line(x='Dates', y='grocery', source=google, line_color='orange', line_width=2.5, legend_label='Grocery and Pharmacy')
-    g.line(x='Dates', y='parks', source=google, line_color='gray', line_width=2.5, legend_label='Parks')
-    g.line(x='Dates', y='transit', source=google, line_color='green', line_width=2.5, legend_label='Transit Stations')
-    g.line(x='Dates', y='work', source=google, line_color='blue', line_width=2.5, legend_label='Workplaces')
-    g.line(x='Dates', y='home', source=google, line_color='purple', line_width=2.5, legend_label='Residential')
-
-    g.legend.location = "bottom_left"
-    g.legend.click_policy="hide"
-    g.legend.label_text_font_size = '8pt'
-    g.legend.background_fill_alpha = 0.35
-
-    hover = HoverTool()
-
-    hover.tooltips=[
-        ('Dates', '@date'),
-        ('Retail and Recreation % Change', '@retail_and_recreation_percent_change_from_baseline'),
-        ('Grocery and Pharmacy % Change', '@grocery_and_pharmacy_percent_change_from_baseline'),
-        ('Parks % Change', '@parks_percent_change_from_baseline'),
-        ('Transit Station % Change', '@transit_stations_percent_change_from_baseline'),
-        ('Workplace % Change', '@workplaces_percent_change_from_baseline'),
-        ('Residential % Change', '@residential_percent_change_from_baseline')
-    ]
-
-    g.add_tools(hover)
-
-    gfile='templates/googlemobility/US_covid-19_gmobilityreport.html'
-    output_file(gfile)
-    print(gfile)
-    save(g)
 
     h=figure(title="COVID-19 Hospitalization Data in the US", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
 

@@ -57,17 +57,36 @@ def filenameh(name):
 def filenametest(name):
     return 'templates/testing/'+name+'_covid-19_testing.html'
 
-googleorigin=pd.read_csv("https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv", low_memory='False')
+googleorigin=pd.read_csv("filtered.csv", 
+dtype={"country_region_code":object,
+"country_region":object,
+"sub_region_1":object,
+"sub_region_2":object,
+"metro_area":object,
+"iso_3166_2_code":object,
+"census_fips_code":float,
+"date":object,
+"retail_and_recreation_percent_change_from_baseline":float,
+"grocery_and_pharmacy_percent_change_from_baseline":float,
+"parks_percent_change_from_baseline":float,
+"transit_stations_percent_change_from_baseline":float,
+"workplaces_percent_change_from_baseline":float,
+"residential_percent_change_from_baseline":float}, low_memory=False)
 
 for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     df = pd.read_csv(f'https://covidtracking.com/api/v1/states/{sab}/daily.csv')
 
     positivity_rate = []
-    for p, t in zip(df['positive'], df['totalTestResults']):
+    positive=list(df['positiveIncrease'])
+    tottest=list(df['totalTestResultsIncrease'])
+    for p, t, i in zip(positive, tottest, df.index):
         if t == 0:
             positivity_rate.append(0)
         else:
-            positivity_rate.append(p/t)
+            if i >= len(positive)-8:
+                positivity_rate.append(sum(positive[i:])/sum(tottest[i:]))
+            else:
+                positivity_rate.append(sum(positive[i:i+7])/sum(tottest[i:i+7]))
 
     prformat=[]
     for p in positivity_rate:
@@ -129,7 +148,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     df['NegAverage']=df['negativeIncrease'].rolling(window=7, min_periods=1).mean()
 
     pr=figure(title=f"COVID-19 Positivity Rate in {sl}", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
-    pr.line(x='dates_f', y='PosRate', source=df, line_color='navy', line_width=2.5, legend_label='Positivity Rate')
+    pr.line(x='dates_f', y='PosRate', source=df, line_color='navy', line_width=2.5, legend_label='7 Day Test Positivity Rate')
     pr.line(x='dates_f', y='PosRateAvg', source=df, line_color='red', line_width=2.5, legend_label='Positivity Rate Rolling Average')
 
     prhover = HoverTool()
@@ -154,7 +173,7 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     save(pr)
 
     dr=figure(title=f"COVID-19 Death Rate in {sl}", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
-    dr.line(x='dates_f', y='DeaRate', source=df, line_color='navy', line_width=2.5, legend_label='Death Rate')
+    dr.line(x='dates_f', y='DeaRate', source=df, line_color='navy', line_width=2.5, legend_label='Cummulative Death Rate')
     dr.line(x='dates_f', y='DeaRateAvg', source=df, line_color='red', line_width=2.5, legend_label='Death Rate Rolling Average')
 
     drhover = HoverTool()
@@ -224,7 +243,6 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
 
     google=googleorigin.copy()
 
-    google=google[google['country_region_code']=='US']
     google=google[google['sub_region_1'] == sl]
     google=google[google['sub_region_2'].isnull()]
 
