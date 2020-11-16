@@ -11,6 +11,8 @@ mainpagemap.py - generates map displayed on entry page.
 
 usgenerator.py - generates all graphs for national data.
 
+execute.py - used on AWS server as a single file to run all necessary commands to update data daily with cron
+
 County level data is from the <i>New York Times</i> GitHub database (https://github.com/nytimes/covid-19-data).
 
 Mobility Data is from Google and Apple.
