@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <title>Compare States</title>
+        <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                // SELECT MENU
+                $("#GraphSelect1").change(function() {
+                    var value = $(this).val();
+        
+                //IFRAME TAG
+                    console.log(value);
+                    $("#Frame1").attr('src', value);
+                })
+
+                // SELECT MENU
+                $("#GraphSelect2").change(function() {
+                    var value = $(this).val();
+        
+                //IFRAME TAG
+                    console.log(value);
+                    $("#Frame2").attr('src', value);
+                })
+            });
+        </script>
+        <style>
+            body{
+                margin: 0;
+            }
+            .box{
+                /* height: 800px; */
+                overflow: hidden;
+                padding: 5px;
+            }
+            #Frame1{
+                width: 100%
+            }
+            #Frame2{
+                width: 100%
+            }
+            .custom-select{
+                border: none;
+            }
+            #GraphSelect1{
+                width: 100%;
+                height: 50px;
+                font-size: 25px;
+                font-weight: bold;
+                background-color: rgba(0, 0, 0, 0.849);
+                color: antiquewhite;
+                border: none;
+                text-indent: center;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            #GraphSelect2{
+                width: 100%;
+                height: 50px;
+                font-size: 25px;
+                font-weight: bold;
+                background-color: rgba(0, 0, 0, 0.849);
+                color: antiquewhite;
+                border: none;
+                text-indent: center;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .state1
+            {
+                width: 50%;
+                float: left;
+            }
+            .state2
+            {
+                width: 50%;
+                float: right;
+            }
+            @media only screen and (max-width: 800px) {
+                .box{
+                    width: 165%;
+                    height: 165%;
+                    float: none;
+                    -ms-zoom: 0.6;
+                    -moz-transform: scale(0.6);
+                    -moz-transform-origin: 0 0;
+                    -o-transform: scale(0.6);
+                    -o-transform-origin: 0 0;
+                    -webkit-transform: scale(0.6);
+                    -webkit-transform-origin: 0 0;
+                    position: absolute;
+                    overflow: hidden;
+                }
+                .custom-select{
+                    /* padding-bottom: 5px;
+                    padding-top: 5px; */
+                    padding-left: 0;
+                    padding-right: 0;
+                    width: 100%;
+                    text-align: center;
+                }
+                #GraphSelect1{
+                    text-align-last: center;
+                }
+                #GraphSelect2{
+                    text-align-last: center;
+                }
+                .state1{
+                    width: 100%;
+                    float: top;
+                    position: relative;
+                    padding-bottom: 100%;
+                }
+                .state2{
+                    width: 100%;
+                    float: bottom;
+                    position: relative;
+                    padding-bottom: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <a href="{{url_for('main')}}" class="logo">COVID-19</a>
+            <div class='nav'>
+                <a href="{{url_for('us')}}" class="us-button">National</a>
+                <a href="{{url_for('dd')}}" class="states-button">States</a>
+                <a href="{{url_for('comh2h')}}" class="compare-button">Compare States</a>
+                <a href="{{url_for('comp')}}" class="compare-button">State Ranks</a>
+            </div>
+        </div>
+        <div class='state1'>
+            <div class='custom-select'>
+                <select id="GraphSelect1">
+                    <option value="" disabled selected>Select State 1</option>
+                    <option value="{{url_for('alpop')}}">Alabama</option>
+                    <option value="{{url_for('akpop')}}">Alaska</option>
+                    <option value="{{url_for('azpop')}}">Arizona</option>
+                    <option value="{{url_for('arpop')}}">Arkansas</option>
+                    <option value="{{url_for('capop')}}">California</option>
+                    <option value="{{url_for('copop')}}">Colorado</option>
+                    <option value="{{url_for('ctpop')}}">Connecticut</option>
+                    <option value="{{url_for('depop')}}">Delaware</option>
+                    <option value="{{url_for('flpop')}}">Florida</option>
+                    <option value="{{url_for('gapop')}}">Georgia</option>
+                    <option value="{{url_for('hipop')}}">Hawaii</option>
+                    <option value="{{url_for('idpop')}}">Idaho</option>
+                    <option value="{{url_for('ilpop')}}">Illinois</option>
+                    <option value="{{url_for('inpop')}}">Indiana</option>
+                    <option value="{{url_for('iapop')}}">Iowa</option>
+                    <option value="{{url_for('kspop')}}">Kansas</option>
+                    <option value="{{url_for('kypop')}}">Kentucky</option>
+                    <option value="{{url_for('lapop')}}">Louisiana</option>
+                    <option value="{{url_for('mepop')}}">Maine</option>
+                    <option value="{{url_for('mdpop')}}">Maryland</option>
+                    <option value="{{url_for('mapop')}}">Massachusetts</option>
+                    <option value="{{url_for('mipop')}}">Michigan</option>
+                    <option value="{{url_for('mnpop')}}">Minnesota</option>
+                    <option value="{{url_for('mspop')}}">Mississippi</option>
+                    <option value="{{url_for('mopop')}}">Missouri</option>
+                    <option value="{{url_for('mtpop')}}">Montana</option>
+                    <option value="{{url_for('nepop')}}">Nebraska</option>
+                    <option value="{{url_for('nvpop')}}">Nevada</option>
+                    <option value="{{url_for('nhpop')}}">New Hampshire</option>
+                    <option value="{{url_for('njpop')}}">New Jersey</option>
+                    <option value="{{url_for('nmpop')}}">New Mexico</option>
+                    <option value="{{url_for('nypop')}}">New York</option>
+                    <option value="{{url_for('ncpop')}}">North Carolina</option>
+                    <option value="{{url_for('ndpop')}}">North Dakota</option>
+                    <option value="{{url_for('ohpop')}}">Ohio</option>
+                    <option value="{{url_for('okpop')}}">Oklahoma</option>
+                    <option value="{{url_for('orpop')}}">Oregon</option>
+                    <option value="{{url_for('papop')}}">Pennsylvania</option>
+                    <option value="{{url_for('ripop')}}">Rhode Island</option>
+                    <option value="{{url_for('scpop')}}">South Carolina</option>
+                    <option value="{{url_for('sdpop')}}">South Dakota</option>
+                    <option value="{{url_for('tnpop')}}">Tennessee</option>
+                    <option value="{{url_for('txpop')}}">Texas</option>
+                    <option value="{{url_for('utpop')}}">Utah</option>
+                    <option value="{{url_for('vtpop')}}">Vermont</option>
+                    <option value="{{url_for('vapop')}}">Virginia</option>
+                    <option value="{{url_for('wapop')}}">Washington</option>
+                    <option value="{{url_for('wvpop')}}">West Virginia</option>
+                    <option value="{{url_for('wipop')}}">Wisconsin</option>
+                    <option value="{{url_for('wypop')}}">Wyoming</option>
+                </select>
+            </div>
+            <div class="box">
+                <iframe id="Frame1" src="{{ url_for('nypop') }}" frameborder="0" scrolling="no" width="50%" height="625" align="left"> </iframe>
+            </div>
+        </div>
+        
+        <div class=state2>
+            <div class='custom-select'>
+                <select id="GraphSelect2">
+                    <option value="" disabled selected>Select State 2</option>
+                    <option value="{{url_for('alpop')}}">Alabama</option>
+                    <option value="{{url_for('akpop')}}">Alaska</option>
+                    <option value="{{url_for('azpop')}}">Arizona</option>
+                    <option value="{{url_for('arpop')}}">Arkansas</option>
+                    <option value="{{url_for('capop')}}">California</option>
+                    <option value="{{url_for('copop')}}">Colorado</option>
+                    <option value="{{url_for('ctpop')}}">Connecticut</option>
+                    <option value="{{url_for('depop')}}">Delaware</option>
+                    <option value="{{url_for('flpop')}}">Florida</option>
+                    <option value="{{url_for('gapop')}}">Georgia</option>
+                    <option value="{{url_for('hipop')}}">Hawaii</option>
+                    <option value="{{url_for('idpop')}}">Idaho</option>
+                    <option value="{{url_for('ilpop')}}">Illinois</option>
+                    <option value="{{url_for('inpop')}}">Indiana</option>
+                    <option value="{{url_for('iapop')}}">Iowa</option>
+                    <option value="{{url_for('kspop')}}">Kansas</option>
+                    <option value="{{url_for('kypop')}}">Kentucky</option>
+                    <option value="{{url_for('lapop')}}">Louisiana</option>
+                    <option value="{{url_for('mepop')}}">Maine</option>
+                    <option value="{{url_for('mdpop')}}">Maryland</option>
+                    <option value="{{url_for('mapop')}}">Massachusetts</option>
+                    <option value="{{url_for('mipop')}}">Michigan</option>
+                    <option value="{{url_for('mnpop')}}">Minnesota</option>
+                    <option value="{{url_for('mspop')}}">Mississippi</option>
+                    <option value="{{url_for('mopop')}}">Missouri</option>
+                    <option value="{{url_for('mtpop')}}">Montana</option>
+                    <option value="{{url_for('nepop')}}">Nebraska</option>
+                    <option value="{{url_for('nvpop')}}">Nevada</option>
+                    <option value="{{url_for('nhpop')}}">New Hampshire</option>
+                    <option value="{{url_for('njpop')}}">New Jersey</option>
+                    <option value="{{url_for('nmpop')}}">New Mexico</option>
+                    <option value="{{url_for('nypop')}}">New York</option>
+                    <option value="{{url_for('ncpop')}}">North Carolina</option>
+                    <option value="{{url_for('ndpop')}}">North Dakota</option>
+                    <option value="{{url_for('ohpop')}}">Ohio</option>
+                    <option value="{{url_for('okpop')}}">Oklahoma</option>
+                    <option value="{{url_for('orpop')}}">Oregon</option>
+                    <option value="{{url_for('papop')}}">Pennsylvania</option>
+                    <option value="{{url_for('ripop')}}">Rhode Island</option>
+                    <option value="{{url_for('scpop')}}">South Carolina</option>
+                    <option value="{{url_for('sdpop')}}">South Dakota</option>
+                    <option value="{{url_for('tnpop')}}">Tennessee</option>
+                    <option value="{{url_for('txpop')}}">Texas</option>
+                    <option value="{{url_for('utpop')}}">Utah</option>
+                    <option value="{{url_for('vtpop')}}">Vermont</option>
+                    <option value="{{url_for('vapop')}}">Virginia</option>
+                    <option value="{{url_for('wapop')}}">Washington</option>
+                    <option value="{{url_for('wvpop')}}">West Virginia</option>
+                    <option value="{{url_for('wipop')}}">Wisconsin</option>
+                    <option value="{{url_for('wypop')}}">Wyoming</option>
+                </select>
+            </div>
+            <div class="box">
+                <iframe id="Frame2" src="{{ url_for('flpop') }}" frameborder="0" scrolling="no" width="50%" height="625" align="left"> </iframe>
+            </div>
+        </div>
+    </body>
+</html> 

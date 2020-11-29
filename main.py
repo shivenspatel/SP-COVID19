@@ -29,6 +29,14 @@ stateabbreviations = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA"
           "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
           "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
 
+statepopulations = [4903185, 731545, 7278717, 3017825, 39512223, 5758736, 3565287, 
+                    973764, 21477737, 10617423, 1415872, 1787065, 12671821, 6732219, 
+                    3155070, 2913314, 4467673, 4648794, 1344212, 6045680, 6949503, 9986857, 
+                    5639632, 2976149, 6137428, 1068778, 1934408, 3080156, 1359711, 8882190, 
+                    2096829, 19453561, 10488084, 762062, 11689100, 3956971, 4217737, 12801989, 
+                    1059361, 5148714, 884659, 6833174, 28995881, 3205958, 623989, 8535519, 
+                    7614893, 1792147, 5822434, 578759]
+
 stateabbreviationslower = []
 for i in stateabbreviations:
     stateabbreviationslower.append(i.lower())
@@ -57,6 +65,9 @@ def filenameh(name):
 def filenametest(name):
     return 'templates/testing/'+name+'_covid-19_testing.html'
 
+def filenamedeapop(name):
+    return 'templates/comparedeaths/'+name+'_covid-19_deathspop.html'
+
 googleorigin=pd.read_csv("filtered.csv", 
 dtype={"country_region_code":object,
 "country_region":object,
@@ -73,7 +84,7 @@ dtype={"country_region_code":object,
 "workplaces_percent_change_from_baseline":float,
 "residential_percent_change_from_baseline":float}, low_memory=False)
 
-for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
+for sl, sa, sab, pop in zip(statelist, stateabbreviations, stateabbreviationslower, statepopulations):
     df = pd.read_csv(f'https://covidtracking.com/api/v1/states/{sab}/daily.csv')
 
     positivity_rate = []
@@ -87,6 +98,11 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
                 positivity_rate.append(sum(positive[i:])/sum(tottest[i:]))
             else:
                 positivity_rate.append(sum(positive[i:i+7])/sum(tottest[i:i+7]))
+
+    deathspop = []
+    for i in df["deathIncrease"]:
+        dpop = ((i*100000)/pop)
+        deathspop.append(dpop)
 
     prformat=[]
     for p in positivity_rate:
@@ -134,9 +150,11 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     df['DeaRate'] = death_rate
     df['PosRateFormat'] = prformat
     df['DeaRateFormat'] = drformat
+    df['Deaths100K'] = deathspop
 
     df['PosRateAvg']=df['PosRate'].rolling(window=7, min_periods=1).mean()
     df['DeaRateAvg']=df['DeaRate'].rolling(window=7, min_periods=1).mean()
+    df['Dea100kPop']=df['Deaths100K'].rolling(window=7, min_periods=1).mean() 
 
     df['RAverageHosp']=df['hospitalizedCurrently'].rolling(window=7, min_periods=1).mean()
     df['RAverageICU']=df['inIcuCurrently'].rolling(window=7, min_periods=1).mean()
@@ -171,6 +189,27 @@ for sl, sa, sab in zip(statelist, stateabbreviations, stateabbreviationslower):
     pr.add_tools(prhover)
     print(prfile)
     save(pr)
+
+    popr=figure(title=f"COVID-19 Deaths per 100K Citizens in {sl}", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom", y_range=(0, 5))
+    popr.line(x='dates_f', y='Dea100kPop', source=df, line_color='navy', line_width=2.5, legend_label='Deaths per 100K Citizens Line (Rolling Average)')
+    popr.vbar(x='dates_f', top='Dea100kPop', source=df, color='blue', width=43200000, legend_label='Deaths per 100K Citizens Bar (Rolling Average)')
+
+    poprhover = HoverTool()
+    poprhover.tooltips=[
+        ('Date', '@dates_s'),
+        ('Deaths per 100K', '@Deaths100K')
+    ]
+
+    popr.legend.location = "top_right"
+    popr.legend.click_policy="hide"
+    popr.legend.label_text_font_size = '8pt'
+    popr.legend.background_fill_alpha = 0.35
+
+    popfile=filenamedeapop(sa)
+    output_file(popfile)
+    popr.add_tools(poprhover)
+    print(popfile)
+    save(popr)
 
     dr=figure(title=f"COVID-19 Death Rate in {sl}", x_axis_type='datetime', sizing_mode='stretch_both', tools=['xpan', 'xwheel_zoom'], active_scroll="xwheel_zoom")
     dr.line(x='dates_f', y='DeaRate', source=df, line_color='navy', line_width=2.5, legend_label='Cummulative Death Rate')

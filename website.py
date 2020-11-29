@@ -22,6 +22,10 @@ def us():
 def comp():
     return render_template("comparehome.html")
 
+@app.route('/CompareH2H')
+def comh2h():
+    return render_template("comparepage.html")
+
 @app.route('/Graphs/PosRate/US')
 def usg():
     return render_template('positivityrate/US_covid-19_positivityrate.html')
@@ -106,6 +110,10 @@ def alam():
 def alt():
     return render_template("testing/AL_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/AL')
+def alpop():
+    return render_template("comparedeaths/AL_covid-19_deathspop.html")
+
 
 @app.route('/States/AK')
 def ak():
@@ -142,6 +150,10 @@ def akam():
 @app.route('/Graphs/Testing/AK')
 def akt():
     return render_template("testing/AK_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/AK')
+def akpop():
+    return render_template("comparedeaths/AK_covid-19_deathspop.html")
 
 
 @app.route('/States/AZ')
@@ -180,6 +192,10 @@ def azam():
 def azt():
     return render_template("testing/AZ_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/AZ')
+def azpop():
+    return render_template("comparedeaths/AZ_covid-19_deathspop.html")
+
 
 @app.route('/States/AR')
 def ar():
@@ -216,6 +232,10 @@ def aram():
 @app.route('/Graphs/Testing/AR')
 def art():
     return render_template("testing/AR_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/AR')
+def arpop():
+    return render_template("comparedeaths/AR_covid-19_deathspop.html")
 
 
 @app.route('/States/CA')
@@ -254,6 +274,10 @@ def caam():
 def cat():
     return render_template("testing/CA_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/CA')
+def capop():
+    return render_template("comparedeaths/CA_covid-19_deathspop.html")
+
 
 @app.route('/States/CO')
 def co():
@@ -290,6 +314,10 @@ def coam():
 @app.route('/Graphs/Testing/CO')
 def cot():
     return render_template("testing/CO_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/CO')
+def copop():
+    return render_template("comparedeaths/CO_covid-19_deathspop.html")
 
 
 @app.route('/States/CT')
@@ -328,6 +356,10 @@ def ctam():
 def ctt():
     return render_template("testing/CT_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/CT')
+def ctpop():
+    return render_template("comparedeaths/CT_covid-19_deathspop.html")
+
 
 @app.route('/States/DE')
 def de():
@@ -364,6 +396,10 @@ def deam():
 @app.route('/Graphs/Testing/DE')
 def det():
     return render_template("testing/DE_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/DE')
+def depop():
+    return render_template("comparedeaths/DE_covid-19_deathspop.html")
 
 
 @app.route('/States/FL')
@@ -402,6 +438,10 @@ def flam():
 def flt():
     return render_template("testing/FL_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/FL')
+def flpop():
+    return render_template("comparedeaths/FL_covid-19_deathspop.html")
+
 
 @app.route('/States/GA')
 def ga():
@@ -438,6 +478,10 @@ def gaam():
 @app.route('/Graphs/Testing/GA')
 def gat():
     return render_template("testing/GA_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/GA')
+def gapop():
+    return render_template("comparedeaths/GA_covid-19_deathspop.html")
 
 
 @app.route('/States/HI')
@@ -476,6 +520,10 @@ def hiam():
 def hit():
     return render_template("testing/HI_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/HI')
+def hipop():
+    return render_template("comparedeaths/HI_covid-19_deathspop.html")
+
 
 @app.route('/States/ID')
 def id():
@@ -512,6 +560,10 @@ def idam():
 @app.route('/Graphs/Testing/ID')
 def idt():
     return render_template("testing/ID_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/ID')
+def idpop():
+    return render_template("comparedeaths/ID_covid-19_deathspop.html")
 
 
 @app.route('/States/IL')
@@ -550,6 +602,10 @@ def ilam():
 def ilt():
     return render_template("testing/IL_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/IL')
+def ilpop():
+    return render_template("comparedeaths/IL_covid-19_deathspop.html")
+
 
 @app.route('/States/IN')
 def ind():
@@ -586,6 +642,10 @@ def inam():
 @app.route('/Graphs/Testing/IN')
 def inte():
     return render_template("testing/IN_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/IN')
+def inpop():
+    return render_template("comparedeaths/IN_covid-19_deathspop.html")
 
 
 @app.route('/States/IA')
@@ -624,6 +684,10 @@ def iaam():
 def iat():
     return render_template("testing/IA_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/IA')
+def iapop():
+    return render_template("comparedeaths/IA_covid-19_deathspop.html")
+
 
 @app.route('/States/KS')
 def ks():
@@ -660,6 +724,10 @@ def ksam():
 @app.route('/Graphs/Testing/KS')
 def kst():
     return render_template("testing/KS_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/KS')
+def kspop():
+    return render_template("comparedeaths/KS_covid-19_deathspop.html")
 
 
 @app.route('/States/KY')
@@ -698,6 +766,10 @@ def kyam():
 def kyt():
     return render_template("testing/KY_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/KY')
+def kypop():
+    return render_template("comparedeaths/KY_covid-19_deathspop.html")
+
 
 @app.route('/States/LA')
 def la():
@@ -734,6 +806,10 @@ def laam():
 @app.route('/Graphs/Testing/LA')
 def lat():
     return render_template("testing/LA_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/LA')
+def lapop():
+    return render_template("comparedeaths/LA_covid-19_deathspop.html")
 
 
 @app.route('/States/ME')
@@ -772,6 +848,10 @@ def meam():
 def met():
     return render_template("testing/ME_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/ME')
+def mepop():
+    return render_template("comparedeaths/ME_covid-19_deathspop.html")
+
 
 @app.route('/States/MD')
 def md():
@@ -808,6 +888,10 @@ def mdam():
 @app.route('/Graphs/Testing/MD')
 def mdt():
     return render_template("testing/MD_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/MD')
+def mdpop():
+    return render_template("comparedeaths/MD_covid-19_deathspop.html")
 
 
 @app.route('/States/MA')
@@ -846,6 +930,10 @@ def maam():
 def mat():
     return render_template("testing/MA_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/MA')
+def mapop():
+    return render_template("comparedeaths/MA_covid-19_deathspop.html")
+
 
 @app.route('/States/MI')
 def mi():
@@ -882,6 +970,10 @@ def miam():
 @app.route('/Graphs/Testing/MI')
 def mit():
     return render_template("testing/MI_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/MI')
+def mipop():
+    return render_template("comparedeaths/MI_covid-19_deathspop.html")
 
 
 @app.route('/States/MN')
@@ -920,6 +1012,10 @@ def mnam():
 def mnt():
     return render_template("testing/MN_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/MN')
+def mnpop():
+    return render_template("comparedeaths/MN_covid-19_deathspop.html")
+
 
 @app.route('/States/MS')
 def ms():
@@ -956,6 +1052,10 @@ def msam():
 @app.route('/Graphs/Testing/MS')
 def mst():
     return render_template("testing/MS_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/MS')
+def mspop():
+    return render_template("comparedeaths/MS_covid-19_deathspop.html")
 
 
 @app.route('/States/MO')
@@ -994,6 +1094,10 @@ def moam():
 def mot():
     return render_template("testing/MO_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/MO')
+def mopop():
+    return render_template("comparedeaths/MO_covid-19_deathspop.html")
+
 
 @app.route('/States/MT')
 def mt():
@@ -1030,6 +1134,10 @@ def mtam():
 @app.route('/Graphs/Testing/MT')
 def mtt():
     return render_template("testing/MT_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/MT')
+def mtpop():
+    return render_template("comparedeaths/MT_covid-19_deathspop.html")
 
 
 @app.route('/States/NE')
@@ -1068,6 +1176,10 @@ def neam():
 def net():
     return render_template("testing/NE_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/NE')
+def nepop():
+    return render_template("comparedeaths/NE_covid-19_deathspop.html")
+
 
 @app.route('/States/NV')
 def nv():
@@ -1104,6 +1216,10 @@ def nvam():
 @app.route('/Graphs/Testing/NV')
 def nvt():
     return render_template("testing/NV_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/NV')
+def nvpop():
+    return render_template("comparedeaths/NV_covid-19_deathspop.html")
 
 
 @app.route('/States/NH')
@@ -1142,6 +1258,10 @@ def nham():
 def nht():
     return render_template("testing/NH_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/NH')
+def nhpop():
+    return render_template("comparedeaths/NH_covid-19_deathspop.html")
+
 
 @app.route('/States/NJ')
 def nj():
@@ -1178,6 +1298,10 @@ def njam():
 @app.route('/Graphs/Testing/NJ')
 def njt():
     return render_template("testing/NJ_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/NJ')
+def njpop():
+    return render_template("comparedeaths/NJ_covid-19_deathspop.html")
 
 
 @app.route('/States/NM')
@@ -1216,6 +1340,10 @@ def nmam():
 def nmt():
     return render_template("testing/NM_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/NM')
+def nmpop():
+    return render_template("comparedeaths/NM_covid-19_deathspop.html")
+
 
 @app.route('/States/NY')
 def ny():
@@ -1252,6 +1380,10 @@ def nyam():
 @app.route('/Graphs/Testing/NY')
 def nyt():
     return render_template("testing/NY_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/NY')
+def nypop():
+    return render_template("comparedeaths/NY_covid-19_deathspop.html")
 
 
 @app.route('/States/NC')
@@ -1290,6 +1422,10 @@ def ncam():
 def nct():
     return render_template("testing/NC_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/NC')
+def ncpop():
+    return render_template("comparedeaths/NC_covid-19_deathspop.html")
+
 
 @app.route('/States/ND')
 def nd():
@@ -1326,6 +1462,10 @@ def ndam():
 @app.route('/Graphs/Testing/ND')
 def ndt():
     return render_template("testing/ND_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/ND')
+def ndpop():
+    return render_template("comparedeaths/ND_covid-19_deathspop.html")
 
 
 @app.route('/States/OH')
@@ -1364,6 +1504,10 @@ def oham():
 def oht():
     return render_template("testing/OH_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/OH')
+def ohpop():
+    return render_template("comparedeaths/OH_covid-19_deathspop.html")
+
 
 @app.route('/States/OK')
 def ok():
@@ -1400,6 +1544,10 @@ def okam():
 @app.route('/Graphs/Testing/OK')
 def okt():
     return render_template("testing/OK_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/OK')
+def okpop():
+    return render_template("comparedeaths/OK_covid-19_deathspop.html")
 
 
 @app.route('/States/OR')
@@ -1438,6 +1586,10 @@ def oram():
 def ort():
     return render_template("testing/OR_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/OR')
+def orpop():
+    return render_template("comparedeaths/OR_covid-19_deathspop.html")
+
 
 @app.route('/States/PA')
 def pa():
@@ -1474,6 +1626,10 @@ def paam():
 @app.route('/Graphs/Testing/PA')
 def pat():
     return render_template("testing/PA_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/PA')
+def papop():
+    return render_template("comparedeaths/PA_covid-19_deathspop.html")
 
 
 @app.route('/States/RI')
@@ -1512,6 +1668,10 @@ def riam():
 def rit():
     return render_template("testing/RI_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/RI')
+def ripop():
+    return render_template("comparedeaths/RI_covid-19_deathspop.html")
+
 
 @app.route('/States/SC')
 def sc():
@@ -1548,6 +1708,10 @@ def scam():
 @app.route('/Graphs/Testing/SC')
 def sct():
     return render_template("testing/SC_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/SC')
+def scpop():
+    return render_template("comparedeaths/SC_covid-19_deathspop.html")
 
 
 @app.route('/States/SD')
@@ -1586,6 +1750,10 @@ def sdam():
 def sdt():
     return render_template("testing/SD_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/SD')
+def sdpop():
+    return render_template("comparedeaths/SD_covid-19_deathspop.html")
+
 
 @app.route('/States/TN')
 def tn():
@@ -1622,6 +1790,10 @@ def tnam():
 @app.route('/Graphs/Testing/TN')
 def tnt():
     return render_template("testing/TN_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/TN')
+def tnpop():
+    return render_template("comparedeaths/TN_covid-19_deathspop.html")
 
 
 @app.route('/States/TX')
@@ -1660,6 +1832,10 @@ def txam():
 def txt():
     return render_template("testing/TX_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/TX')
+def txpop():
+    return render_template("comparedeaths/TX_covid-19_deathspop.html")
+
 
 @app.route('/States/UT')
 def ut():
@@ -1696,6 +1872,10 @@ def utam():
 @app.route('/Graphs/Testing/UT')
 def utt():
     return render_template("testing/UT_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/UT')
+def utpop():
+    return render_template("comparedeaths/UT_covid-19_deathspop.html")
 
 
 @app.route('/States/VT')
@@ -1734,6 +1914,10 @@ def vtam():
 def vtt():
     return render_template("testing/VT_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/VT')
+def vtpop():
+    return render_template("comparedeaths/VT_covid-19_deathspop.html")
+
 
 @app.route('/States/VA')
 def va():
@@ -1770,6 +1954,10 @@ def vaam():
 @app.route('/Graphs/Testing/VA')
 def vat():
     return render_template("testing/VA_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/VA')
+def vapop():
+    return render_template("comparedeaths/VA_covid-19_deathspop.html")
 
 
 @app.route('/States/WA')
@@ -1808,6 +1996,10 @@ def waam():
 def wat():
     return render_template("testing/WA_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/WA')
+def wapop():
+    return render_template("comparedeaths/WA_covid-19_deathspop.html")
+
 
 @app.route('/States/WV')
 def wv():
@@ -1844,6 +2036,10 @@ def wvam():
 @app.route('/Graphs/Testing/WV')
 def wvt():
     return render_template("testing/WV_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/WV')
+def wvpop():
+    return render_template("comparedeaths/WV_covid-19_deathspop.html")
 
 
 @app.route('/States/WI')
@@ -1882,6 +2078,10 @@ def wiam():
 def wit():
     return render_template("testing/WI_covid-19_testing.html")
 
+@app.route('/Graphs/DeathsPop/WI')
+def wipop():
+    return render_template("comparedeaths/WI_covid-19_deathspop.html")
+
 
 @app.route('/States/WY')
 def wy():
@@ -1918,6 +2118,10 @@ def wyam():
 @app.route('/Graphs/Testing/WY')
 def wyt():
     return render_template("testing/WY_covid-19_testing.html")
+
+@app.route('/Graphs/DeathsPop/WY')
+def wypop():
+    return render_template("comparedeaths/WY_covid-19_deathspop.html")
             
 if __name__=="__main__":
     app.run(debug=True)
