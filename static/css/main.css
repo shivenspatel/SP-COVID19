@@ -217,7 +217,7 @@ body{
         position: relative;
         font-size: 15px;
     }
-    .about-button{
+    .compare-button{
         /* padding-top: 1px;
         padding-bottom: 1px; */
         position: relative;
@@ -234,5 +234,13 @@ body{
     }
     #Select{
         text-align-last: center;
+    }
+}
+@media only screen and (max-width: 355px) {
+    .compare-button{
+        /* padding-top: 1px;
+        padding-bottom: 1px; */
+        position: relative;
+        font-size: 11px;
     }
 }
