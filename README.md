@@ -17,7 +17,7 @@ County level data is from the <i>New York Times</i> GitHub database (https://git
 
 Mobility Data is from Google:
 Google LLC "Google COVID-19 Community Mobility Reports".
-https://www.google.com/covid19/mobility/ Accessed: 07.19.2020.
+https://www.google.com/covid19/mobility/
 
 
 All other data is pulled from the <i>The Atlantic</i>'s COVID Data Tracking Project (https://covidtracking.com/data/api).
