@@ -1,0 +1,85 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.0.1.min.js" integrity="sha384-JpP8FXbgAZLkfur7LiK3j9AGBhHNIvF742meBJrjO2ShJDhCG2I1uVvW+0DUtrmc" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="aa5b173a-11bc-483e-93c8-fb1f351768a3" data-root-id="3972"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="4110">
+          {"f8eba0b6-c45d-4014-a28d-e7f7f5b6088c":{"roots":{"references":[{"attributes":{"fill_color":{"value":"maroon"},"height":{"value":0.75},"left":{"expr":{"id":"3995"}},"line_color":{"value":"maroon"},"right":{"expr":{"id":"3996"}},"y":{"field":"state"}},"id":"4000","type":"HBar"},{"attributes":{},"id":"3981","type":"CategoricalScale"},{"attributes":{"data_source":{"id":"3971"},"glyph":{"id":"4000"},"hover_glyph":null,"muted_glyph":null,"name":"pfizer_population","nonselection_glyph":{"id":"4001"},"selection_glyph":null,"view":{"id":"4003"}},"id":"4002","type":"GlyphRenderer"},{"attributes":{"fields":["pfizer_population"]},"id":"3997","type":"Stack"},{"attributes":{"data":{"index":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49],"moderna_population":{"__ndarray__":"0HLuigUOlUDxXkVw0n2cQKAFgpBCXKBAYLr7UgtYoUBNHhSXZ92hQJdOgsYj2KFAnj+If+MTokDcMyshrSGiQLVm9I6OEqJAXmKS0kFAokBGJrrhYk2iQPwllJmtV6JA7ttFmDo1okCdrSNXBkWiQAanIKCSVqJAFf9RVwlUokB436mn0FCiQGSQmjCiKaJA+wHkQ1FxokAHQUWfR3GiQPiChzfuV6JAj12+DnRNokAnoseC0XyiQMEcSFuJa6JA79KxYfR8okDaehgbzjqiQK9R7zZ+gqJALCD7qu8ZokAmmG7uvaGiQL2fqQMvpKJAi6M/Ie5+okDtaWDDCceiQL8qu78h8qJA7jTNlGY3okCTgoaaYsCiQI+J7V7P9KJAozv32fcRo0DW7u9RXgejQABXHnbFJKNAEWOt42RNo0BXdZF9DE+jQN9XJ/kuBaNAziCPx+38okCayAm2hSyjQCVHMsdAOaNAu2fR+3s+o0DGG2Y6NAKjQOsvnKoyx6NAWeCbYy4zo0DiSQIjNXusQA==","dtype":"float64","shape":[50]},"moderna_state":["New York","Illinois","Pennsylvania","Utah***","Mississippi","Kansas","Oklahoma","Indiana","Louisiana","New Jersey","Texas","Georgia","New Mexico***","Idaho","Ohio","Alabama","Missouri","Arkansas","California","Michigan","Kentucky","Iowa","Maryland","Minnesota***","Wisconsin***","Nebraska***","Connecticut","Wyoming","Virginia","Tennessee","West Virginia","North Carolina","Arizona***","South Dakota","Hawaii","Nevada","Colorado","South Carolina","Massachusetts","Oregon***","Washington***","Rhode Island","Delaware","Maine","North Dakota***","New Hampshire","Montana","Florida","Vermont","Alaska***"],"moderna_total":{"__ndarray__":"AAAAAIApEEEAAAAAoKwMQQAAAACwUxBBAAAAAABy70AAAAAAALPwQAAAAABAI/BAAAAAAMDA9UAAAAAAoJ0CQQAAAACAH/pAAAAAAOBgCUEAAAAAoOgiQQAAAABAowxBAAAAAAC750AAAAAAgGjiQAAAAADAkxBBAAAAAICv+0AAAAAAIEwBQQAAAAAAzPBAAAAAAIidK0EAAAAAAIQMQQAAAAAAMvlAAAAAAACt8UAAAAAAYCABQQAAAACAM/9AAAAAAOCWAEEAAAAAAErlQAAAAAAAzfRAAAAAAABeykAAAAAAQAwIQQAAAADA6wJBAAAAAIBv5UAAAAAA4OQMQQAAAADgnQNBAAAAAAA900AAAAAAgHTgQAAAAABAh/BAAAAAAIBl/0AAAAAAwGT8QAAAAAAABQRBAAAAAMC090AAAAAAYAgFQQAAAAAAANlAAAAAAAD51UAAAAAAANbfQAAAAAAAYtFAAAAAAADW30AAAAAAAB/YQAAAAABgNh5BAAAAAAAUzkAAAAAAACzaQA==","dtype":"float64","shape":[50]},"pfizer_population":{"__ndarray__":"Sub+xykUlECDafSpITObQEWfvmkvP59AHaqV+e6KoEAHsLBRzQ+hQJLEDbUyX6FAoX/rQXxooUDaHjiTcWOhQNPPfC28dKFAoXNoShVgoUBve9KD3F2hQJ3vbTt8YaFA08BMPZeIoUA8R47KbXuhQPZlo/H6caFA365JcOp9oUC4ev1nfIShQAfKAzmSwqFAMXjK2Z18oUBEmu9c5YyhQDAxZSRLraFAt1rd4xO/oUDKGZXQ9ZmhQEYxtHzktKFAPcwreyikoUD9vNUb4e+hQMOnabj1yqFALfBYpGxNokBPbidvEsyhQHrZD8bS0qFA7F0csRITokD7pgxQ/92hQKKl7SJtKaJA77ld/9vuokDjextlCnKiQBP9DkSRSqJAC5SBKK83okBH9oZRfliiQFjY9FHYUqJAQ9ZhmalpokAnNOC8KneiQIN1uAOi1aJAnjJ0ybnsokB86/Dkh+yiQGfXmWIi9KJAbLlWOEL+okAwvoMTQ4KjQOV4mCv4xqJA1IWmATSqpEBxxFsYp6ayQA==","dtype":"float64","shape":[50]},"pfizer_state":["New York","Illinois","Pennsylvania","Utah","Mississippi","Kansas","Oklahoma","Indiana","Louisiana","New Jersey","Texas","Georgia","New Mexico","Idaho","Ohio","Alabama","Missouri","Arkansas","California","Michigan","Kentucky","Iowa","Maryland","Minnesota","Wisconsin","Nebraska","Connecticut","Wyoming","Virginia","Tennessee","West Virginia","North Carolina","Arizona","South Dakota","Hawaii","Nevada","Colorado","South Carolina","Massachusetts","Oregon","Washington","Rhode Island","Delaware","Maine","North Dakota","New Hampshire","Montana","Florida","Vermont","Alaska"],"pfizer_total":{"__ndarray__":"AAAAAGjTDkEAAAAA0F8LQQAAAADQLg9BAAAAACD+7UAAAAAAoOXvQAAAAADAa+9AAAAAAIDy9EAAAAAAUNoBQQAAAABgO/lAAAAAACgpCEEAAAAAKvEhQQAAAADgIgtBAAAAAADa5kAAAAAAYJ3hQAAAAAA4ig9BAAAAABBs+kAAAAAAKIsAQQAAAACwbPBAAAAAACAvKkEAAAAA4CILQQAAAACgR/hAAAAAAIAj8UAAAAAAOE4AQQAAAAAg/v1AAAAAALCo/0AAAAAAgPLkQAAAAADA/vNAAAAAAACpykAAAAAAePgGQQAAAABAFwJBAAAAAIDy5EAAAAAASH4LQQAAAAAQzgJBAAAAAMD+00AAAAAAwC/gQAAAAACg5e9AAAAAACD+/UAAAAAA0F/7QAAAAAB4KQNBAAAAABCd9kAAAAAAOB0EQQAAAACAwdhAAAAAAEDm1UAAAAAAwGvfQAAAAACAI9FAAAAAAMBr30AAAAAAgMHYQAAAAAD4rhxBAAAAAMAv0EAAAAAAgCPhQA==","dtype":"float64","shape":[50]},"population":[19651127,12882135,12773801,2900872,2991207,2893957,3850568,6570902,4625470,8899339,26448193,9992167,2085287,1612136,11570808,4833722,6044171,2959373,38332521,9895622,4395295,3090416,5928814,5420380,5742713,1868516,3596080,582658,8260405,6495978,1854304,9848060,6626624,844877,1404054,2790136,5268367,4774839,6692824,3930065,6971406,1051511,925749,1328302,723393,1323459,1015165,19552860,626630,735132],"state":["NY","IL","PA","UT","MS","KS","OK","IN","LA","NJ","TX","GA","NM","ID","OH","AL","MO","AR","CA","MI","KY","IA","MD","MN","WI","NE","CT","WY","VA","TN","WV","NC","AZ","SD","HI","NV","CO","SC","MA","OR","WA","RI","DE","ME","ND","NH","MT","FL","VT","AK"],"total":{"__ndarray__":"AAAAADSTH0EAAAAAOAYcQQAAAAAY6x9BAAAAABC4/kAAAAAA6FIAQQAAAAAg2f9AAAAAAKBZBUEAAAAA+DsSQQAAAABwrQlBAAAAAATFGEEAAAAA5WwyQQAAAAAQ4xtBAAAAAIBK90AAAAAA8ALyQAAAAABuLCBBAAAAAMgNC0EAAAAApOsQQQAAAABYnABBAAAAAFTmOkEAAAAAcNMbQQAAAADQvAhBAAAAAEBoAUEAAAAATLcQQQAAAADQmA5BAAAAAJw1EEEAAAAAQB71QAAAAADgZQRBAAAAAICD2kAAAAAAXIIXQQAAAACAgRJBAAAAAAAx9UAAAAAAlDEcQQAAAAD4NRNBAAAAAOCd40AAAAAAIFLwQAAAAAAIPQBBAAAAANCxDkEAAAAASOILQQAAAAA8lxNBAAAAAOgoB0EAAAAAzJIUQQAAAADA4OhAAAAAAKDv5UAAAAAA4KDvQAAAAADAQuFAAAAAAOCg70AAAAAAQHDoQAAAAACsci1BAAAAAMA530AAAAAAgDnuQA==","dtype":"float64","shape":[50]},"total_population":{"__ndarray__":"jax2qReRpEA65BwNetirQEJVYUXa+69APrJIJn3xsEAqZ2J0mnaxQJUJyD2rm7FAn9+54C++sUBbqTFaj8KxQESbOF6lw7FAAGt9jivQsUDaUMayn9WxQM0KgeqU3LFAYU7J6ujesUBt+tgQOuCxQH4G4shG5LFA+tbN4/nosUAYrdOHpuqxQDYtzzQa9rFAFj3Xjvf2sUClbRp+Fv+xQBRa9q2cArJAI9xN+UMGskD5Xa6pYwuyQAMn/us2ELJAls9ubo4QskDrG3ebVxWyQLl8rPe5JrJALQiqJ64zskA7A8su6DayQJu83OSAO7JAvAAuaQBJskB0iLaJhFKyQDBoVHHHjbJAbncVSiGTskA7/9B/NpmyQFFDflGwn7JA12c8gdOkskCOcrtR7q+yQKyXCeTOu7JAqpyHPofbskC/1DidG+OyQLHmb35o7bJAtqmByNP0skALWn3NhgyzQEYP5pSxFrNAlBAUGl8es0D77PSmO0KzQGhUGmsVR7NAFjOhMrHus0CxdO7UIHLAQA==","dtype":"float64","shape":[50]}},"selected":{"id":"4021"},"selection_policy":{"id":"4022"}},"id":"3971","type":"ColumnDataSource"},{"attributes":{"fields":["pfizer_population"]},"id":"3996","type":"Stack"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"maroon"},"height":{"value":0.75},"left":{"expr":{"id":"3995"}},"line_alpha":{"value":0.1},"line_color":{"value":"maroon"},"right":{"expr":{"id":"3996"}},"y":{"field":"state"}},"id":"4001","type":"HBar"},{"attributes":{"formatter":{"id":"4006"},"ticker":{"id":"3984"}},"id":"3983","type":"LinearAxis"},{"attributes":{"source":{"id":"3971"}},"id":"4003","type":"CDSView"},{"attributes":{"label":{"value":"Moderna"},"renderers":[{"id":"4014"}]},"id":"4023","type":"LegendItem"},{"attributes":{},"id":"3979","type":"LinearScale"},{"attributes":{"label":{"value":"Pfizer"},"renderers":[{"id":"4002"}]},"id":"4010","type":"LegendItem"},{"attributes":{},"id":"4022","type":"UnionRenderers"},{"attributes":{"background_fill_alpha":0.35,"click_policy":"hide","items":[{"id":"4010"},{"id":"4023"}],"label_text_font_size":"8pt","location":"bottom_right"},"id":"4009","type":"Legend"},{"attributes":{"factors":["NY","IL","PA","UT","MS","KS","OK","IN","LA","NJ","TX","GA","NM","ID","OH","AL","MO","AR","CA","MI","KY","IA","MD","MN","WI","NE","CT","WY","VA","TN","WV","NC","AZ","SD","HI","NV","CO","SC","MA","OR","WA","RI","DE","ME","ND","NH","MT","FL","VT","AK"]},"id":"3977","type":"FactorRange"},{"attributes":{},"id":"4008","type":"CategoricalTickFormatter"},{"attributes":{},"id":"3975","type":"DataRange1d"},{"attributes":{},"id":"4006","type":"BasicTickFormatter"},{"attributes":{"text":"COVID-19 Total Vaccinations per 100K Citizens in Each State (Pfizer and Moderna)"},"id":"3973","type":"Title"},{"attributes":{},"id":"4021","type":"Selection"},{"attributes":{"fields":[]},"id":"3995","type":"Stack"},{"attributes":{"below":[{"id":"3983"}],"center":[{"id":"3986"},{"id":"3989"},{"id":"4009"}],"left":[{"id":"3987"}],"plot_width":350,"renderers":[{"id":"4002"},{"id":"4014"}],"sizing_mode":"stretch_both","title":{"id":"3973"},"toolbar":{"id":"3992"},"x_range":{"id":"3975"},"x_scale":{"id":"3979"},"y_range":{"id":"3977"},"y_scale":{"id":"3981"}},"id":"3972","subtype":"Figure","type":"Plot"},{"attributes":{"fill_color":{"value":"navy"},"height":{"value":0.75},"left":{"expr":{"id":"3997"}},"line_color":{"value":"navy"},"right":{"expr":{"id":"3998"}},"y":{"field":"state"}},"id":"4012","type":"HBar"},{"attributes":{},"id":"3984","type":"BasicTicker"},{"attributes":{"data_source":{"id":"3971"},"glyph":{"id":"4012"},"hover_glyph":null,"muted_glyph":null,"name":"moderna_population","nonselection_glyph":{"id":"4013"},"selection_glyph":null,"view":{"id":"4015"}},"id":"4014","type":"GlyphRenderer"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":{"id":"3991"},"active_tap":"auto","tools":[{"id":"3990"},{"id":"3991"},{"id":"4024"}]},"id":"3992","type":"Toolbar"},{"attributes":{"fields":["pfizer_population","moderna_population"]},"id":"3998","type":"Stack"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"navy"},"height":{"value":0.75},"left":{"expr":{"id":"3997"}},"line_alpha":{"value":0.1},"line_color":{"value":"navy"},"right":{"expr":{"id":"3998"}},"y":{"field":"state"}},"id":"4013","type":"HBar"},{"attributes":{"axis":{"id":"3983"},"ticker":null},"id":"3986","type":"Grid"},{"attributes":{"source":{"id":"3971"}},"id":"4015","type":"CDSView"},{"attributes":{"formatter":{"id":"4008"},"ticker":{"id":"3988"}},"id":"3987","type":"CategoricalAxis"},{"attributes":{},"id":"3988","type":"CategoricalTicker"},{"attributes":{"axis":{"id":"3987"},"dimension":1,"ticker":null},"id":"3989","type":"Grid"},{"attributes":{"callback":null,"tooltips":[["State","@pfizer_state"],["Total","@total_population{int}"],["Pfizer","@pfizer_population{int}"],["Moderna","@moderna_population{int}"]]},"id":"4024","type":"HoverTool"},{"attributes":{"dimensions":"height"},"id":"3990","type":"PanTool"},{"attributes":{"dimensions":"height"},"id":"3991","type":"WheelZoomTool"}],"root_ids":["3972"]},"title":"Bokeh Application","version":"2.0.1"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('4110').textContent;
+                  var render_items = [{"docid":"f8eba0b6-c45d-4014-a28d-e7f7f5b6088c","root_ids":["3972"],"roots":{"3972":"aa5b173a-11bc-483e-93c8-fb1f351768a3"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts > 100) {
+                          clearInterval(timer);
+                          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>

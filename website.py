@@ -26,6 +26,10 @@ def comp():
 def comh2h():
     return render_template("comparepage.html")
 
+@app.route('/About')
+def about():
+    return render_template("about.html")
+
 @app.route('/Graphs/PosRate/US')
 def usg():
     return render_template('positivityrate/US_covid-19_positivityrate.html')
@@ -69,6 +73,15 @@ def casespo():
 @app.route('/Graphs/Compare/Deaths100K')
 def deathspo():
     return render_template("compare/deathspocompare.html")
+    
+@app.route('/Graphs/Compare/TotalVax')
+def totvax():
+    return render_template("compare/totvax.html")
+
+@app.route('/Graphs/Compare/PopulationVax')
+def popvax():
+    return render_template("compare/popvax.html")
+
 
 @app.route('/States')
 def dd():

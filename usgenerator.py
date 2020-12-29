@@ -16,6 +16,7 @@ pd.options.mode.chained_assignment = None
 
 #googleorigin=pd.read_csv("https://www.gstatic.com/covid19/mobility/Global_Mobility_Report.csv")
 
+# Generates US page graphs
 def main():
     df = pd.read_csv('https://covidtracking.com/api/v1/us/daily.csv')
 
@@ -242,6 +243,7 @@ def main():
     save(t)
 main()
 
+# Compare page graphs
 def compare():
     df = pd.read_csv('https://covidtracking.com/api/v1/states/current.csv')
 
@@ -303,6 +305,7 @@ def compare():
 
     output_file('templates/compare/deathscompare.html')
     save(g)
+    print("templates/compare/deathscompare.html")
 
     df = df.sort_values('deathspo')
 
@@ -321,6 +324,7 @@ def compare():
 
     output_file('templates/compare/deathspocompare.html')
     save(cp)
+    print("templates/compare/deathspocompare.html")
 
     df = df.sort_values('positive')
 
@@ -339,6 +343,7 @@ def compare():
 
     output_file('templates/compare/casescompare.html')
     save(d)
+    print("templates/compare/casescompare.html")
 
     df = df.sort_values('casespo')
 
@@ -357,5 +362,116 @@ def compare():
 
     output_file('templates/compare/casespocompare.html')
     save(dp)
+    print("templates/compare/casespocompare.html")
+
+    statelist=list(df['statename'])
+
+    moderna = pd.read_json("https://data.cdc.gov/resource/b7pe-5nws.json")
+    pfizer = pd.read_json("https://data.cdc.gov/resource/saz5-9hgg.json")
+    master = pd.DataFrame()
+
+    f_states=[]
+    for i in list(pfizer["jurisdiction"]):
+        new_state = ''.join(e for e in i if e.isalpha() | e.isspace())
+        f_states.append(new_state)
+
+    master["pfizer_state"] = f_states
+    master["pfizer_total"] = list(pfizer["total_pfizer_allocation_first_dose_shipments"])
+    master["moderna_state"] = list(moderna["jurisdiction"]) 
+    master["moderna_total"] = list(moderna["total_moderna_allocation_first_dose_shipments"])
+
+    for i, state in zip(master.index, master["pfizer_state"]):
+        if state not in statelist:
+            master.drop([i], inplace=True)
+
+    master["pfizer_total"] = master["pfizer_total"].str.replace(",","").astype(float)
+    master["moderna_total"] = master["moderna_total"].str.replace(",","").astype(float)
+
+    total_vax=[]
+    for p, m in zip(list(master["pfizer_total"]), list(master["moderna_total"])):
+        total_vax.append(p+m)
+    master["total"] = total_vax
+
+    master.sort_values("pfizer_state", ascending=True, inplace=True)
+    master['state'] = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", 
+            "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
+            "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
+            "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
+            "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
+
+    master['population'] = [4833722, 735132, 6626624, 2959373, 38332521, 5268367, 3596080, 925749, 19552860, 9992167, 1404054, 
+                    1612136, 12882135, 6570902, 3090416, 2893957, 4395295, 4625470, 1328302, 5928814, 6692824, 9895622, 
+                    5420380, 2991207, 6044171, 1015165, 1868516, 2790136, 1323459, 8899339, 2085287, 19651127, 9848060, 
+                    723393, 11570808, 3850568, 3930065, 12773801, 1051511, 4774839, 844877, 6495978, 26448193, 2900872, 
+                    626630, 8260405, 6971406, 1854304, 5742713, 582658]
+
+    ppop=[]
+    mpop=[]
+    tpop=[]
+    for t, p in zip(master["pfizer_total"], master["population"]):
+        pp=((t*100000)/p)
+        ppop.append(pp)
+
+    for t, p in zip(master["moderna_total"], master["population"]):
+        pp=((t*100000)/p)
+        mpop.append(pp)
+
+    for t, p in zip(master["total"], master["population"]):
+        pp=((t*100000)/p)
+        tpop.append(pp)
+
+    master["pfizer_population"]=ppop
+    master["moderna_population"]=mpop
+    master["total_population"]=tpop
+
+    master.sort_values("total", ascending=True, inplace=True)
+    master.reset_index(drop=True, inplace=True)
+
+    p=figure(title="COVID-19 Total Vaccinations in Each State (Pfizer and Moderna)", sizing_mode='stretch_both', width=350, y_range=list(master["state"]), tools=['ypan', 'ywheel_zoom'], active_scroll="ywheel_zoom")
+    source=ColumnDataSource(master)
+    legend=['Pfizer', 'Moderna']
+    p.hbar_stack(['pfizer_total', 'moderna_total'], y='state', source=source, legend_label=legend, color=['red','blue'], height=0.75)
+
+    hover = HoverTool()
+    hover.tooltips=[
+        ('State', '@pfizer_state'),
+        ('Total', '@total{int}'),
+        ('Pfizer', '@pfizer_total{int}'),
+        ('Moderna', '@moderna_total{int}')
+    ]
+
+    p.legend.location = "bottom_right"
+    p.legend.click_policy="hide"
+    p.legend.label_text_font_size = '8pt'
+    p.legend.background_fill_alpha = 0.35
+    p.add_tools(hover)
+    output_file('templates/compare/totvax.html')
+    save(p)
+    print("templates/compare/totvax.html")
+
+    master.sort_values("total_population", ascending=True, inplace=True)
+    master.reset_index(drop=True, inplace=True)
+
+    source2=ColumnDataSource(master)
+    m=figure(title="COVID-19 Total Vaccinations per 100K Citizens in Each State (Pfizer and Moderna)",sizing_mode='stretch_both', width=350, y_range=list(master["state"]), tools=['ypan', 'ywheel_zoom'], active_scroll="ywheel_zoom")
+    m.hbar_stack(['pfizer_population', 'moderna_population'], y='state', source=source2, color=['maroon','navy'], legend_label=legend, height=0.75)
+
+    hover = HoverTool()
+    hover.tooltips=[
+        ('State', '@pfizer_state'),
+        ('Total', '@total_population{int}'),
+        ('Pfizer', '@pfizer_population{int}'),
+        ('Moderna', '@moderna_population{int}')
+    ]
+
+    m.legend.location = "bottom_right"
+    m.legend.click_policy="hide"
+    m.legend.label_text_font_size = '8pt'
+    m.legend.background_fill_alpha = 0.35
+    m.add_tools(hover)
+    output_file('templates/compare/popvax.html')
+    save(m)
+    print("templates/compare/popvax.html")
+    
 
 compare()
