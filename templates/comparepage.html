@@ -1,6 +1,6 @@
-<!DOCTYPE html>
 <html>
-    <title>Compare States COVID-19 Deaths per 100K Citizens Metrics</title>
+    <head>
+        <title>Compare States COVID-19 Deaths per 100K Citizens Metrics</title>
         <link rel="stylesheet" href="{{url_for('static',filename='css/main.css')}}">
         <meta name ="description=" content="Compare graph of each American state's deaths/100k citizens with that of another state.">
         <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no'>
@@ -26,101 +26,6 @@
                 })
             });
         </script>
-        <style>
-            body{
-                margin: 0;
-            }
-            .box{
-                /* height: 800px; */
-                overflow: hidden;
-                padding: 5px;
-            }
-            #Frame1{
-                width: 100%
-            }
-            #Frame2{
-                width: 100%
-            }
-            .custom-select{
-                border: none;
-            }
-            #GraphSelect1{
-                width: 100%;
-                height: 50px;
-                font-size: 25px;
-                font-weight: bold;
-                background-color: rgba(0, 0, 0, 0.849);
-                color: antiquewhite;
-                border: none;
-                text-indent: center;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            #GraphSelect2{
-                width: 100%;
-                height: 50px;
-                font-size: 25px;
-                font-weight: bold;
-                background-color: rgba(0, 0, 0, 0.849);
-                color: antiquewhite;
-                border: none;
-                text-indent: center;
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            .state1
-            {
-                width: 50%;
-                float: left;
-            }
-            .state2
-            {
-                width: 50%;
-                float: right;
-            }
-            @media only screen and (max-width: 800px) {
-                .box{
-                    width: 165%;
-                    height: 165%;
-                    float: none;
-                    -ms-zoom: 0.6;
-                    -moz-transform: scale(0.6);
-                    -moz-transform-origin: 0 0;
-                    -o-transform: scale(0.6);
-                    -o-transform-origin: 0 0;
-                    -webkit-transform: scale(0.6);
-                    -webkit-transform-origin: 0 0;
-                    position: absolute;
-                    overflow: hidden;
-                }
-                .custom-select{
-                    /* padding-bottom: 5px;
-                    padding-top: 5px; */
-                    padding-left: 0;
-                    padding-right: 0;
-                    width: 100%;
-                    text-align: center;
-                }
-                #GraphSelect1{
-                    text-align-last: center;
-                }
-                #GraphSelect2{
-                    text-align-last: center;
-                }
-                .state1{
-                    width: 100%;
-                    float: top;
-                    position: relative;
-                    padding-bottom: 100%;
-                }
-                .state2{
-                    width: 100%;
-                    float: bottom;
-                    position: relative;
-                    padding-bottom: 100%;
-                }
-            }
-        </style>
     </head>
     <body>
         <div class="header">
@@ -133,6 +38,8 @@
                 <a href="{{url_for('about')}}" class="compare-button">About</a>
             </div>
         </div>
+        <div class="notice">ⓘ Click the "Select State" Dropdown to Choose States to Compare</div>
+
         <div class='state1'>
             <div class='custom-select'>
                 <select id="GraphSelect1">
@@ -193,7 +100,7 @@
                 <iframe id="Frame1" src="{{ url_for('nypop') }}" frameborder="0" scrolling="no" width="50%" height="625" align="left"> </iframe>
             </div>
         </div>
-        
+
         <div class=state2>
             <div class='custom-select'>
                 <select id="GraphSelect2">
@@ -255,4 +162,4 @@
             </div>
         </div>
     </body>
-</html> 
+</html>

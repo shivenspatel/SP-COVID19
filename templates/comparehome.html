@@ -39,13 +39,15 @@
                 <option value="{{ url_for('casespo') }}">Cases per 100K Citizens</option>               
                 <option value="{{ url_for('cases') }}">Cumulative Cases</option>
                 <option value="{{ url_for('deaths') }}">Cumulative Deaths</option>
+                <option value="{{ url_for('unempgraph') }}">Unemployment Rate</option>
             </select>
         </div>
+        <div class="notice">ⓘ Click the "Select a Graph" Dropdown to Choose Graph</div>
         <div class="graph">
             <iframe id='Frame' src="{{ url_for('totvax') }}" width="100%" height="100%"></iframe>
         </div>
         <div class='footer'>
-            <a href='https://github.com/shivenspatel/spcovid19' class="madeby">Made in the USA by Shiven Patel</a>
+            <a href='' class="madeby">© 2021 Shiven Patel</a>
         </div>
     </body>
 </html>

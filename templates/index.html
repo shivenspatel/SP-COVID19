@@ -34,13 +34,17 @@
             <select id="Select">
                 <option value="{{ url_for('usposmap') }}">Cases per 100K Citizens</option>
                 <option value="{{ url_for('usdeamap') }}">Deaths per 100K Citizens</option>
+                <option value="{{ url_for('usvaxmap') }}">Total Allocated Vaccines</option>
+                <option value="{{ url_for('usvaxpopmap') }}">Allocated Vaccines per 100K Citizens</option>
+                <option value="{{ url_for('usunempmap') }}">Unemployment Rate</option>
             </select>
         </div>
+        <div class="notice">ⓘ Click the "Cases Per 100K Citizens" Dropdown to Select a Different Graph</div>
         <div class="mainpagemap">
             <iframe id='usmapframe' width="100%" height="100%" src="{{ url_for('usposmap') }}"></iframe>
         </div>
         <div class='footer'>
-            <a href='https://github.com/shivenspatel/spcovid19' class="madeby">Made in the USA by Shiven Patel</a>
+            <a href='' class="madeby">© 2021 Shiven Patel</a>
         </div>
     </body>
 </html>
