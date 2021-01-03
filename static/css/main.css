@@ -19,6 +19,7 @@ body{
     padding-bottom: 15px;
     padding-left: 15px; */
     width: 100%;
+    height: 25px;
 }
 .footer a.madeby{
     font-size: 20px;
@@ -41,6 +42,14 @@ body{
 }
 .ul{
     display: block;
+}
+.notice{
+    background-color: rgb(184, 45, 45);
+    text-align: center;
+    font-weight: bold;
+    color: antiquewhite;
+    padding: 5px;
+    border: none;
 }
 .us-button{
     display: inline-block;
@@ -91,7 +100,7 @@ body{
     display: inline-block;
     text-align: center;
     margin: 2px;
-    background-color: antiquewhite;
+    background-color: rgb(250, 235, 215);
     border: none;
     font-size: 20px;
     color: rgb(0, 0, 0);
@@ -101,6 +110,10 @@ body{
 }
 .compare-button:hover {
     background-color: rgba(100, 100, 100, 0.5);
+}
+.custom-select{
+    border: rgba(0, 0, 0, 0.849);
+    border-radius: 0;
 }
 .mainpagemap{
     width: 800px;
@@ -115,6 +128,7 @@ body{
     padding-top: 0px;
     width: 100%;
     overflow: hidden;
+    text-align: center;
 }
 #StateFrame{
     height: 100%;
@@ -129,6 +143,7 @@ body{
     width: 100%;
     height: 900px;
     margin: 0;
+    border: none;
 }
 #Select{
     width: 100%;
@@ -139,12 +154,64 @@ body{
     color: antiquewhite;
     border: none;
     text-indent: 20px;
+    outline: rgba(0, 0, 0, 0.849);
 }
-.disclaimer{
+/* .disclaimer{
     display: none;
+} */
+body{
+    margin: 0;
+}
+.box{
+    /* height: 800px; */
+    overflow: hidden;
+    padding: 5px;
+}
+#Frame1{
+    width: 100%
+}
+#Frame2{
+    width: 100%
+}
+.custom-select{
+    border: none;
+}
+#GraphSelect1{
+    width: 100%;
+    height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.849);
+    color: antiquewhite;
+    border: none;
+    text-indent: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#GraphSelect2{
+    width: 100%;
+    height: 50px;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.849);
+    color: antiquewhite;
+    border: none;
+    text-indent: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.state1
+{
+    width: 50%;
+    float: left;
+}
+.state2
+{
+    width: 50%;
+    float: right;
 }
 @media only screen and (max-width: 800px) {
-    .disclaimer{
+    /* .disclaimer{
         display: block;
         padding: 10px;
         text-align: center;
@@ -152,7 +219,7 @@ body{
         font-weight: bold;
         font-size: 15px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
+    } */
     .mainpagemap{
         height: 800px;
         padding-top: 15px;
@@ -235,8 +302,52 @@ body{
     #Select{
         text-align-last: center;
     }
+    #Frame{
+        height: 100%;
+        width: 100%;
+    }
+    .box{
+        width: 165%;
+        height: 165%;
+        float: none;
+        -ms-zoom: 0.6;
+        -moz-transform: scale(0.6);
+        -moz-transform-origin: 0 0;
+        -o-transform: scale(0.6);
+        -o-transform-origin: 0 0;
+        -webkit-transform: scale(0.6);
+        -webkit-transform-origin: 0 0;
+        position: absolute;
+        overflow: hidden;
+    }
+    .custom-select{
+        /* padding-bottom: 5px;
+        padding-top: 5px; */
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+        text-align: center;
+    }
+    #GraphSelect1{
+        text-align-last: center;
+    }
+    #GraphSelect2{
+        text-align-last: center;
+    }
+    .state1{
+        width: 100%;
+        float: top;
+        position: relative;
+        padding-bottom: 100%;
+    }
+    .state2{
+        width: 100%;
+        float: bottom;
+        position: relative;
+        padding-bottom: 100%;
+    }
 }
-@media only screen and (max-width: 355px) {
+@media only screen and (max-width: 368px) {
     .compare-button{
         /* padding-top: 1px;
         padding-bottom: 1px; */

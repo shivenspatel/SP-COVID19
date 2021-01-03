@@ -1,0 +1,85 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    
+      <meta charset="utf-8">
+      <title>Bokeh Plot</title>
+      
+      
+        
+          
+        
+        
+          
+        <script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.0.1.min.js" integrity="sha384-JpP8FXbgAZLkfur7LiK3j9AGBhHNIvF742meBJrjO2ShJDhCG2I1uVvW+0DUtrmc" crossorigin="anonymous"></script>
+        <script type="text/javascript">
+            Bokeh.set_log_level("info");
+        </script>
+        
+      
+      
+    
+  </head>
+  
+  
+  <body>
+    
+      
+        
+          
+          
+            
+              <div class="bk-root" id="32ee2eb8-7edb-411a-96e5-3f54b5903cc3" data-root-id="4111"></div>
+            
+          
+        
+      
+      
+        <script type="application/json" id="4226">
+          {"2e6006d1-3201-4764-9747-669186f785b9":{"roots":{"references":[{"attributes":{"dimensions":"height"},"id":"4129","type":"PanTool"},{"attributes":{},"id":"4114","type":"DataRange1d"},{"attributes":{"dimensions":"height"},"id":"4130","type":"WheelZoomTool"},{"attributes":{},"id":"4120","type":"CategoricalScale"},{"attributes":{"source":{"id":"4134"}},"id":"4139","type":"CDSView"},{"attributes":{"formatter":{"id":"4146"},"ticker":{"id":"4127"}},"id":"4126","type":"CategoricalAxis"},{"attributes":{"factors":["NJ","NV","HI","NY","LA","CA","CT","TX","AK","AZ","NM","DC","RI","IL","MI","MD","MA","PA","FL","MS","CO","AR","WV","NC","OR","WA","OK","GA","OH","KS","KY","TN","DE","WY","IN","ME","WI","VA","MT","ID","ND","AL","SC","MN","MO","UT","NH","IA","SD","VT","NE"]},"id":"4116","type":"FactorRange"},{"attributes":{"formatter":{"id":"4144"},"ticker":{"id":"4123"}},"id":"4122","type":"LinearAxis"},{"attributes":{"active_drag":"auto","active_inspect":"auto","active_multi":null,"active_scroll":{"id":"4130"},"active_tap":"auto","tools":[{"id":"4129"},{"id":"4130"},{"id":"4140"}]},"id":"4131","type":"Toolbar"},{"attributes":{"text":"Unemployment Rate in Each State (Lower is Better)"},"id":"4112","type":"Title"},{"attributes":{},"id":"4118","type":"LinearScale"},{"attributes":{"below":[{"id":"4122"}],"center":[{"id":"4125"},{"id":"4128"}],"left":[{"id":"4126"}],"plot_width":350,"renderers":[{"id":"4138"}],"sizing_mode":"stretch_both","title":{"id":"4112"},"toolbar":{"id":"4131"},"x_range":{"id":"4114"},"x_scale":{"id":"4118"},"y_range":{"id":"4116"},"y_scale":{"id":"4120"}},"id":"4111","subtype":"Figure","type":"Plot"},{"attributes":{"data_source":{"id":"4134"},"glyph":{"id":"4136"},"hover_glyph":null,"muted_glyph":null,"nonselection_glyph":{"id":"4137"},"selection_glyph":null,"view":{"id":"4139"}},"id":"4138","type":"GlyphRenderer"},{"attributes":{},"id":"4123","type":"BasicTicker"},{"attributes":{"data":{"Rate":{"__ndarray__":"ZmZmZmZmJEAzMzMzMzMkQDMzMzMzMyRAzczMzMzMIECamZmZmZkgQGZmZmZmZiBAZmZmZmZmIEAzMzMzMzMgQDMzMzMzMyBAMzMzMzMzH0AAAAAAAAAeQAAAAAAAAB5AMzMzMzMzHUCamZmZmZkbQJqZmZmZmRtAMzMzMzMzG0DNzMzMzMwaQGZmZmZmZhpAmpmZmZmZGUCamZmZmZkZQJqZmZmZmRlAzczMzMzMGEDNzMzMzMwYQM3MzMzMzBhAAAAAAAAAGEAAAAAAAAAYQJqZmZmZmRdAzczMzMzMFkDNzMzMzMwWQGZmZmZmZhZAZmZmZmZmFkAzMzMzMzMVQGZmZmZmZhRAZmZmZmZmFEAAAAAAAAAUQAAAAAAAABRAAAAAAAAAFECamZmZmZkTQJqZmZmZmRNAMzMzMzMzE0AAAAAAAAASQJqZmZmZmRFAmpmZmZmZEUCamZmZmZkRQJqZmZmZmRFAMzMzMzMzEUBmZmZmZmYOQM3MzMzMzAxAAAAAAAAADEDNzMzMzMwIQM3MzMzMzAhA","dtype":"float64","shape":[51]},"State":["New Jersey","Nevada","Hawaii","New York","Louisiana","California","Connecticut","Texas","Alaska","Arizona","New Mexico","District of Columbia","Rhode Island","Illinois","Michigan","Maryland","Massachusetts","Pennsylvania","Florida","Mississippi","Colorado","Arkansas","West Virginia","North Carolina","Oregon","Washington","Oklahoma","Georgia","Ohio","Kansas","Kentucky","Tennessee","Delaware","Wyoming","Indiana","Maine","Wisconsin","Virginia","Montana","Idaho","North Dakota","Alabama","South Carolina","Minnesota","Missouri","Utah","New Hampshire","Iowa","South Dakota","Vermont","Nebraska"],"index":[50,49,48,47,46,44,45,43,42,41,40,39,38,36,37,35,34,33,31,32,30,27,29,28,25,26,24,22,23,20,21,19,17,18,14,15,16,13,12,11,10,6,9,7,8,5,4,3,2,1,0],"sa":["NJ","NV","HI","NY","LA","CA","CT","TX","AK","AZ","NM","DC","RI","IL","MI","MD","MA","PA","FL","MS","CO","AR","WV","NC","OR","WA","OK","GA","OH","KS","KY","TN","DE","WY","IN","ME","WI","VA","MT","ID","ND","AL","SC","MN","MO","UT","NH","IA","SD","VT","NE"]},"selected":{"id":"4148"},"selection_policy":{"id":"4147"}},"id":"4134","type":"ColumnDataSource"},{"attributes":{"fill_color":{"value":"purple"},"height":{"value":0.75},"line_color":{"value":"purple"},"right":{"field":"Rate"},"y":{"field":"sa"}},"id":"4136","type":"HBar"},{"attributes":{"axis":{"id":"4122"},"ticker":null},"id":"4125","type":"Grid"},{"attributes":{},"id":"4148","type":"Selection"},{"attributes":{},"id":"4127","type":"CategoricalTicker"},{"attributes":{},"id":"4146","type":"CategoricalTickFormatter"},{"attributes":{"axis":{"id":"4126"},"dimension":1,"ticker":null},"id":"4128","type":"Grid"},{"attributes":{},"id":"4147","type":"UnionRenderers"},{"attributes":{"callback":null,"tooltips":[["State","@State"],["Unemplyment Rate","@Rate%"]]},"id":"4140","type":"HoverTool"},{"attributes":{},"id":"4144","type":"BasicTickFormatter"},{"attributes":{"fill_alpha":{"value":0.1},"fill_color":{"value":"purple"},"height":{"value":0.75},"line_alpha":{"value":0.1},"line_color":{"value":"purple"},"right":{"field":"Rate"},"y":{"field":"sa"}},"id":"4137","type":"HBar"}],"root_ids":["4111"]},"title":"Bokeh Application","version":"2.0.1"}}
+        </script>
+        <script type="text/javascript">
+          (function() {
+            var fn = function() {
+              Bokeh.safely(function() {
+                (function(root) {
+                  function embed_document(root) {
+                    
+                  var docs_json = document.getElementById('4226').textContent;
+                  var render_items = [{"docid":"2e6006d1-3201-4764-9747-669186f785b9","root_ids":["4111"],"roots":{"4111":"32ee2eb8-7edb-411a-96e5-3f54b5903cc3"}}];
+                  root.Bokeh.embed.embed_items(docs_json, render_items);
+                
+                  }
+                  if (root.Bokeh !== undefined) {
+                    embed_document(root);
+                  } else {
+                    var attempts = 0;
+                    var timer = setInterval(function(root) {
+                      if (root.Bokeh !== undefined) {
+                        clearInterval(timer);
+                        embed_document(root);
+                      } else {
+                        attempts++;
+                        if (attempts > 100) {
+                          clearInterval(timer);
+                          console.log("Bokeh: ERROR: Unable to run BokehJS code because BokehJS library is missing");
+                        }
+                      }
+                    }, 10, root)
+                  }
+                })(window);
+              });
+            };
+            if (document.readyState != "loading") fn();
+            else document.addEventListener("DOMContentLoaded", fn);
+          })();
+        </script>
+    
+  </body>
+  
+</html>

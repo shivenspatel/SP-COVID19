@@ -427,7 +427,7 @@ def compare():
     master.sort_values("total", ascending=True, inplace=True)
     master.reset_index(drop=True, inplace=True)
 
-    p=figure(title="COVID-19 Total Vaccinations in Each State (Pfizer and Moderna)", sizing_mode='stretch_both', width=350, y_range=list(master["state"]), tools=['ypan', 'ywheel_zoom'], active_scroll="ywheel_zoom")
+    p=figure(title="COVID-19 Total Allocated Vaccinations in Each State", sizing_mode='stretch_both', width=350, y_range=list(master["state"]), tools=['ypan', 'ywheel_zoom'], active_scroll="ywheel_zoom")
     source=ColumnDataSource(master)
     legend=['Pfizer', 'Moderna']
     p.hbar_stack(['pfizer_total', 'moderna_total'], y='state', source=source, legend_label=legend, color=['red','blue'], height=0.75)
@@ -453,7 +453,7 @@ def compare():
     master.reset_index(drop=True, inplace=True)
 
     source2=ColumnDataSource(master)
-    m=figure(title="COVID-19 Total Vaccinations per 100K Citizens in Each State (Pfizer and Moderna)",sizing_mode='stretch_both', width=350, y_range=list(master["state"]), tools=['ypan', 'ywheel_zoom'], active_scroll="ywheel_zoom")
+    m=figure(title="COVID-19 Total Allocated Vaccinations per 100K Citizens in Each State",sizing_mode='stretch_both', width=350, y_range=list(master["state"]), tools=['ypan', 'ywheel_zoom'], active_scroll="ywheel_zoom")
     m.hbar_stack(['pfizer_population', 'moderna_population'], y='state', source=source2, color=['maroon','navy'], legend_label=legend, height=0.75)
 
     hover = HoverTool()
@@ -472,6 +472,35 @@ def compare():
     output_file('templates/compare/popvax.html')
     save(m)
     print("templates/compare/popvax.html")
-    
+
+    unr = pd.DataFrame()
+    unr = pd.read_html("https://www.bls.gov/web/laus/laumstrk.htm", match='State')
+    unr = unr[0]
+    unr.drop([51, 52, 53], inplace=True)
+    unr.drop(columns=['Rank'], inplace=True)
+    unr.rename(columns={unr.columns[1]:"Rate"}, inplace=True)
+    unr = unr.astype({'State':str, 'Rate':float})
+    unr.sort_values("State", inplace=True)
+    unr['sa']=["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FL", "GA", 
+            "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", 
+            "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", 
+            "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "RI", "SC", 
+            "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY"]
+    unr.sort_values("Rate", ascending=False, inplace=True)
+
+
+    un=figure(title="Unemployment Rate in Each State (Lower is Better)",sizing_mode='stretch_both', width=350, y_range=list(unr["sa"]), tools=['ypan', 'ywheel_zoom'], active_scroll="ywheel_zoom")
+    un.hbar(y='sa', right='Rate', source=unr, color='purple', height=0.75, left=0)
+
+    hover = HoverTool()
+    hover.tooltips=[
+        ('State', '@State'),
+        ('Unemplyment Rate', '@Rate%')
+    ]
+
+    un.add_tools(hover)
+    output_file('templates/compare/unemp.html')
+    save(un)
+    print("templates/compare/unemp.html")
 
 compare()

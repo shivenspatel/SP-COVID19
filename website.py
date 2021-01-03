@@ -14,6 +14,18 @@ def usposmap():
 def usdeamap():
     return render_template("deaths.html")
 
+@app.route('/Maps/Vaccinations/US')
+def usvaxmap():
+    return render_template("total_vaccines.html")
+
+@app.route('/Maps/VaccinationsPopulation/US')
+def usvaxpopmap():
+    return render_template("pop_vaccines.html")
+
+@app.route('/Maps/Unemployment/US')
+def usunempmap():
+    return render_template("unemploymentrate.html")
+
 @app.route('/US')
 def us():
     return render_template("ushome.html")
@@ -82,6 +94,9 @@ def totvax():
 def popvax():
     return render_template("compare/popvax.html")
 
+@app.route('/Graphs/Compare/Unemployment')
+def unempgraph():
+    return render_template("compare/unemp.html")
 
 @app.route('/States')
 def dd():
