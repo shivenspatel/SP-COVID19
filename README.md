@@ -1,4 +1,4 @@
-# spcovid19
+# COVID-19 Data Website
 A Python project that visualizes COVID-19 data at the federal and state/county level. Includes graphs (bokeh) and maps (folium).
 
 <h1>File Structure:</h1>
